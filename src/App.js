@@ -10,10 +10,17 @@ const App = () => {
     return (
         <BrowserRouter>
             <Routes>
+                {/* 
+                    해당 위치에서 Router을 관리합니다.
+                    각자 맡은 부분에서 자유롭게 params를 추가하거나 페이지를 추가해 사용해주세요.
+                */}
                 <Route path='/' element={<Community />} />
                 <Route path='/community' element={<Community />} />
+
                 <Route path='/list' element={<List />} />
+
                 <Route path='/mychracter' element={<MyChracter />} />
+
                 <Route path='/mypage' element={<Mypage />} />
             </Routes>
             <Nav />

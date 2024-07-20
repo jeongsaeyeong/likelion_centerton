@@ -14,19 +14,22 @@
     // 메인 컬러 
     --maincolor: #FFC328;
 
+    // 각종 검정색-회색
     --black: #151515;
     --black100: #7B7B7B;
     --black200: #A0A0A0;
     --black300: #D9D9D9;
     --black400: #D3D3D3;
 
+    // 각종 하얀색-회색
     --white: #fff;
     --white100: #ececec;
     --white200: #f1f1f1;
     
+    // 투명
     --none: #00000000;
 
-    // 폰트 셋팅
+    // 폰트 세팅
     font-family: var(--mainfont);
     font-size: 16px;
     line-height: 1.5;
