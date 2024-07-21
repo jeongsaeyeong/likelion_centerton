@@ -5,6 +5,8 @@ import Community from './components/Community/Community'
 import List from './components/List/List'
 import MyChracter from './components/MyChracter/MyChracter'
 import Mypage from './components/Mypage/Mypage'
+import CommWrite from './components/Community/CommWrite/CommWrite'
+import Bell from './components/Community/Bell'
 
 const App = () => {
     return (
@@ -16,6 +18,9 @@ const App = () => {
                 */}
                 <Route path='/' element={<Community />} />
                 <Route path='/community' element={<Community />} />
+                <Route path='/communitywrite' element={<CommWrite />} />
+
+                <Route path='/bell' element={<Bell />} />
 
                 <Route path='/list' element={<List />} />
 

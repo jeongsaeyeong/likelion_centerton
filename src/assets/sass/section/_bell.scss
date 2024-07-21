@@ -1,0 +1,65 @@
+.Bell_wrap {
+    .header {
+        position: relative;
+        text-align: center;
+        border-bottom: 1px solid var(--black300);
+
+        img {
+            cursor: pointer;
+            position: absolute;
+            left: 25px;
+            bottom: 20px;
+            width: 15px;
+            height: 23px;
+        }
+
+        h2 {
+            padding: 30px 25px 15px;
+            font-size: 22px;
+        }
+    }
+
+    .main {
+        .like {
+            display: flex;
+            padding: 20px 30px;
+            border-bottom: 1px solid var(--black300);
+
+            img {
+                width: 27px;
+                height: 27px;
+                margin-right: 10px;
+                margin-top: 7px;
+            }
+
+            >div {
+                .people {
+                    display: flex;
+                    margin-bottom: 10px;
+
+                    div {
+                        width: 41px;
+                        height: 41px;
+                        border-radius: 50%;
+                        margin-right: 5px;
+                        background-color: var(--black300);
+                    }
+                }
+
+                .info {
+                    font-size: 14px;
+                    em {
+                        font-weight: 600;
+                    }
+                }
+
+                .text {
+                    width: 95%;
+                    white-space: normal;
+                    font-size: 13px;
+                    color: var(--black100);
+                }
+            }
+        }
+    }
+}
