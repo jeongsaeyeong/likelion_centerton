@@ -5,6 +5,10 @@ import Community from './components/Community/Community'
 import List from './components/List/List'
 import MyChracter from './components/MyChracter/MyChracter'
 import Mypage from './components/Mypage/Mypage'
+import Loading from './components/User/Loading'
+import Login from './components/User/Login'
+import Login2 from './components/User/Login2'
+import Signup from './components/User/Signup'
 
 const App = () => {
     return (
@@ -22,6 +26,11 @@ const App = () => {
                 <Route path='/mychracter' element={<MyChracter />} />
 
                 <Route path='/mypage' element={<Mypage />} />
+
+                <Route path='/loading' element ={<Loading />} />
+                <Route path='/login' element ={<Login />} />
+                <Route path='/login2' element ={<Login2 />} />
+                <Route path='/signup' element ={<Signup />} />
             </Routes>
             <Nav />
         </BrowserRouter>
