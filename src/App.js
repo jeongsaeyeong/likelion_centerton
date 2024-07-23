@@ -9,6 +9,7 @@ import Loading from './components/User/Loading'
 import Login from './components/User/Login'
 import Login2 from './components/User/Login2'
 import Signup from './components/User/Signup'
+import Success from './components/User/Success'
 
 const App = () => {
     return (
@@ -31,6 +32,7 @@ const App = () => {
                 <Route path='/login' element ={<Login />} />
                 <Route path='/login2' element ={<Login2 />} />
                 <Route path='/signup' element ={<Signup />} />
+                <Route path='/signup/success/:username' element = {<Success />} />
             </Routes>
             <Nav />
         </BrowserRouter>

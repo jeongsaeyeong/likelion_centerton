@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import UnderLogo from '../../assets/img/user/DreamCatcher.png'
 import Pro from '../../assets/img/user/profil.png'
 import camera from '../../assets/img/user/camera.png'
@@ -15,6 +16,9 @@ const Signup = () => {
   const [term2Checked, setTerm2Checked] = useState(false);
   const [term3Checked, setTerm3Checked] = useState(false);
   const [allTermsChecked, setAllTermsChecked] = useState(false);
+  const [username, setUsername] = useState('');
+
+  const navigate = useNavigate();
 
   const handleShowTerm1 = () => {
     setShowTerm1(!showTerm1);
@@ -57,6 +61,11 @@ const Signup = () => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/signup/success/${username}`);
+  };
+
   return (
     <div className='container signup'>
       <h1>회원가입</h1>
@@ -68,16 +77,22 @@ const Signup = () => {
         </button>
       </div>
 
-      <form className='info' method="post">
+      <form className='info' method="post" onSubmit={handleSubmit}>
         <div className="id">
-          <input type="text" placeholder='아이디' />
-          <button>중복 확인</button>
+          <input
+            type="text"
+            placeholder='아이디'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <button type="button">중복 확인</button>
         </div>
 
         <input type="password" placeholder='비밀번호' />
         <input type="password" placeholder='비밀번호 확인' />
         <input type="text" placeholder='이름' />
         <input type="email" placeholder='이메일' />
+        <button type="submit" className='signupbtn'>가입하기</button>
       </form>
 
       <div className="terms">
@@ -103,7 +118,7 @@ const Signup = () => {
           />
           <label htmlFor="2" className="custom-checkbox"></label>
           <label htmlFor="2">이용 약관 동의 <span className='red'>(필수)</span></label>
-          <button onClick={handleShowTerm1}><img src={left} alt="상세페이지" className='term-info' /></button>
+          <button type="button" onClick={handleShowTerm1}><img src={left} alt="상세페이지" className='term-info' /></button>
         </div>
         
         <div className='inner'>
@@ -116,7 +131,7 @@ const Signup = () => {
           />
           <label htmlFor="3" className="custom-checkbox"></label>
           <label htmlFor="3">개인정보 수집 이용동의 <span className='red'>(필수)</span></label>
-          <button onClick={handleShowTerm2}><img src={left} alt="상세페이지" className='term-info' /></button>
+          <button type="button" onClick={handleShowTerm2}><img src={left} alt="상세페이지" className='term-info' /></button>
         </div>
         
         <div className='inner'>
@@ -129,17 +144,17 @@ const Signup = () => {
           />
           <label htmlFor="4" className="custom-checkbox"></label>
           <label htmlFor="4">마케팅 정보 수신 동의 <span className='gray'>(선택)</span></label>
-          <button onClick={handleShowTerm3}><img src={left} alt="상세페이지" className='term-info' /></button>
+          <button type="button" onClick={handleShowTerm3}><img src={left} alt="상세페이지" className='term-info' /></button>
         </div>
       </div>
 
       <div className={showTerm1 ? 'etc' : 'hide'}><Term1 onClose={handleShowTerm1} /></div>
       <div className={showTerm2 ? 'etc' : 'hide'}><Term2 onClose={handleShowTerm2} /></div>
       <div className={showTerm3 ? 'etc' : 'hide'}><Term3 onClose={handleShowTerm3} /></div>
-      <button className='signupbtn'>가입하기</button>
+      
       <img className='underlogo' src={UnderLogo} alt="드림캐쳐" />
     </div>
   )
 }
 
-export default Signup
+export default Signup;
