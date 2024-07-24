@@ -4,7 +4,8 @@ import addbtn from '../../assets/img/community/plusbtn.png';
 import Resent from './Resent';
 import Like from './Like';
 import Write from './Write';
-import ex from '../../assets/img/community/ex1.png'; // 예시 이미지, 필요에 따라 다른 이미지로 교체
+import ex from '../../assets/img/community/ex1.png'; 
+import alarm from '../../assets/img/community/alarm.png';
 
 const Community = () => {
     const [activeTab, setActiveTab] = useState('resent');
@@ -15,25 +16,18 @@ const Community = () => {
     };
 
     const handleDeclareClick = () => {
-        setIsDeclared(prev => !prev); // 상태 토글
+        setIsDeclared(!isDeclared); 
     };
 
-    // 예시 데이터
-    const resentContents = [
-        { id: 1, nickname: '닉네임1', time: '3분전', profileImg: ex, text: '최신글 내용', imgSrc: '', liked: false, count: 3 },
-        // 더 많은 데이터 추가
-    ];
-
-    const likeContents = [
-        { id: 1, nickname: '닉네임1', time: '1분전', profileImg: ex, text: '좋아요 내용', imgSrc: '', liked: false, count: 5 },
-        // 더 많은 데이터 추가
-    ];
+   
 
     return (
         <div className='Community_wrap container'>
             <div className="header">
                 <h1>커뮤니티</h1>
-                <button></button>
+                <Link to='/alarm' className='alarm'>
+                    <img src={alarm} alt="알람" />
+                </Link>
             </div>
             <div className="nav">
                 <ul>
@@ -51,13 +45,13 @@ const Community = () => {
             <div className="line"></div>
             <div className="main">
                 <div className={`resent ${activeTab === 'resent' ? '' : 'hide'}`}>
-                    <Resent contents={resentContents} onDeclareClick={handleDeclareClick} />
+                    <Resent  onDeclareClick={handleDeclareClick} />
                 </div>
                 <div className={`write ${activeTab === 'write' ? '' : 'hide'}`}>
                     <Write />
                 </div>
                 <div className={`like ${activeTab === 'like' ? '' : 'hide'}`}>
-                    <Like contents={likeContents} onDeclareClick={handleDeclareClick} />
+                    <Like  onDeclareClick={handleDeclareClick} />
                 </div>
             </div>
             <Link to ='/write' className='addbtn'>

@@ -3,8 +3,13 @@ import alert from '../../assets/img/community/alert.svg';
 import heart from '../../assets/img/community/heart-before.svg';
 import fullheart from '../../assets/img/community/heart-after.svg';
 import '../../assets/sass/section/_community.scss';
+import ex from '../../assets/img/community/ex1.png'; 
 
-const Like = ({ contents, onDeclareClick }) => {
+const Like = ({  onDeclareClick }) => {
+    const contents = [
+        { id: 1, nickname: '닉네임1', time: '1분전', profileImg: ex, text: '좋아요 내용', imgSrc: '', liked: false, count: 5 },
+
+    ];
   const [likeList, setLikeList] = useState(contents);
 
   const toggleLike = (id) => {

@@ -19,6 +19,11 @@
             font-size: 22px;
             font-weight: normal;
         }
+        .alarm{
+            width: 30px;
+            position: absolute;
+            right: 15px;
+        }
     }
 
     .nav {
@@ -270,3 +275,57 @@
         }
     }
  } 
+ .alarm-page{
+    .header{
+        
+        height: 60px;
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 0px 2px 0px #D3D3D3;
+        .alarm{
+            width: 46px;
+            position: absolute;
+            left: 10px;
+            
+        }
+    }
+    .alarm{
+        display: flex;
+        box-shadow: 0px 0px 1px 0px #D3D3D3;
+        height: fit-content;
+        .heart{
+            width: 80px;
+            img{
+                margin: 10px;
+                width: 38px;
+                float: right;
+            }
+        }
+        .user{
+            
+            margin: 10px 0;
+            img{
+                width: 41px;
+                height: 41px;
+                border-radius: 20px;
+                margin-bottom: 5px;
+            }
+            h1{
+                font-size: 14px;
+                margin-bottom: 5px;
+                .username{
+                    font-weight: 500;
+                    font-size: 16px;
+                }
+            }
+            .text{
+                margin-bottom: 10px;
+                font-size: 12px;
+                font-weight: 200;
+                color: #6c6c6c;
+            }
+        }
+    }
+ }

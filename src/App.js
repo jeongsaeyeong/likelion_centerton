@@ -11,6 +11,7 @@ import Login2 from './components/User/Login2'
 import Signup from './components/User/Signup'
 import Success from './components/User/Success'
 import Contents from './components/Community/Contents'
+import Alarm from './components/Community/Alarm'
 
 const App = () => {
     return (
@@ -23,7 +24,8 @@ const App = () => {
                 <Route path='/' element={<Community />} />
                 <Route path='/community' element={<Community />} />
                 <Route path='/write' element ={<Contents />} />
-
+                <Route path='/alarm' element ={<Alarm />} />
+                
                 <Route path='/list' element={<List />} />
 
                 <Route path='/mychracter' element={<MyChracter />} />

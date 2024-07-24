@@ -3,8 +3,13 @@ import alert from '../../assets/img/community/alert.svg';
 import heart from '../../assets/img/community/heart-before.svg';
 import fullheart from '../../assets/img/community/heart-after.svg';
 import '../../assets/sass/section/_community.scss';
+import ex from '../../assets/img/community/ex1.png'; 
 
-const Resent = ({ contents, onDeclareClick }) => {
+const Resent = ({  onDeclareClick }) => {
+    const contents = [
+        { id: 1, nickname: '닉네임1', time: '3분전', profileImg: ex, text: '최신글 내용', imgSrc: '', liked: false, count: 3 },
+
+    ];
     return (
         <>
             {contents.map(content => (
