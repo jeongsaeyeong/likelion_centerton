@@ -150,3 +150,127 @@
         }
     }
 }
+
+.MyCharacterYes_wrap {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../../img/mycharacter/backimgmain.png);
+    padding: 30px;
+    padding-top: 100px;
+    overflow: hidden;
+
+    .header {
+        padding-left: 20px;
+        font-size: 17px;
+        position: relative;
+        font-weight: 600;
+        margin-bottom: 50px;
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        button {
+            right: -30px;
+            bottom: 0;
+            position: absolute;
+        }
+    }
+
+    .main {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+
+        .guage_wrap {
+            display: flex;
+            width: 10%;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+
+            .guage {
+                width: 18px;
+                height: 354px;
+                border-radius: 500px;
+                border: 1px solid #563428;
+                background-color: #563428;
+                margin-bottom: 10px;
+            }
+
+            .percent {
+                font-weight: 600;
+                font-size: 14px;
+                color: #563428;
+            }
+        }
+
+        .character {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .name {
+                background-image: url(../../img/mycharacter/saybox.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 113px;
+                height: 64px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 40px;
+
+                p {
+                    font-weight: 600;
+                    color: #563428;
+                    font-size: 17px;
+                    margin-bottom: 20px;
+                }
+            }
+
+            >img {
+                width: 197px;
+                height: 197px;
+            }
+        }
+
+        .active {
+            width: 10%;
+            display: flex;
+            flex-direction: column;
+
+            button {
+                margin-bottom: 15px;
+
+                img {
+                    width: 45px;
+                    height: 45px;
+                }
+            }
+        }
+    }
+
+    .ending {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        button {
+            width: 180px;
+            height: 44px;
+            background-color: var(--maincolor);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            border-radius: 500px;
+        }
+    }
+}

@@ -7,6 +7,7 @@ import MyChracter from './components/MyChracter/MyChracter'
 import Mypage from './components/Mypage/Mypage'
 import CommWrite from './components/Community/CommWrite/CommWrite'
 import Bell from './components/Community/Bell'
+import ListAll from './components/List/ListAll'
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
                 <Route path='/bell' element={<Bell />} />
 
                 <Route path='/list' element={<List />} />
+                <Route path='/listall' element={<ListAll />} />
 
                 <Route path='/mychracter' element={<MyChracter />} />
 

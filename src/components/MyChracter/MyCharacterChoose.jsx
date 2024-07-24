@@ -12,7 +12,7 @@ const MyCharacterChoose = ({setHave}) => {
             alert('이름을 채워주세요!');
             return
         } else {
-            setHave(true)
+            setHave(true);
         }
     }
 
