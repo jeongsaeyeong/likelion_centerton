@@ -161,6 +161,7 @@
     padding: 30px;
     padding-top: 100px;
     overflow: hidden;
+    position: relative;
 
     .header {
         padding-left: 20px;
@@ -246,12 +247,124 @@
             display: flex;
             flex-direction: column;
 
-            button {
+            >div {
                 margin-bottom: 15px;
 
                 img {
+                    position: relative;
                     width: 45px;
                     height: 45px;
+                    cursor: pointer;
+                }
+
+                .click {
+                    position: relative;
+                    z-index: 15;
+                }
+
+                >div {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100vh;
+                    background-color: #00000039;
+                    z-index: 1;
+
+                    >div {
+                        position: absolute;
+                        right: 10px;
+                        top: 200px;
+                        width: 321px;
+                        min-height: 108px;
+                        border-radius: 30px;
+                        background-color: #FFF8E5;
+                        padding: 18px 30px;
+                        color: #563428;
+
+                        >div {
+                            display: flex;
+                            justify-content: left;
+                            flex-direction: column;
+                            padding: 2px 0;
+                            font-size: 17px;
+
+                            p {
+                                margin-right: 10px;
+                            }
+
+                            input {
+                                background-color: var(--none);
+                                width: 70%;
+                                text-align: left;
+                                padding-right: 10px;
+                            }
+
+                            ::placeholder {
+                                color: #563428;
+                            }
+
+                            >div {
+                                display: flex;
+                            }
+
+                            .btn_box {
+                                padding-left: 80px;
+
+                                button {
+                                    text-align: center;
+                                    font-size: 14px;
+                                    color: var(--maincolor);
+                                    padding: 5px 15px;
+                                    margin-right: 5px;
+                                    border-radius: 4px;
+                                    background-color: var(--white);
+                                    border: 1px solid var(--maincolor);
+                                }
+                            }
+                        }
+
+                        >button {
+                            z-index: 16;
+                            font-size: 18px;
+                            width: 100%;
+                            text-align: right;
+                            font-weight: 600;
+                        }
+                    }
+
+                    .cleanbox {
+                        top: 260px;
+                    }
+
+                    .runbox {
+                        top: 320px
+                    }
+
+                    .showerbox {
+                        top: 380px;
+
+                        >div {
+                            p {
+                                margin-bottom: 10px;
+                            }
+
+                            >div {
+
+                                button {
+                                    width: 40%;
+                                    text-align: center;
+                                    font-size: 14px;
+                                    color: var(--maincolor);
+                                    padding: 5px 15px;
+                                    margin-right: 5px;
+                                    border-radius: 4px;
+                                    background-color: var(--white);
+                                    border: 1px solid var(--maincolor);
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -271,6 +384,65 @@
             align-items: center;
             font-size: 18px;
             border-radius: 500px;
+        }
+    }
+}
+
+.MyMemo_wrap {
+    background-color: #FFF8E5;
+    padding: 20px;
+    padding-top: 50px;
+
+    .header {
+        margin-bottom: 50px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+            font-size: 21px;
+            color: #563428;
+            font-weight: 600;
+        }
+
+        button {
+            position: absolute;
+            left: 0;
+
+            img {
+                width: 46px;
+                height: 46px;
+            }
+        }
+    }
+
+    .memolist {
+        display: flex;
+        flex-wrap: wrap;
+
+        .memo {
+            width: 100%;
+            display: flex;
+
+            >div {
+                cursor: pointer;
+                width: 25%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 60px;
+                    height: 60px;
+                    margin-bottom: 5px;
+                }
+
+                p {
+                    font-size: 12px;
+                }
+            }
         }
     }
 }
