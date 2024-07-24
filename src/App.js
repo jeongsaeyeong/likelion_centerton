@@ -10,6 +10,7 @@ import Login from './components/User/Login'
 import Login2 from './components/User/Login2'
 import Signup from './components/User/Signup'
 import Success from './components/User/Success'
+import Contents from './components/Community/Contents'
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
                 */}
                 <Route path='/' element={<Community />} />
                 <Route path='/community' element={<Community />} />
+                <Route path='/write' element ={<Contents />} />
 
                 <Route path='/list' element={<List />} />
 
