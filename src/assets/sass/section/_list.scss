@@ -1,0 +1,396 @@
+.List_wrap {
+    padding: 20px;
+    position: relative;
+
+    .header {
+        margin-top: 30px;
+        text-align: center;
+        position: relative;
+        margin-bottom: 50px;
+
+        >img {
+            width: 61px;
+            height: 62px;
+        }
+
+        button {
+            position: absolute;
+            right: -20px;
+            top: 0;
+        }
+    }
+
+    .main {
+        >div {
+            .title {
+                height: 48px;
+                background-color: #F6F6F6;
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                border-radius: 25px;
+                margin-bottom: 20px;
+
+                h2 {
+                    font-size: 22px;
+                    color: #FF7C7C;
+                    margin-left: 25px;
+                    font-weight: 600;
+                }
+
+                .title_life {
+                    color: var(--maincolor);
+                }
+            }
+
+            .list_wrap {
+                margin-bottom: 20px;
+
+                >button {
+                    margin-left: 10px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 25px;
+                        height: 25px;
+                        margin-right: 5px;
+                    }
+
+                    input {
+                        outline: none;
+                        width: calc(100% - 75px);
+                        border-bottom: 2px solid #FF7C7C;
+                        padding: 10px 5px;
+                        font-size: 14px;
+                    }
+
+                    .input_life {
+                        border-bottom: 2px solid var(--maincolor);
+                    }
+
+                    ::placeholder {
+                        color: var(--black300);
+                    }
+                }
+
+                .setlist {
+                    margin-top: 5px;
+                    margin-bottom: 10px;
+                    margin-left: 40px;
+
+                    .set {
+                        display: flex;
+                        padding: 12px 0;
+                        align-items: center;
+
+                        img {
+                            width: 11px;
+                            height: 11px;
+                            margin-right: 10px;
+                        }
+
+                        p {
+                            color: var(--black200);
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+
+            .lifelist,
+            .everylist {
+                margin-bottom: 30px;
+
+                .listAll {
+                    padding-left: 10px;
+
+                    .list {
+                        display: flex;
+                        align-items: center;
+                        padding: 10px 0;
+
+                        img {
+                            cursor: pointer;
+                            margin-right: 10px;
+                            width: 25px;
+                            height: 25px;
+                        }
+
+                        >div {
+                            width: calc(100% - 25px);
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            position: relative;
+
+                            p {
+                                font-size: 18px;
+                            }
+
+                            img {
+                                cursor: pointer;
+                                width: 20px;
+                                height: 20px;
+                            }
+
+                            .modify {
+                                position: absolute;
+                                right: 30px;
+                                top: 10px;
+                                width: 130px;
+                                height: 82px;
+                                z-index: 2;
+                                background-color: var(--white);
+                                border-radius: 10px;
+                                border: 1px solid var(--black300);
+
+                                button {
+                                    width: 100%;
+                                    height: 50%;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    padding: 0 10px;
+                                    font-size: 17px;
+
+                                    img {
+                                        margin-left: 5px;
+                                        margin-right: 0;
+                                        width: 24px;
+                                        height: 24px;
+                                    }
+                                }
+
+                                .postdelete {
+                                    color: red;
+                                    border-bottom: 1px solid var(--black300);
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+                >button {
+                    margin-left: 10px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 25px;
+                        height: 25px;
+                        margin-right: 5px;
+                    }
+
+                    input {
+                        outline: none;
+                        width: calc(100% - 75px);
+                        border-bottom: 2px solid #FF7C7C;
+                        padding: 10px 5px;
+                        font-size: 14px;
+                    }
+
+                    .input_life {
+                        border-bottom: 2px solid var(--maincolor);
+                    }
+
+                    ::placeholder {
+                        color: var(--black300);
+                    }
+                }
+            }
+        }
+    }
+
+    .ListAdd_wrap {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 0;
+        width: inherit;
+        height: inherit;
+        background-color: #0000004d;
+        z-index: 3;
+
+        >div {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            height: 550px;
+            background-color: var(--white);
+            padding: 30px;
+            padding-top: 20px;
+            border-radius: 30px;
+
+            .nopebtn {
+                cursor: pointer;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                padding-bottom: 30px;
+
+                img {
+                    width: 57px;
+                }
+            }
+
+            >input {
+                font-size: 18px;
+                text-align: center;
+                width: 100%;
+                height: 22px;
+                margin-bottom: 10px;
+            }
+
+            .setlist {
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+
+                .set {
+                    width: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 5px;
+
+                    img {
+                        width: 11px;
+                        height: 11px;
+                        margin-right: 10px;
+                    }
+
+                    p {
+                        font-size: 13px;
+                        color: var(--black200);
+                    }
+                }
+            }
+
+            .timeset {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+
+                >div {
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+                button {
+                    width: 96px;
+                    height: 32px;
+                    border: 1px solid var(--black300);
+                    color: var(--black300);
+                    border-radius: 20px;
+                }
+
+                .all {
+                    background-color: var(--black);
+                    color: var(--white);
+                }
+            }
+
+            .roof {
+                display: flex;
+                margin-bottom: 10px;
+                margin-left: 3px;
+
+                img {
+                    margin-right: 13px;
+                    width: 25px;
+                    height: 25px;
+                }
+
+                p {
+                    color: var(--black200);
+                }
+            }
+
+            .memo {
+                display: flex;
+
+                img {
+                    margin-right: 10px;
+                    width: 31px;
+                    height: 31px;
+                }
+
+                p {
+                    color: var(--black200);
+                }
+            }
+
+            .add {
+                position: absolute;
+                bottom: 100px;
+                right: 0;
+            }
+        }
+    }
+}
+
+.ListAll_wrap {
+    background-color: #263752;
+    padding: 20px;
+    padding-top: 50px;
+
+    .header {
+        width: 100%;
+        text-align: left;
+
+        img {
+            cursor: pointer;
+            width: 46px;
+            height: 46px;
+        }
+    }
+
+    .list {
+        margin-left: 10px;
+        width: 95%;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+
+        >button {
+            position: relative;
+
+            img {
+                width: 30px;
+                height: 30px;
+            }
+
+            >div {
+                top: 40px;
+                position: absolute;
+                background-color: #FFF8E5;
+                padding: 20px;
+                width: 130px;
+                border-radius: 50%;
+                z-index: 2;
+            }
+        }
+
+        .even {
+            margin-top: 40px;
+        }
+    }
+
+    .middle {
+        margin-left: 20px;
+        width: 80%;
+    }
+
+    .right {
+        margin-left: 30px;
+        width: 90%;
+    }
+}
