@@ -11,8 +11,19 @@
 // section 
 // section 폴더 아래 자신이 작업하는 components scss를 생성합니다.
 // _(이름).scss 입니다. 
+
 @import "section/nav";
+@import "section/user";
 @import "section/community";
 @import "section/bell";
 @import "section/mycharacter";
 @import "section/list";
+
+@import 'section/myPage';
+@import 'section/editInfo';
+@import 'section/_appset.scss';
+@import 'section/customerCen';
+@import 'section/notice';
+@import 'section/profileedit';
+@import 'section/noticeIn';
+@import 'section/popup'

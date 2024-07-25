@@ -1,0 +1,94 @@
+.cc_ra_img{
+    width: 46px;
+    height: 46px;
+    top: 72px;
+    left: 15px;
+    position: relative;
+}
+.cc_container{
+    width: 393px;
+    height: 852px;
+}
+.cc_container span{
+    left: 158px;
+    top: 33px;
+    position: relative;
+    font-family: Pretendard;
+    font-weight: 400;
+    font-size: 22px;
+    width: 77px;
+    height: 26px;
+}
+.cc_container p{
+    font-family: Pretendard;
+    font-size: 22px;
+    font-weight: 400;
+    left: 37px;
+    top: 153px;
+    position: absolute;
+}
+.searchBar{
+    width: 324px;
+    height: 40px;
+    left: 35px;
+    top: 227px;
+    position: absolute;
+    background-color: #E9E9E9;
+    border-radius: 30px;
+    img{
+        width: 25px;
+        height: 25px;
+        left: 12px;
+        top: 7px;
+        position: relative;
+    }
+    input{
+        background-color: #E9E9E9;
+        border: none;
+        font-size: 35px;
+        position: absolute;
+        top:0px;
+        left: 45px;
+        width: 250px;
+        height: 40px;
+    }
+}
+.cc_container b{
+    font-family: Pretendard;
+    font-size: 20px;
+    font-weight: 400;
+    left: 37px;
+    top: 319px;
+    position: absolute;
+}
+.solveBoxes{
+    top: 377px;
+    position: absolute;
+    display: block;
+}
+.solveBox{
+    position: relative;
+    padding-top: 21px;
+    padding-bottom: 10.5px;
+    padding-left: 37px;
+    display: flex;
+    .qImg{
+        width: 16px;
+        height: 24px;
+    }
+    p{
+        left: 14px;
+        top: 0;
+        position: relative;
+        font-size: 15px;
+        font-family: Pretendard;
+        font-weight: 400;
+    }
+    .ccLeft{
+        width: 32px;
+        height: 32px;
+        left: 20px;
+        top: -6px;
+        position: relative;
+    }
+}

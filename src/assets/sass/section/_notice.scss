@@ -1,0 +1,57 @@
+
+.rightArrow{
+    width: 46px;
+    height: 46px;
+    top: 72px;
+    left: 15px;
+    position: relative;
+}
+.notice_container{
+    width: 393px;
+    height: 852px;
+    top: 0;
+    left: 0;
+    position: relative;
+}
+.rightArrow{
+    display: flex;
+}
+.notice_container span{
+    left: 158px;
+    top: 33px;
+    position: relative;
+    font-family: Pretendard;
+    font-weight: 400;
+    font-size: 22px;
+    width: 77px;
+    height: 26px;
+}
+.noticeBoxes{
+    width: 393px;
+    top: 167px;
+    position: absolute;
+}
+.notice_box{
+    border-top: 1px solid #D2D2D2;
+    width: 393px;
+    height: 97px;
+
+    p{
+        top: 26px;
+        left: 30px;
+        position: relative;
+        font-family: Pretendard;
+        font-size: 15px;
+        font-weight: 400;
+    }
+
+    span{
+        color: #A4A4A4;
+        font-family: Pretendard;
+        font-size: 12px;
+        font-weight: 400;
+        top: 31px;
+        left: 30px;
+        position: relative;
+    }
+}

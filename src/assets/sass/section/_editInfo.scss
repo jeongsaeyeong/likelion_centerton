@@ -1,0 +1,53 @@
+.ei_ra_img{
+    width: 46px;
+    height: 46px;
+    top: 72px;
+    left: 15px;
+    position: relative;
+}
+.editinfo_container{
+    width: 393px;
+    height: 852px;
+}
+.editinfo_container span{
+    font-size: 22px;
+    font-family: Pretendard;
+    font-weight: 400;
+    top: 144px;
+    left: 135px;
+    position: relative;
+}
+
+.ei_boxes {
+    width: 328px;
+    height: 278px;
+    top: 226px;
+    left: 34px;
+    position: relative;
+}
+.ei_box{
+    width: 328px;
+    height: 54px;
+    line-height: 54px;
+    border-top: 1.3px solid #7B7B7B;
+
+    input{
+        margin-left: 30px;
+    }
+}
+.ei_box_email{
+    border-bottom: 2px solid #7B7B7B;
+}
+.ei_box_id{
+    border-top: 2px solid #7B7B7B;
+
+}
+.editbtn{
+    width: 180px;
+    height: 44px;
+    top: -200px;
+    left: 108px;
+    position: relative;
+    background-color: #FFC328;
+    border-radius: 24px;
+}

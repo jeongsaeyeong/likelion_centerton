@@ -1,0 +1,69 @@
+.container{
+    position: relative;
+
+    .c_mypage{
+        font-size: 22px;
+        font-weight: 400;
+        top: 75px;
+        left: 148px;
+        position: relative;
+        font-family: Pretendard;
+    }
+
+    .profile{
+        top: 140px;
+        left: 133px;
+        position:absolute;
+        text-align: center;
+
+        .editProfile{
+            display: flex;
+            justify-content: center;
+            color: #717171;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+    }
+
+
+    .boxes{
+        left: 0;
+        top: 357px;
+        position: relative;
+        width: 393px;
+        height: 335px;
+
+        
+        .box{
+            border-bottom: 0.5px solid #D2D2D2;
+            width: 393px;
+            height: 56px;
+            position: relative;
+            top: 0;
+            left: 0;
+            padding: 0px;
+            line-height: 56px;
+            font-size: 16px;
+            cursor: pointer;
+            
+                span{
+                    left: 37px;
+                    position: relative;
+                    font-family: Pretendard;
+                    font-size: 17px;
+                    font-weight: 400;
+                }
+
+        }
+        .box:nth-child(1){
+            border-top: 0.5px solid #D2D2D2;
+
+
+        }
+    }
+}
+.mp_ID{
+    font-family: Pretendard;
+    font-size: 24px;
+    font-weight: 500;
+}

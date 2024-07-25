@@ -7,8 +7,23 @@ import MyChracter from './components/MyChracter/MyChracter'
 import Mypage from './components/Mypage/Mypage'
 import CommWrite from './components/Community/CommWrite/CommWrite'
 import Bell from './components/Community/Bell'
+import Loading from './components/User/Loading'
+import Login from './components/User/Login'
+import Login2 from './components/User/Login2'
+import Signup from './components/User/Signup'
+import Success from './components/User/Success'
 import ListAll from './components/List/ListAll'
 import MyMemo from './components/MyChracter/MyMemo/MyMemo'
+import PopUp from './components/Mypage/PopUp'
+import CcQues1 from './components/Mypage/CcQuse1'
+import CcQues2 from './components/Mypage/CcQuse2'
+import EditInfo from './components/Mypage/EditInfo'
+import Appset from './components/Mypage/Appset'
+import CustomerCen from './components/Mypage/CustomerCen'
+import ProfileEdit from './components/Mypage/ProfileEdit'
+import Notice from './components/Mypage/Notice'
+import Notice1 from './components/Mypage/Notice1'
+import Notice2 from './components/Mypage/Notice2'
 
 const App = () => {
     return (
@@ -30,7 +45,25 @@ const App = () => {
                 <Route path='/mychracter' element={<MyChracter />} />
                 <Route path='/mymemo' element={<MyMemo />} />
 
+                {/* 마이페이지 */}
                 <Route path='/mypage' element={<Mypage />} />
+                <Route path='/popup' element={<PopUp />} />
+                <Route path='/appset' element={<Appset />} />
+                <Route path='/customercen' element={<CustomerCen />} />
+                <Route path='/ccques1' element={<CcQues1 />} />
+                <Route path='/ccques2' element={<CcQues2 />} />
+                <Route path="/editinfo" element={<EditInfo />} />
+                <Route path="/notice" element={<Notice />} />
+                <Route path="/profileedit" element={<ProfileEdit />} />
+                <Route path="/notice1" element={<Notice1 />} />
+                <Route path="/notice2" element={<Notice2 />} />
+
+                {/* 로그인/로딩/회원가입 */}
+                <Route path='/loading' element={<Loading />} />
+                <Route path='/login2' element={<Login />} />
+                <Route path='/login' element={<Login2 />} />
+                <Route path='/signup' element={<Signup />} />
+                <Route path='/signup/success/:username' element={<Success />} />
             </Routes>
             <Nav />
         </BrowserRouter>
