@@ -1,6 +1,5 @@
 import React from 'react'
-import '../../assets/sass/section/_noticeIn.scss'
-import rightArrow from '../../assets/img/myPage/rightArrow.svg'
+// import rightArrow from '../../assets/img/myPage/rightArrow.svg'
 
 const cCQuse2 = () => {
   return (

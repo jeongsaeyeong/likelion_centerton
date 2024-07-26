@@ -1,41 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import rightArrow from '../../assets/img/myPage/rightArrow.svg'
-import '../../assets/sass/section/_editInfo.scss'
+import { useNavigate } from 'react-router-dom';
 
-const Mypage = () => {
-  return (
-    <div className='container'>
-      <div className='editinfo_container'>
-        <div className='ei_ra_img'>
-          <img src={rightArrow} />
+const EditInfo = () => {
+    const [userId, setUserId] = useState('text');
+    const [password, setPassword] = useState('123456789');
+    const [passwordre, setPasswordre] = useState('123456789');
+    const [name, setName] = useState('김익명');
+    const [email, setEmail] = useState('test@naver.com');
+    const navigation = useNavigate()
+
+    const Back = () => {
+        navigation(-1)
+    }
+
+    return (
+        <div className='EditInfo_wrap container'>
+            <button className="back" onClick={() => {Back()}}>
+                <img src={rightArrow} alt="rightArrow" />
+            </button>
+            <h2>개인 정보 수정</h2>
+            <div className="main">
+                <div>
+                    <p className="kind">아이디</p>
+                    <input type="text" value={userId} onChange={(e) => { setUserId(e.target.value) }} placeholder='아이디' />
+                </div>
+                <div>
+                    <p className="kind">비밀번호</p>
+                    <input type="text" value={password} onChange={(e) => { setPassword(e.target.value) }} placeholder='비밀번호' />
+                </div>
+                <div>
+                    <p className="kind">비밀번호 확인</p>
+                    <input type="text" value={passwordre} onChange={(e) => { setPasswordre(e.target.value) }} placeholder='비밀번호 재입력' />
+                </div>
+                <div>
+                    <p className="kind">이름</p>
+                    <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} placeholder='이름' />
+                </div>
+                <div>
+                    <p className="kind">이메일</p>
+                    <input type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder='이메일' />
+                </div>
+            </div>
+            <button className="submit">
+                <p>회원정보 수정</p>
+            </button>
         </div>
-        <span>개인 정보 수정</span>
-        <div className='ei_boxes'>
-          <div className='ei_box ei_box_id'>
-            아이디
-            <input type="text" id="ei_id" />
-          </div>
-          <div className='ei_box ei_box_pw'>
-            비밀번호
-            <input type='password' id='ei_pw'></input>
-          </div>
-          <div className='ei_box ei_box_pwcheck'>
-            비밀번호 확인
-            <input type='password' id='ei_pwcheck'></input>
-          </div>
-          <div className='ei_box ei_box_name'>
-            이름
-            <input type="text" id="ei_name" />
-          </div>
-          <div className='ei_box ei_box_email'>
-            이메일
-            <input type="text" id="ei_email" />
-          </div>
-        </div>
-      </div>
-      <button type='button' className='editbtn'>회원 정보 수정</button>
-    </div>
-  )
+    )
 }
 
-export default Mypage
+export default EditInfo

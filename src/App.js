@@ -14,16 +14,12 @@ import Signup from './components/User/Signup'
 import Success from './components/User/Success'
 import ListAll from './components/List/ListAll'
 import MyMemo from './components/MyChracter/MyMemo/MyMemo'
-import PopUp from './components/Mypage/PopUp'
-import CcQues1 from './components/Mypage/CcQuse1'
-import CcQues2 from './components/Mypage/CcQuse2'
+import ProfileEdit from './components/Mypage/ProfileEdit'
 import EditInfo from './components/Mypage/EditInfo'
+import Notice from './components/Mypage/Notice'
+import NoticeContent from './components/Mypage/NoticeContent'
 import Appset from './components/Mypage/Appset'
 import CustomerCen from './components/Mypage/CustomerCen'
-import ProfileEdit from './components/Mypage/ProfileEdit'
-import Notice from './components/Mypage/Notice'
-import Notice1 from './components/Mypage/Notice1'
-import Notice2 from './components/Mypage/Notice2'
 
 const App = () => {
     return (
@@ -47,16 +43,12 @@ const App = () => {
 
                 {/* 마이페이지 */}
                 <Route path='/mypage' element={<Mypage />} />
-                <Route path='/popup' element={<PopUp />} />
+                <Route path='/profilemodify' element={<ProfileEdit />} />
+                <Route path='/editinfo' element={<EditInfo />} />
+                <Route path='/notice' element={<Notice />} />
+                <Route path='/notice/:noticenum' element={<NoticeContent />} />
                 <Route path='/appset' element={<Appset />} />
                 <Route path='/customercen' element={<CustomerCen />} />
-                <Route path='/ccques1' element={<CcQues1 />} />
-                <Route path='/ccques2' element={<CcQues2 />} />
-                <Route path="/editinfo" element={<EditInfo />} />
-                <Route path="/notice" element={<Notice />} />
-                <Route path="/profileedit" element={<ProfileEdit />} />
-                <Route path="/notice1" element={<Notice1 />} />
-                <Route path="/notice2" element={<Notice2 />} />
 
                 {/* 로그인/로딩/회원가입 */}
                 <Route path='/loading' element={<Loading />} />
