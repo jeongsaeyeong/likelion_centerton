@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import UnderLogo from '../../assets/img/user/DreamCatcher.png'
 import axios from 'axios'
 
@@ -7,6 +7,7 @@ const Login2 = () => {
     const [userid, setUserId] = useState('')
     const [password, setPassword] = useState('')
     const [full, setFull] = useState(false)
+    const navigate = useNavigate()
 
     const LoginSubmit = () => {
         axios.post('http://3.25.237.92:8000/login/', {
@@ -14,7 +15,11 @@ const Login2 = () => {
             password: password
         })
             .then((res) => {
-                console.log(res)
+                if (res.status == 200) {
+                    const accessToken = res.data.access;
+                    localStorage.setItem('accessToken', accessToken)
+                    navigate('/')
+                } 
             })
             .catch((err) => {
                 console.log(err)

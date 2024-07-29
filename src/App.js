@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Nav from './components/Section/Nav'
 import Community from './components/Community/Community'
@@ -19,44 +19,75 @@ import Notice from './components/Mypage/Notice'
 import NoticeContent from './components/Mypage/NoticeContent'
 import Appset from './components/Mypage/Appset'
 import CustomerCen from './components/Mypage/CustomerCen'
+import axios from 'axios'
 
 const App = () => {
+    const [accessToken, setAccessToken] = useState('')
+    const [login, setLogin] = useState(false)
+    const [loding, setLoding] = useState(false)
+
+    useEffect(() => {
+        setAccessToken(localStorage.getItem('accessToken'));
+    })
+
+    useEffect(() => {
+        if (accessToken) {
+            axios.get('http://3.25.237.92:8000/user/', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+            })
+                .then((res) => {
+                    if (res.status === 200) {
+                        setLogin(true)
+                    }
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        } else {
+            setLogin(false)
+        }
+    }, [accessToken])
+
     return (
         <BrowserRouter>
-            <Routes>
-                {/* 
-                    해당 위치에서 Router을 관리합니다.
-                    각자 맡은 부분에서 자유롭게 params를 추가하거나 페이지를 추가해 사용해주세요.
-                */}
-                <Route path='/' element={<Community />} />
-                <Route path='/community' element={<Community />} />
-                <Route path='/communitywrite' element={<CommWrite />} />
+            {loding ? (
+                <>
+                    <Routes>
+                        <Route path='/' element={<Community />} />
+                        <Route path='/community' element={<Community />} />
+                        <Route path='/communitywrite' element={<CommWrite />} />
 
-                <Route path='/bell' element={<Bell />} />
+                        <Route path='/bell' element={<Bell />} />
 
-                <Route path='/list' element={<List />} />
-                <Route path='/listall' element={<ListAll />} />
+                        <Route path='/list' element={<List />} />
+                        <Route path='/listall' element={<ListAll />} />
 
-                <Route path='/mychracter' element={<MyChracter />} />
-                <Route path='/mymemo' element={<MyMemo />} />
+                        <Route path='/mychracter' element={<MyChracter />} />
+                        <Route path='/mymemo' element={<MyMemo />} />
 
-                {/* 마이페이지 */}
-                <Route path='/mypage' element={<Mypage />} />
-                <Route path='/profilemodify' element={<ProfileEdit />} />
-                <Route path='/editinfo' element={<EditInfo />} />
-                <Route path='/notice' element={<Notice />} />
-                <Route path='/notice/:noticenum' element={<NoticeContent />} />
-                <Route path='/appset' element={<Appset />} />
-                <Route path='/customercen' element={<CustomerCen />} />
+                        {/* 마이페이지 */}
+                        <Route path='/mypage' element={<Mypage />} />
+                        <Route path='/profilemodify' element={<ProfileEdit />} />
+                        <Route path='/editinfo' element={<EditInfo />} />
+                        <Route path='/notice' element={<Notice />} />
+                        <Route path='/notice/:noticenum' element={<NoticeContent />} />
+                        <Route path='/appset' element={<Appset />} />
+                        <Route path='/customercen' element={<CustomerCen />} />
 
-                {/* 로그인/로딩/회원가입 */}
-                <Route path='/loading' element={<Loading />} />
-                <Route path='/login' element={<Login2 />} />
-                <Route path='/signup' element={<Signup />} />
-                <Route path='/signup/success/:username' element={<Success />} />
-                <Route path='/signup/success' element={<Success />} />
-            </Routes>
-            <Nav />
+                        {/* 로그인/로딩/회원가입 */}
+                        <Route path='/loading' element={<Loading />} />
+                        <Route path='/login' element={<Login2 />} />
+                        <Route path='/signup' element={<Signup />} />
+                        <Route path='/signup/success/:username' element={<Success />} />
+                        <Route path='/signup/success' element={<Success />} />
+                    </Routes>
+                    <Nav />
+                </>
+            ) : (
+                <Loading setLoding={setLoding} login={login} />
+            )}
         </BrowserRouter>
     )
 }

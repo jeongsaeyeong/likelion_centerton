@@ -71,10 +71,16 @@ const Signup = () => {
                 username: name,
                 password: password,
                 email: email,
+            }, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
             })
                 .then((res) => {
-                    console.log(res)
+                    console.log(res.status)
+                    
                 })
+
                 .catch((err) => {
                     console.log(err)
                 })
