@@ -1,7 +1,9 @@
 .user-loading {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 11;
 
     img {
         width: 252px;
@@ -11,7 +13,7 @@
 }
 
 .login1 {
-    background: #FFFDF7;
+    background: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,11 +38,11 @@
     }
 
     .tologin {
-        background-color: #FFC328;
+        background-color: var(--maincolor);
         width: 270px;
         height: 48px;
         border-radius: 30px;
-        color: #fff;
+        color: var(--white);
         font-size: 21px;
         display: flex;
         justify-content: center;
@@ -55,6 +57,8 @@
     flex-direction: column;
     justify-content: center;
     padding-bottom: 100px;
+    position: relative;
+    z-index: 11;
 
     .wrap {
         display: flex;
@@ -64,12 +68,12 @@
 
         h1 {
             font-size: 30px;
-            color: #FFC328;
+            color: var(--maincolor);
             font-weight: bold;
             margin-bottom: 40px;
         }
 
-        form {
+        .form {
             display: flex;
             flex-direction: column;
 
@@ -81,23 +85,27 @@
             }
 
             >div {
-                cursor: pointer;
                 width: 100%;
                 display: flex;
                 justify-content: center;
 
-                .loginbtn {
-                    background-color: #FFC328;
+                >button {
+                    background-color: var(--maincolor);
                     width: 330px;
                     height: 48px;
                     border-radius: 30px;
-                    color: #fff;
+                    font-weight: 400;
+                    color: var(--white);
                     font-size: 21px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     font-weight: bold;
                     margin-bottom: 30px;
+                }
+
+                .loginbtnbin {
+                    background-color: var(--black200);
                 }
             }
 
@@ -120,11 +128,12 @@
 
         .tofind {
             display: flex;
-            color: #a1a1a1;
+            color: var(--black200);
             font-size: 15px;
             text-decoration: underline;
             align-self: flex-end;
             margin-bottom: 40px;
+            margin-right: 10px;
         }
     }
 
@@ -138,41 +147,50 @@
 }
 
 .signup {
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding-bottom: 80px;
     position: relative;
     height: 100vh;
-    overflow: scroll;
-    padding-top: 100px;
+    z-index: 12;
+
+    .back {
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        padding-top: 20px;
+        padding-left: 20px;
+
+        img {
+            width: 46px;
+            height: 46px;
+        }
+    }
 
     h1 {
         font-size: 30px;
         font-weight: bold;
         margin-bottom: 20px;
-        margin-top: 150px;
+        margin-top: 20px;
     }
 
     .pro-img {
         position: relative;
         margin-bottom: 20px;
-    }
 
-    .addimg {
-        display: flex;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
+        input[type="file"] {
+            display: none;
+        }
 
-    .camera {
-        width: 40px;
-    }
-
-    .pro-img>img {
-        width: 108px;
+        label {
+            cursor: pointer;
+            display: block;
+            width: 108px;
+            height: 108px;
+            background-size: cover;
+            background-image: url(../../img/myPage/proImgEdit.svg);
+        }
     }
 
     .info {
@@ -194,15 +212,30 @@
                 position: absolute;
                 right: 10px;
                 bottom: 20px;
-                background-color: #fff;
+                background-color: var(--white);
                 width: 97px;
                 height: 32px;
                 border-radius: 20px;
-                border: #FFC328 1px solid;
-                color: #FFC328;
+                border: var(--maincolor) 1px solid;
+                color: var(--maincolor);
             }
         }
 
+        >p {
+            display: none;
+            font-size: 14px;
+            padding-left: 15px;
+        }
+
+        .id_no {
+            display: block;
+            color: red;
+        }
+
+        .id_ok {
+            display: block;
+            color: blue;
+        }
 
     }
 
@@ -218,7 +251,6 @@
         top: 0;
         z-index: 100;
         width: 100%;
-
     }
 
     .terms {
@@ -226,7 +258,6 @@
         width: 80%;
         flex-direction: column;
         margin-top: 20px;
-        margin-bottom: 100px;
 
         div {
             display: flex;
@@ -239,7 +270,7 @@
             }
 
             .gray {
-                color: #a0a0a0;
+                color: var(--black200);
             }
         }
 
@@ -291,18 +322,24 @@
         height: 50px;
     }
 
-    .signupbtn {
-        background-color: #FFC328;
-        width: 330px;
-        height: 48px;
-        border-radius: 30px;
-        color: #fff;
-        font-size: 21px;
+    .submitbox {
+        width: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
 
-        margin-top: 30px;
+        .signupbtn {
+            background-color: var(--maincolor);
+            width: 330px;
+            height: 48px;
+            border-radius: 30px;
+            color: var(--white);
+            font-size: 21px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 30px;
+        }
     }
 
     .term-info {
@@ -317,7 +354,7 @@
         flex-direction: column;
         width: 100%;
 
-        background-color: #fff;
+        background-color: var(--white);
 
         button {
             font-weight: bold;
@@ -338,19 +375,6 @@
             margin: 0 auto;
         }
     }
-}
-
-.signup::-webkit-scrollbar {
-    width: 5px;
-}
-
-.signup::-webkit-scrollbar-thumb {
-    background: var(--maincolor);
-    border-radius: 10px;
-}
-
-.signup::-webkit-scrollbar-track {
-    background: var(--black400);
 }
 
 .success {
@@ -377,11 +401,11 @@
         }
 
         .gologin {
-            background-color: #FFC328;
+            background-color: var(--maincolor);
             width: 330px;
             height: 48px;
             border-radius: 30px;
-            color: #fff;
+            color: var(--white);
             font-size: 21px;
             display: flex;
             justify-content: center;

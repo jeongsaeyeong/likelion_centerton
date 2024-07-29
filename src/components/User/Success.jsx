@@ -12,7 +12,7 @@ const Success = () => {
                 <h1><span>{username}</span> 님
                     <br /> 가입을 축하합니다!
                 </h1>
-                <Link to='/login2' className='gologin'>로그인 하러 가기</Link>
+                <Link to='/login' className='gologin'>로그인 하러 가기</Link>
             </div>
             <img className='underlogo' src={UnderLogo} alt="드림캐쳐" />
         </div>

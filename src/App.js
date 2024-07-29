@@ -8,7 +8,6 @@ import Mypage from './components/Mypage/Mypage'
 import CommWrite from './components/Community/CommWrite/CommWrite'
 import Bell from './components/Community/Bell'
 import Loading from './components/User/Loading'
-import Login from './components/User/Login'
 import Login2 from './components/User/Login2'
 import Signup from './components/User/Signup'
 import Success from './components/User/Success'
@@ -52,10 +51,10 @@ const App = () => {
 
                 {/* 로그인/로딩/회원가입 */}
                 <Route path='/loading' element={<Loading />} />
-                <Route path='/login2' element={<Login />} />
                 <Route path='/login' element={<Login2 />} />
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/signup/success/:username' element={<Success />} />
+                <Route path='/signup/success' element={<Success />} />
             </Routes>
             <Nav />
         </BrowserRouter>
