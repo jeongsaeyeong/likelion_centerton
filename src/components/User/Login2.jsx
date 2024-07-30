@@ -41,7 +41,7 @@ const Login2 = () => {
                 <div method="post" className='form'>
                     <input value={userid} onChange={(e) => { setUserId(e.target.value) }} className='info' type="text" placeholder='아이디' />
                     <input value={password} onChange={(e) => { setPassword(e.target.value) }} className='info' type="password" placeholder='비밀번호' />
-                    <Link to='/' className='tofind'>비밀번호를 잊으셨나요?</Link>
+                    <Link to='/findpass' className='tofind'>비밀번호를 잊으셨나요?</Link>
                     <div onClick={() => { LoginSubmit() }}>
                         <button className={full ? 'loginbtn' : 'loginbtnbin'}>로그인</button>
                     </div>

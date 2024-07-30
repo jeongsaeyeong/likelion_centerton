@@ -21,6 +21,10 @@
     }
 
     .main {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 560px;
+
         >div {
             .title {
                 height: 48px;
@@ -171,6 +175,30 @@
                         }
 
                     }
+
+                    .setlist {
+                        margin-top: 5px;
+                        margin-bottom: 10px;
+                        margin-left: 40px;
+
+                        .set {
+                            cursor: pointer;
+                            display: flex;
+                            padding: 12px 0;
+                            align-items: center;
+
+                            img {
+                                width: 11px;
+                                height: 11px;
+                                margin-right: 10px;
+                            }
+
+                            p {
+                                color: var(--black200);
+                                font-size: 14px;
+                            }
+                        }
+                    }
                 }
 
                 >button {
@@ -205,7 +233,21 @@
         }
     }
 
+    .main::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .main::-webkit-scrollbar-thumb {
+        background: var(--maincolor);
+        border-radius: 10px;
+    }
+
+    .main::-webkit-scrollbar-track {
+        background: var(--black400);
+    }
+
     .ListAdd_wrap {
+        overflow: hidden;
         position: absolute;
         right: 0;
         top: 0;
@@ -249,14 +291,15 @@
             .setlist {
                 display: flex;
                 flex-wrap: wrap;
+                justify-content: center;
                 margin-bottom: 20px;
 
                 .set {
-                    width: 50%;
+                    cursor: pointer;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    padding: 5px;
+                    padding: 5px 10px;
 
                     img {
                         width: 11px;
@@ -273,26 +316,94 @@
 
             .timeset {
                 display: flex;
-                justify-content: space-between;
                 align-items: center;
-                margin-bottom: 20px;
+                position: relative;
+                justify-content: space-between;
+                margin-bottom: 15px;
 
                 >div {
-                    img {
-                        width: 30px;
-                        height: 30px;
+                    display: flex;
+                    align-items: center;
+
+                    .timeset img {
+                        width: 24px;
+                        height: 24px;
+                        margin-right: 10px;
+                    }
+
+                    .time-picker {
+                        position: relative;
+                        display: flex;
+                        align-items: top;
+                        border-radius: 4px;
+                        cursor: pointer;
+
+                        img {
+                            width: 30px;
+                            height: 30px;
+                            margin-right: 10px;
+                        }
+
+                        >div {
+                            p {
+                                font-size: 13px;
+                            }
+
+                            h3 {
+                                font-weight: 600;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+
+                    .time-dropdown {
+                        position: absolute;
+                        top: 120%;
+                        left: 0;
+                        width: 100%;
+                        height: 200px;
+                        overflow-y: scroll;
+                        background: var(--white);
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        z-index: 13;
+
+                        .time-option {
+                            padding: 10px;
+                            cursor: pointer;
+                            border-bottom: 1px solid var(--black400);
+                        }
+
+                        .time-option:hover {
+                            background: #f0f0f0;
+                        }
+                    }
+
+
+                    .time-dropdown::-webkit-scrollbar {
+                        width: 5px;
+                    }
+
+                    .time-dropdown::-webkit-scrollbar-thumb {
+                        background: var(--maincolor);
+                        border-radius: 10px;
+                    }
+
+                    .time-dropdown::-webkit-scrollbar-track {
+                        background: var(--black400);
                     }
                 }
 
-                button {
-                    width: 96px;
-                    height: 32px;
-                    border: 1px solid var(--black300);
-                    color: var(--black300);
-                    border-radius: 20px;
+                .allday-btn {
+                    margin-left: 10px;
+                    padding: 5px 20px;
+                    border: 1px solid var(--black200);
+                    color: var(--black200);
+                    border-radius: 50px;
+                    cursor: pointer;
                 }
 
-                .all {
+                .allday-btn.all {
                     background-color: var(--black);
                     color: var(--white);
                 }
@@ -300,7 +411,7 @@
 
             .roof {
                 display: flex;
-                margin-bottom: 10px;
+                margin-bottom: 15px;
                 margin-left: 3px;
 
                 img {

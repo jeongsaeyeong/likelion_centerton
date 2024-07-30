@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Eat from '../../../assets/img/mycharacter/eat.svg'
 import EatWhite from '../../../assets/img/mycharacter/eatwhite.svg'
 
 const ChaMainEat = ({ click, whatclick, setClick }) => {
+    const [choose, setChoose] = useState('')
+
+    const Set = () => {
+        if (click === 'eat') {
+            setClick('');
+            setChoose('')
+        } else {
+            whatclick('eat');
+        }
+    }
+
     return (
         <div>
-            <img src={click === 'eat' ? EatWhite : Eat} alt="" className={click === 'eat' ? 'click' : ''} onClick={() => { whatclick('eat') }} />
+            <img src={click === 'eat' ? EatWhite : Eat} alt="" className={click === 'eat' ? 'click' : ''} onClick={() => { Set() }} />
             <div className={click === 'eat' ? "eatbox" : 'none'}>
                 <div>
                     <div>
@@ -33,7 +44,7 @@ const ChaMainEat = ({ click, whatclick, setClick }) => {
                         </div>
                     </div>
 
-                    <button onClick={() => setClick('')}>저장</button>
+                    <button onClick={() => {}}>저장</button>
                 </div>
             </div>
         </div>

@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Run from '../../../assets/img/mycharacter/run.svg'
 import RunWhite from '../../../assets/img/mycharacter/runwhite.svg'
 
-const ChaMainRun = ({click, whatclick, setClick }) => {
+const ChaMainRun = ({ click, whatclick, setClick }) => {
+    const [choose, setChoose] = useState('')
+
+    const Set = () => {
+        if (click === 'run') {
+            setClick('');
+            setChoose('')
+        } else {
+            whatclick('run');
+        }
+    }
+
     return (
         <div>
-            <img src={click === 'run' ? RunWhite : Run} alt="" className={click === 'run' ? 'click' : ''} onClick={() => { whatclick('run') }} />
+            <img src={click === 'run' ? RunWhite : Run} alt="" className={click === 'run' ? 'click' : ''} onClick={() => { Set() }} />
             <div className={click === 'run' ? "" : 'none'}>
                 <div className='runbox'>
                     <div>
@@ -17,7 +28,7 @@ const ChaMainRun = ({click, whatclick, setClick }) => {
                             <button>상체 20분</button>
                         </div>
                     </div>
-                    <button onClick={() => setClick('')}>저장</button>
+                    <button onClick={() => {}}>저장</button>
                 </div>
             </div>
         </div>

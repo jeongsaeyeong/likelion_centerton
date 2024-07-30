@@ -96,7 +96,6 @@ const ListAll = () => {
                             </div>
                         </button>
                     </div>
-
                 </div>
             </div>
         </div>

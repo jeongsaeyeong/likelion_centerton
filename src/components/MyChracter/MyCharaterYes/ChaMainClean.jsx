@@ -1,11 +1,22 @@
 import Clean from '../../../assets/img/mycharacter/clen.svg'
 import CleanWhite from '../../../assets/img/mycharacter/clenwhite.svg'
-import React from 'react'
+import React, { useState } from 'react'
 
 const ChaMainClean = ({click, whatclick, setClick }) => {
+    const [choose, setChoose] = useState('')
+
+    const Set = () => {
+        if (click === 'clean') {
+            setClick('');
+            setChoose('')
+        } else {
+            whatclick('clean');
+        }
+    }
+
     return (
         <div>
-            <img src={click === 'clean' ? CleanWhite : Clean} alt="" className={click === 'clean' ? 'click' : ''} onClick={() => { whatclick('clean') }} />
+            <img src={click === 'clean' ? CleanWhite : Clean} alt="" className={click === 'clean' ? 'click' : ''} onClick={() => { Set() }} />
             <div className={click === 'clean' ? "" : 'none'}>
                 <div className='cleanbox'>
                     <div>
@@ -18,7 +29,7 @@ const ChaMainClean = ({click, whatclick, setClick }) => {
                             <button>부엌</button>
                         </div>
                     </div>
-                    <button onClick={() => setClick('')}>저장</button>
+                    <button onClick={() => {}}>저장</button>
                 </div>
             </div>
         </div>

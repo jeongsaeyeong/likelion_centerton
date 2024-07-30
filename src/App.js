@@ -20,6 +20,7 @@ import NoticeContent from './components/Mypage/NoticeContent'
 import Appset from './components/Mypage/Appset'
 import CustomerCen from './components/Mypage/CustomerCen'
 import axios from 'axios'
+import FindPass from './components/User/FindPass'
 
 const App = () => {
     const [accessToken, setAccessToken] = useState('')
@@ -82,6 +83,7 @@ const App = () => {
                         <Route path='/signup' element={<Signup />} />
                         <Route path='/signup/success/:username' element={<Success />} />
                         <Route path='/signup/success' element={<Success />} />
+                        <Route path='/findpass' element={<FindPass />} />
                     </Routes>
                     <Nav />
                 </>

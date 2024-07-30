@@ -1,39 +1,54 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Back from '../../../assets/img/mycharacter/backbtn.svg'
-import Star01 from '../../../assets/img/mycharacter/star01.png'
-import Star02 from '../../../assets/img/mycharacter/star02.png'
-import Star03 from '../../../assets/img/mycharacter/star03.png'
-import Star04 from '../../../assets/img/mycharacter/star04.png'
+import Write from '../../../assets/img/mycharacter/write.svg'
+
+import { useNavigate } from 'react-router-dom'
+import WriteMemo from './WriteMemo'
+import axios from 'axios';
+import MeMoList from './MeMoList'
 
 const MyMemo = () => {
-    const [click, setClick] = useState(false)
+    const URL = 'http://3.25.237.92:8000/'
+    const [write, setWrite] = useState(false)
+    const [data, setData] = useState([])
+    const navigate = useNavigate()
+
+    const BackBtn = () => {
+        navigate(-1)
+    }
+
+    useEffect(() => {
+        axios.get(`${URL}characters/`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then((res) => {
+                setData([...res.data]);
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [])
+
+    useEffect(() => {
+
+    }, [])
+
 
     return (
         <div className='MyMemo_wrap container'>
             <div className="header">
-                <button><img src={Back} alt="" /></button>
+                <button onClick={() => { BackBtn() }}><img src={Back} alt="" /></button>
                 <h2>기록장</h2>
             </div>
-            <div className="memolist">
-                <div className='memo'>
-                    <div onClick={() => {setClick(true)}}>
-                        <img src={Star01} alt="" />
-                        <p>7월 13일</p>
-                    </div>
-                    <div>
-                        <img src={Star02} alt="" />
-                        <p>7월 14일</p>
-                    </div>
-                    <div>
-                        <img src={Star03} alt="" />
-                        <p>7월 15일</p>
-                    </div>
-                    <div>
-                        <img src={Star04} alt="" />
-                        <p>7월 16일</p>
-                    </div>
-                </div>
-            </div>
+            <MeMoList />
+            <button onClick={() => { setWrite(true) }}><img src={Write} alt="" /></button>
+            {write ? (
+                <WriteMemo setWrite={setWrite} data={data} />
+            ) : (
+                <></>
+            )}
         </div>
     )
 }
