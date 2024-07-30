@@ -22,7 +22,7 @@ const ProfileEdit = () => {
             <div className="main">
                 <input type="file" id='profile' />
                 <label for='profile'></label>
-                <input type="text" value={nick} onChange={(e) => { setNick(e.target.value) }} placeholder={`${nick}`} />
+                <input type="text" value={nick} onChange={(e) => { setNick(e.target.value) }} placeholder='닉네임' />
             </div>
         </div>
     )

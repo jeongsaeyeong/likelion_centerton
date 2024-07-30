@@ -19,6 +19,7 @@ import Notice from './components/Mypage/Notice'
 import NoticeContent from './components/Mypage/NoticeContent'
 import Appset from './components/Mypage/Appset'
 import CustomerCen from './components/Mypage/CustomerCen'
+import CusCenContent from './components/Mypage/CusCenContent'
 import axios from 'axios'
 
 const App = () => {
@@ -68,13 +69,14 @@ const App = () => {
                         <Route path='/mymemo' element={<MyMemo />} />
 
                         {/* 마이페이지 */}
-                        <Route path='/mypage' element={<Mypage />} />
-                        <Route path='/profilemodify' element={<ProfileEdit />} />
-                        <Route path='/editinfo' element={<EditInfo />} />
-                        <Route path='/notice' element={<Notice />} />
-                        <Route path='/notice/:noticenum' element={<NoticeContent />} />
-                        <Route path='/appset' element={<Appset />} />
-                        <Route path='/customercen' element={<CustomerCen />} />
+                <Route path='/mypage' element={<Mypage />} />
+                <Route path='/profilemodify' element={<ProfileEdit />} />
+                <Route path='/editinfo' element={<EditInfo />} />
+                <Route path='/notice' element={<Notice />} />
+                <Route path='/notice/:noticenum' element={<NoticeContent />} />
+                <Route path='/appset' element={<Appset />} />
+                <Route path='/customercen' element={<CustomerCen />} />
+                <Route path='/customercen/:cuscennum' element={<CusCenContent />} />
 
                         {/* 로그인/로딩/회원가입 */}
                         <Route path='/loading' element={<Loading />} />

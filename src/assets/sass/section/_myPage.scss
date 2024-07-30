@@ -171,7 +171,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
-
+    
         p {
             display: flex;
             justify-content: center;
@@ -180,9 +180,16 @@
             width: 180px;
             height: 44px;
             border-radius: 24px;
-            background-color: var(--maincolor);
+            background-color: var(--black400);
+        }
+    
+        &.active {
+            p {
+                background-color: var(--maincolor);
+            }
         }
     }
+    
 }
 
 .notice_wrap {
@@ -329,9 +336,39 @@
                         font-size: 15px;
                     }
 
-                    img {
+                    .toggle {
                         width: 57px;
                         height: 28px;
+                        background-color: #BCBCBC;
+                        border-radius: 14px;
+                        position: relative;
+                        cursor: pointer;
+
+                        &.checked {
+                            background-color: #FFC328;
+
+                            .circle {
+                                right: 4px;
+                            }
+                        }
+
+                        &.unchecked {
+                            background-color: #BCBCBC;
+
+                            .circle {
+                                left: 4px;
+                            }
+                        }
+
+                        .circle {
+                            width: 20px;
+                            height: 20px;
+                            background-color: #fff;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 4px;
+                            transition: 0.5s;
+                        }
                     }
                 }
             }
