@@ -9,9 +9,10 @@ import Memosea from './Memosea';
 const MeMoList = () => {
     const URL = 'http://3.25.237.92:8000/';
     const [memos, setMemos] = useState([]);
-    const [click, setClick] = useState(true);
+    const [click, setClick] = useState(false);
     const [chaid, setChaid] = useState(0)
     const [getdate, getsetDate] = useState('');
+    const [diary, setDiary] = useState([])
 
     const starImages = [Star01, Star02, Star03, Star04];
 
@@ -67,7 +68,7 @@ const MeMoList = () => {
                 }
             })
                 .then((res) => {
-                    console.log(res)
+                    setDiary(res.data)
                 })
                 .catch((err) => {
                     console.log(err)
@@ -79,13 +80,13 @@ const MeMoList = () => {
         <>
             {click ? (
                 <>
-                    <Memosea setClick={setClick} />
+                    <Memosea setClick={setClick} diary={diary} />
                 </>
             ) : (
                 <div className="memolist">
                     <div className='memo'>
                         {memos.map((memo) => (
-                            <div key={memo.id} onClick={() => { setClick(false); GetMemo(memo.date) }}>
+                            <div key={memo.id} onClick={() => { setClick(true); GetMemo(memo.date) }}>
                                 <img src={memo.img} alt="" />
                                 <p>{memo.date}</p>
                             </div>
