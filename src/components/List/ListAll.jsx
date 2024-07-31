@@ -35,10 +35,6 @@ const ListAll = () => {
             });
     }, []);
 
-    useEffect(() => {
-        console.log('L:', list);
-    }, [list]);
-
     const toggleShow = (index) => {
         const newShow = [...show];
         newShow[index] = !newShow[index];

@@ -6,7 +6,7 @@ import Modify from '../../../assets/img/list/modify.svg';
 import ListModify from '../ListModify';
 import axios from 'axios';
 
-const Lifelist = ({ setEverydata, setLifedata, setWhat, setWrite, lifedata, recom, setText }) => {
+const Lifelist = ({setChooseData, setEverydata, setLifedata, setWhat, setWrite, lifedata, recom, setText }) => {
     const [clickedStars, setClickedStars] = useState(lifedata.map(() => false));
     const [modifyIndex, setModifyIndex] = useState(null);
 
@@ -81,7 +81,7 @@ const Lifelist = ({ setEverydata, setLifedata, setWhat, setWrite, lifedata, reco
                                     <div>
                                         <p>{item.description}</p>
                                         <img src={Modify} alt="Modify" onClick={() => setModifyIndex(index === modifyIndex ? null : index)} />
-                                        <ListModify setEverydata={setEverydata} setLifedata={setLifedata} setWrite={setWrite} modifyshow={index === modifyIndex} setModify={() => setModifyIndex(null)} item={item} list={'lifelist'} />
+                                        <ListModify setChooseData={setChooseData} setText={setText} setEverydata={setEverydata} setLifedata={setLifedata} setWrite={setWrite} modifyshow={index === modifyIndex} setModify={() => setModifyIndex(null)} item={item} list={'lifelist'} />
                                     </div>
                                 </div>
                             ))}

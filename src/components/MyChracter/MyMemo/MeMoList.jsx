@@ -4,11 +4,14 @@ import Star02 from '../../../assets/img/mycharacter/star02.png';
 import Star03 from '../../../assets/img/mycharacter/star03.png';
 import Star04 from '../../../assets/img/mycharacter/star04.png';
 import axios from 'axios';
+import Memosea from './Memosea';
 
 const MeMoList = () => {
     const URL = 'http://3.25.237.92:8000/';
     const [memos, setMemos] = useState([]);
-    const [click, setClick] = useState(false);
+    const [click, setClick] = useState(true);
+    const [chaid, setChaid] = useState(0)
+    const [getdate, getsetDate] = useState('');
 
     const starImages = [Star01, Star02, Star03, Star04];
 
@@ -34,19 +37,64 @@ const MeMoList = () => {
             .catch((err) => {
                 console.log(err);
             });
+
+        axios.get(`${URL}user/`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then((res) => {
+                setChaid(res.data.id)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }, []);
 
+    const GetMemo = (date) => {
+        const match = date.match(/^(\d+)월 (\d+)일$/);
+        if (match) {
+            const month = match[1].padStart(2, '0');
+            const day = match[2].padStart(2, '0');
+            const formattedDate = `2024-${month}-${day}`;
+            getsetDate(formattedDate)
+        }
+
+        if (chaid !== 0 && getdate !== '') {
+            axios.get(`${URL}characters/${chaid}/journal/${getdate}/`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then((res) => {
+                    console.log(res)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+    }
+
     return (
-        <div className="memolist">
-            <div className='memo'>
-                {memos.map((memo) => (
-                    <div key={memo.id} onClick={() => setClick(true)}>
-                        <img src={memo.img} alt="" />
-                        <p>{memo.date}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
+        <>
+            {click ? (
+                <>
+                    <Memosea setClick={setClick} />
+                </>
+            ) : (
+                <div className="memolist">
+                    <div className='memo'>
+                        {memos.map((memo) => (
+                            <div key={memo.id} onClick={() => { setClick(false); GetMemo(memo.date) }}>
+                                <img src={memo.img} alt="" />
+                                <p>{memo.date}</p>
+                            </div>
+                        ))}
+                    </div >
+                </div >
+            )}
+
+        </>
     );
 }
 

@@ -493,6 +493,61 @@
     }
 }
 
+.Memosea_wrap {
+    width: inherit;
+    height: inherit;
+    overflow: hidden;
+    z-index: 11;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #563428;
+    background-color: #00000039;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    >div {
+        background-color: #FFF8E5;
+        width: 356px;
+        padding: 30px;
+        min-height: 500px;
+        border-radius: 20px;
+
+        >button {
+            width: 100%;
+            display: flex;
+            justify-content: right;
+            margin-bottom: 30px;
+
+            img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .main {
+            min-height: 300px;
+            background-repeat: no-repeat;
+            background-image: url(../../img/mycharacter/backpnglong.png);
+
+            p {
+                padding-top: 1px;
+                line-height: 1.8;
+            }
+        }
+    }
+
+}
+
 .WriteMemo_wrap {
     width: inherit;
     height: inherit;

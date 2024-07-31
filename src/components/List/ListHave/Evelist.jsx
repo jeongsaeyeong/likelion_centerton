@@ -6,7 +6,7 @@ import Modify from '../../../assets/img/list/modify.svg'
 import ListModify from '../ListModify'
 import axios from 'axios'
 
-const Evelist = ({ setEverydata, setLifedata, setWhat, setWrite, everydata, recom, setText }) => {
+const Evelist = ({ setChooseData, setEverydata, setLifedata, setWhat, setWrite, everydata, recom, setText }) => {
     const [clicklight, setClickLight] = useState(everydata.map(() => false));
     const [modifyIndex, setModifyIndex] = useState(null);
 
@@ -76,7 +76,7 @@ const Evelist = ({ setEverydata, setLifedata, setWhat, setWrite, everydata, reco
                                     <div>
                                         <p>{item.task}</p>
                                         <img src={Modify} alt="Modify" onClick={() => setModifyIndex(index === modifyIndex ? null : index)} />
-                                        <ListModify setEverydata={setEverydata} setLifedata={setLifedata} setWrite={setWrite} modifyshow={index === modifyIndex} setModify={() => setModifyIndex(null)} item={item} list={'everylist'} />
+                                        <ListModify setChooseData={setChooseData} setText={setText} setEverydata={setEverydata} setLifedata={setLifedata} setWrite={setWrite} modifyshow={index === modifyIndex} setModify={() => setModifyIndex(null)} item={item} list={'everylist'} />
                                     </div>
                                 </div>
                             ))}

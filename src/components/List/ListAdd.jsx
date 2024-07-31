@@ -6,7 +6,7 @@ import ListMap from './ListMap'
 import { motion } from 'framer-motion'
 import axios from 'axios'
 
-const ListAdd = ({ setWrite, setText, text, recom, what, URL, setEverydata, setLifedata }) => {
+const ListAdd = ({ choosedata, setWrite, setText, text, recom, what, URL, setEverydata, setLifedata }) => {
     const [today, setToday] = useState('');
     const [thisday, setThisday] = useState('');
     const [thistime, setThisTime] = useState('');
@@ -56,6 +56,7 @@ const ListAdd = ({ setWrite, setText, text, recom, what, URL, setEverydata, setL
                 console.log(err);
             });
     };
+
 
     return (
         <motion.div className='ListAdd_wrap' initial={{ opacity: 0, }} animate={{ opacity: 1, }} transition={{ duration: 0.8, }}>
