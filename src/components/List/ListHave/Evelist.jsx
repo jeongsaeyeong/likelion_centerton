@@ -4,10 +4,45 @@ import LightFull from '../../../assets/img/list/light_full.svg'
 import Plus from '../../../assets/img/list/plus.svg'
 import Modify from '../../../assets/img/list/modify.svg'
 import ListModify from '../ListModify'
+import axios from 'axios'
 
 const Evelist = ({ setEverydata, setLifedata, setWhat, setWrite, everydata, recom, setText }) => {
-    const [clicklight, setClickLight] = useState(false);
-    const [modifyIndex, setModifyIndex] = useState(null); // Modify 상태를 위한 인덱스
+    const [clicklight, setClickLight] = useState(everydata.map(() => false));
+    const [modifyIndex, setModifyIndex] = useState(null);
+
+    const toggleLight = (index) => {
+        const newClickLight = [...clicklight];
+        newClickLight[index] = !newClickLight[index];
+        setClickLight(newClickLight);
+        Change(index);
+    };
+
+    const Change = (index) => {
+        const item = everydata[index];
+        const updatedCompletedStatus = !item.completed;
+
+        axios.put(`http://3.25.237.92:8000/board/everylist/${item.id}/`,
+            {
+                task: item.task,
+                due_date: item.due_date,
+                due_time: item.due_time,
+                completed: updatedCompletedStatus
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            }
+        )
+            .then((res) => {
+                const updatedEverydata = [...everydata];
+                updatedEverydata[index] = { ...item, completed: updatedCompletedStatus };
+                setEverydata(updatedEverydata);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
 
     return (
         <div className="everylist_wrap">
@@ -33,11 +68,15 @@ const Evelist = ({ setEverydata, setLifedata, setWhat, setWrite, everydata, reco
                         <>
                             {everydata.map((item, index) => (
                                 <div className="list" key={index}>
-                                    <img src={clicklight ? LightFull : LightBin} alt="" onClick={() => setClickLight(!clicklight)} />
+                                    <img
+                                        src={item.completed ? LightFull : LightBin}
+                                        alt=""
+                                        onClick={() => toggleLight(index)}
+                                    />
                                     <div>
                                         <p>{item.task}</p>
                                         <img src={Modify} alt="Modify" onClick={() => setModifyIndex(index === modifyIndex ? null : index)} />
-                                        <ListModify setEverydata={setEverydata} setLifedata={setLifedata} setWrite={setWrite} modifyshow={index === modifyIndex} setModify={() => setModifyIndex(null)} id={item.id} list={'everylist'} />
+                                        <ListModify setEverydata={setEverydata} setLifedata={setLifedata} setWrite={setWrite} modifyshow={index === modifyIndex} setModify={() => setModifyIndex(null)} item={item} list={'everylist'} />
                                     </div>
                                 </div>
                             ))}

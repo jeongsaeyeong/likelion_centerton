@@ -4,10 +4,50 @@ import StarFull from '../../../assets/img/list/star_full.svg';
 import Plus from '../../../assets/img/list/plus.svg';
 import Modify from '../../../assets/img/list/modify.svg';
 import ListModify from '../ListModify';
+import axios from 'axios';
 
 const Lifelist = ({ setEverydata, setLifedata, setWhat, setWrite, lifedata, recom, setText }) => {
-    const [clickstar, setClickstar] = useState(false);
-    const [modifyIndex, setModifyIndex] = useState(null); // Modify 상태를 위한 인덱스
+    const [clickedStars, setClickedStars] = useState(lifedata.map(() => false));
+    const [modifyIndex, setModifyIndex] = useState(null);
+
+    const lifeList = [
+        '오랜 친구한테 연락하기', '500만원 모으기', '여행가기'
+    ]
+
+    const toggleStar = (index) => {
+        const newClickedStars = [...clickedStars];
+        newClickedStars[index] = !newClickedStars[index];
+        setClickedStars(newClickedStars);
+        Change(index);
+    };
+
+    const Change = (index) => {
+        const item = lifedata[index];
+        const updatedCompletedStatus = !item.completed;
+
+        axios.put(`http://3.25.237.92:8000/board/lifelist/${item.id}/`,
+            {
+                goal: item.goal,
+                description: item.description,
+                target_date: item.target_date,
+                target_time: item.target_time,
+                completed: updatedCompletedStatus
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            }
+        )
+            .then((res) => {
+                const updatedLifedata = [...lifedata];
+                updatedLifedata[index] = { ...item, completed: updatedCompletedStatus };
+                setLifedata(updatedLifedata);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
 
     return (
         <div className="lifelist_wrap">
@@ -22,10 +62,10 @@ const Lifelist = ({ setEverydata, setLifedata, setWhat, setWrite, lifedata, reco
                 <div className="listAll">
                     {lifedata.length === 0 ? (
                         <div className="setlist">
-                            {recom.map((recom, index) => (
-                                <div key={index} className="set" onClick={() => { setText(recom); setWrite(true); setWhat('lifelist'); }}>
+                            {lifeList.map((lifeList, index) => (
+                                <div key={index} className="set" onClick={() => { setText(lifeList); setWrite(true); setWhat('lifelist'); }}>
                                     <img src={Plus} alt="plus icon" />
-                                    <p>{recom}</p>
+                                    <p>{lifeList}</p>
                                 </div>
                             ))}
                         </div>
@@ -33,11 +73,15 @@ const Lifelist = ({ setEverydata, setLifedata, setWhat, setWrite, lifedata, reco
                         <>
                             {lifedata.map((item, index) => (
                                 <div className="list" key={index}>
-                                    <img src={clickstar ? StarFull : StarBin} alt="" onClick={() => setClickstar(!clickstar)} />
+                                    <img
+                                        src={item.completed ? StarFull : StarBin}
+                                        alt=""
+                                        onClick={() => toggleStar(index)}
+                                    />
                                     <div>
                                         <p>{item.description}</p>
                                         <img src={Modify} alt="Modify" onClick={() => setModifyIndex(index === modifyIndex ? null : index)} />
-                                        <ListModify setEverydata={setEverydata} setLifedata={setLifedata} setWrite={setWrite} modifyshow={index === modifyIndex} setModify={() => setModifyIndex(null)} id={item.id} list={'lifelist'} />
+                                        <ListModify setEverydata={setEverydata} setLifedata={setLifedata} setWrite={setWrite} modifyshow={index === modifyIndex} setModify={() => setModifyIndex(null)} item={item} list={'lifelist'} />
                                     </div>
                                 </div>
                             ))}

@@ -3,10 +3,10 @@ import Delete from '../../assets/img/community/delete.svg'
 import ModifyPost from '../../assets/img/community/modifypost.svg'
 import axios from 'axios'
 
-const ListModify = ({ modifyshow, setWrite, setModify, id, list, setEverydata, setLifedata }) => {
+const ListModify = ({ modifyshow, setWrite, setModify, item, list, setEverydata, setLifedata }) => {
 
     const DelList = () => {
-        axios.delete(`http://3.25.237.92:8000/board/${list}/${id}/`, {
+        axios.delete(`http://3.25.237.92:8000/board/${list}/${item.id}/`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }

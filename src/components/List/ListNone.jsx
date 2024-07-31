@@ -5,6 +5,10 @@ import Plus from '../../assets/img/list/plus.svg'
 
 const ListNone = ({ setWrite, recom, setText, setWhat }) => {
 
+    const lifeList = [
+        '오랜 친구한테 연락하기', '500만원 모으기', '여행가기'
+    ]
+
     return (
         <div className="main">
             <div className="lifelist_wrap">
@@ -17,10 +21,10 @@ const ListNone = ({ setWrite, recom, setText, setWhat }) => {
                         <input className='input_life' type="text" placeholder='앞으로 이루고 싶은 목표를 입력해 보세요!' />
                     </button>
                     <div className="setlist">
-                        {recom.map((recom, index) => (
-                            <button key={index} className="set" onClick={() => { setWrite(true); setText(recom); setWhat('lifelist') }}>
+                        {lifeList.map((life, index) => (
+                            <button key={index} className="set" onClick={() => { setWrite(true); setText(life); setWhat('lifelist') }}>
                                 <img src={Plus} alt="Plus" />
-                                <p>{recom}</p>
+                                <p>{life}</p>
                             </button>
                         ))}
                     </div>
