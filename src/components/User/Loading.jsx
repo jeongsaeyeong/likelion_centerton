@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import Logo from '../../assets/img/user/logo.png'
-
-const Loading = () => {
-  return (
-    <div className='user-loading container'>
-        <img src={Logo} alt="로고" />
-      
-    </div>
-  )
-=======
 import React, { useEffect } from 'react'
 import Logo from '../../assets/img/user/logo.png'
 import { motion } from 'framer-motion'
@@ -51,7 +39,6 @@ const Loading = ({ setLoding, login }) => {
             </motion.div>
         </div>
     )
->>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
 }
 
 export default Loading
