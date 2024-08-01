@@ -42,12 +42,13 @@ figcaption {
 
 // 폰트 초기화 
 /* input 제거, 폰트에서 문자를 지원하지 않아서 password가 안보임 */
+input,
 body,
 button,
 select,
 table,
 textarea {
-    font-family: var(--mainfont-nanum), var(--mainfont-nexon), "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", helvetica, sans-serif;
+    font-family: var(--mainfont);
 }
 
 // 링크 초기화

@@ -1,7 +1,18 @@
+<<<<<<< HEAD
 .user-loading {
     display: flex;
     justify-content: center;
     align-items: center;
+=======
+@import url('https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&display=swap');
+
+.user-loading {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
 
     img {
         width: 252px;
@@ -11,7 +22,11 @@
 }
 
 .login1 {
+<<<<<<< HEAD
     background: #FFFDF7;
+=======
+    background: var(--white);
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,11 +51,19 @@
     }
 
     .tologin {
+<<<<<<< HEAD
         background-color: #FFC328;
         width: 270px;
         height: 48px;
         border-radius: 30px;
         color: #fff;
+=======
+        background-color: var(--maincolor);
+        width: 270px;
+        height: 48px;
+        border-radius: 30px;
+        color: var(--white);
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
         font-size: 21px;
         display: flex;
         justify-content: center;
@@ -55,6 +78,11 @@
     flex-direction: column;
     justify-content: center;
     padding-bottom: 100px;
+<<<<<<< HEAD
+=======
+    position: relative;
+    z-index: 11;
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
 
     .wrap {
         display: flex;
@@ -64,12 +92,20 @@
 
         h1 {
             font-size: 30px;
+<<<<<<< HEAD
             color: #FFC328;
+=======
+            color: var(--maincolor);
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
             font-weight: bold;
             margin-bottom: 40px;
         }
 
+<<<<<<< HEAD
         form {
+=======
+        .form {
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
             display: flex;
             flex-direction: column;
 
@@ -80,6 +116,34 @@
                 padding: 10px;
             }
 
+<<<<<<< HEAD
+=======
+            >div {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                >button {
+                    background-color: var(--maincolor);
+                    width: 330px;
+                    height: 48px;
+                    border-radius: 30px;
+                    font-weight: 400;
+                    color: var(--white);
+                    font-size: 21px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: bold;
+                    margin-bottom: 30px;
+                }
+
+                .loginbtnbin {
+                    background-color: var(--black200);
+                }
+            }
+
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
         }
 
         form::placeholder {
@@ -91,6 +155,7 @@
 
         }
 
+<<<<<<< HEAD
         .loginbtn {
             background-color: #FFC328;
             width: 330px;
@@ -104,6 +169,8 @@
             font-weight: bold;
             margin-bottom: 30px;
         }
+=======
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
 
         .tosignup {
             text-decoration: underline;
@@ -112,11 +179,19 @@
 
         .tofind {
             display: flex;
+<<<<<<< HEAD
             color: #a1a1a1;
+=======
+            color: var(--black200);
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
             font-size: 15px;
             text-decoration: underline;
             align-self: flex-end;
             margin-bottom: 40px;
+<<<<<<< HEAD
+=======
+            margin-right: 10px;
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
         }
     }
 
@@ -130,6 +205,7 @@
 }
 
 .signup {
+<<<<<<< HEAD
     justify-content: center;
     align-items: center;
     display: flex;
@@ -141,11 +217,40 @@
     h1 {
         font-weight: bold;
         margin-bottom: 20px;
+=======
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100vh;
+    z-index: 12;
+
+    .back {
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        padding-top: 20px;
+        padding-left: 20px;
+
+        img {
+            width: 46px;
+            height: 46px;
+        }
+    }
+
+    h1 {
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin-top: 20px;
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
     }
 
     .pro-img {
         position: relative;
         margin-bottom: 20px;
+<<<<<<< HEAD
     }
 
     .addimg {
@@ -161,6 +266,21 @@
 
     .pro-img>img {
         width: 108px;
+=======
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label {
+            cursor: pointer;
+            display: block;
+            width: 108px;
+            height: 108px;
+            background-size: cover;
+            background-image: url(../../img/myPage/proImgEdit.svg);
+        }
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
     }
 
     .info {
@@ -182,6 +302,7 @@
                 position: absolute;
                 right: 10px;
                 bottom: 20px;
+<<<<<<< HEAD
                 background-color: #fff;
                 width: 97px;
                 height: 32px;
@@ -192,6 +313,32 @@
             }
         }
 
+=======
+                background-color: var(--white);
+                width: 97px;
+                height: 32px;
+                border-radius: 20px;
+                border: var(--maincolor) 1px solid;
+                color: var(--maincolor);
+            }
+        }
+
+        >p {
+            display: none;
+            font-size: 14px;
+            padding-left: 15px;
+        }
+
+        .id_no {
+            display: block;
+            color: red;
+        }
+
+        .id_ok {
+            display: block;
+            color: blue;
+        }
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
 
     }
 
@@ -207,26 +354,43 @@
         top: 0;
         z-index: 100;
         width: 100%;
+<<<<<<< HEAD
 
+=======
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
     }
 
     .terms {
         display: flex;
         width: 80%;
         flex-direction: column;
+<<<<<<< HEAD
         margin-top: 10px;
 
         div {
             display: flex;
             position: relative;
             margin-bottom: 5px;
+=======
+        margin-top: 20px;
+
+        div {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 10px;
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
 
             .red {
                 color: #FF7C7C;
             }
 
             .gray {
+<<<<<<< HEAD
                 color: #a0a0a0;
+=======
+                color: var(--black200);
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
             }
         }
 
@@ -235,10 +399,19 @@
             margin-left: -10%;
             height: 0.5px;
             background-color: #D2D2D2;
+<<<<<<< HEAD
         }
 
         .inner {
             margin-left: 15px;
+=======
+            margin-bottom: 10px;
+        }
+
+        .inner {
+            margin-bottom: 10px;
+            margin-left: 10px;
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
         }
     }
 
@@ -249,8 +422,13 @@
     .custom-checkbox {
         margin-right: 10px;
         display: flex;
+<<<<<<< HEAD
         width: 24px;
         height: 24px;
+=======
+        width: 17px;
+        height: 17px;
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
         background: url('../../img/user/no-check.png') no-repeat center center;
         background-size: contain;
         cursor: pointer;
@@ -271,6 +449,7 @@
 
     .underlogo {
         position: absolute;
+<<<<<<< HEAD
         bottom: 30px;
         width: 101px;
         height: 50px;
@@ -289,6 +468,31 @@
         align-items: center;
 
         margin-top: 30px;
+=======
+        bottom: -70px;
+        width: 101px;
+        height: 50px;
+    }
+
+    .submitbox {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .signupbtn {
+            background-color: var(--maincolor);
+            width: 330px;
+            height: 48px;
+            border-radius: 30px;
+            color: var(--white);
+            font-size: 21px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 30px;
+        }
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
     }
 
     .term-info {
@@ -303,7 +507,11 @@
         flex-direction: column;
         width: 100%;
 
+<<<<<<< HEAD
         background-color: #fff;
+=======
+        background-color: var(--white);
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
 
         button {
             font-weight: bold;
@@ -350,11 +558,19 @@
         }
 
         .gologin {
+<<<<<<< HEAD
             background-color: #FFC328;
             width: 330px;
             height: 48px;
             border-radius: 30px;
             color: #fff;
+=======
+            background-color: var(--maincolor);
+            width: 330px;
+            height: 48px;
+            border-radius: 30px;
+            color: var(--white);
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
             font-size: 21px;
             display: flex;
             justify-content: center;
@@ -363,8 +579,14 @@
             margin-top: 30px;
         }
 
+<<<<<<< HEAD
         
     }
+=======
+
+    }
+
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
     .underlogo {
         position: absolute;
         bottom: 30px;
@@ -372,4 +594,147 @@
         height: 50px;
 
     }
+<<<<<<< HEAD
+=======
+}
+
+.FindPass_wrap {
+    position: relative;
+    z-index: 11;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    >div {
+        width: 100%;
+
+        >button {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 80px;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 120px;
+
+            p {
+                width: 95%;
+                justify-content: left;
+                font-size: 17px;
+                margin-bottom: 15px;
+            }
+
+            .msg {
+                font-size: 14px;
+                color: red;
+                margin-bottom: 40px;
+            }
+
+            input {
+                width: 95%;
+                border-bottom: 1px solid #000;
+                padding-bottom: 10px;
+                margin-bottom: 15px;
+            }
+
+            ::placeholder {
+                font-size: 15px;
+            }
+
+            button {
+                width: 100%;
+                height: 48px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 20px;
+                background-color: var(--black200);
+                color: var(--white);
+                border-radius: 30px;
+            }
+
+            .full {
+                background-color: var(--maincolor);
+            }
+
+        }
+
+        >p {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Codystar';
+            text-align: center;
+            font-size: 21px;
+            line-height: 1.2;
+        }
+    }
+}
+
+.ResetOk_wrap {
+    position: relative;
+    z-index: 11;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFDF7;
+
+    >div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 35px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 17px;
+            color: #929292;
+            margin-bottom: 35px;
+        }
+
+        button {
+            width: 240px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            background-color: var(--maincolor);
+            color: var(--white);
+            border-radius: 30px;
+            margin-bottom: 70px;
+        }
+    }
+
+    >p {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Codystar';
+        text-align: center;
+        font-size: 21px;
+        line-height: 1.2;
+    }
+>>>>>>> a3ee1af2a8b25492a78f9e388b76cdb33f7e84e7
 }

@@ -1,0 +1,607 @@
+@import url('https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&display=swap');
+
+.MyChracternone {
+    padding: 40px 20px;
+    background-color: #FFFDF7;
+
+    h2 {
+        font-size: 17px;
+        line-height: 1.3;
+        font-family: 'Codystar';
+    }
+
+    button {
+        margin-top: 130px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        >p {
+            font-size: 22px;
+            color: var(--white);
+            top: 148px;
+            left: 127px;
+            position: absolute;
+        }
+
+        img {
+            margin-left: 5px;
+            width: 340px;
+            height: 328px;
+        }
+    }
+}
+
+.MyCharacterChoose_wrap {
+    padding: 40px 15px;
+    padding-top: 90px;
+    background-color: #FFFDF7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+    >input {
+        width: 208px;
+        height: 40px;
+        border: 2px solid var(--maincolor);
+        text-align: center;
+        background-color: var(--none);
+        outline: none;
+        border-radius: 12px;
+        font-size: 22px;
+        color: var(--maincolor);
+        margin-bottom: 50px;
+        font-weight: 600;
+    }
+
+    ::placeholder {
+        font-weight: 400;
+        color: var(--maincolor);
+    }
+
+    .main {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .chooseback {
+            width: 250px;
+            height: 270px;
+            background-image: url(../../img/mycharacter/backimg.png);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+
+            img {
+                width: 220px;
+                height: 220px;
+            }
+        }
+
+        .choose_list {
+            width: 100%;
+            position: relative;
+
+            .list {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+
+                >div {
+                    cursor: pointer;
+                    width: 110px;
+                    height: 110px;
+                    border-radius: 15px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 2;
+
+                    img {
+                        width: 85px;
+                        height: 85px;
+                    }
+                }
+
+                .dol {
+                    background: linear-gradient(to bottom, #FFCA6C, #F8A004);
+                }
+
+                .bird {
+                    background: linear-gradient(to bottom, #51EFB6, #02B897);
+                }
+
+                .da {
+                    background: linear-gradient(to bottom, #61C8F5, #0084BE);
+                }
+            }
+
+            .background {
+                width: 403px;
+                height: 67px;
+                bottom: -40px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+                position: absolute;
+                background-image: url(../../img/mycharacter/backimgbottom.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+        }
+
+        >button {
+            width: 180px;
+            height: 47px;
+            background-color: var(--maincolor);
+            color: var(--white);
+            margin-top: 70px;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 25px;
+        }
+    }
+}
+
+.MyCharacterYes_wrap {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../../img/mycharacter/backimgmain.png);
+    padding: 30px;
+    padding-top: 100px;
+    overflow: hidden;
+    position: relative;
+
+    .header {
+        padding-left: 20px;
+        font-size: 17px;
+        position: relative;
+        font-weight: 600;
+        margin-bottom: 50px;
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        button {
+            right: -30px;
+            bottom: 0;
+            position: absolute;
+        }
+    }
+
+    .main {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+
+        // .guage_wrap {
+        //     display: flex;
+        //     width: 10%;
+        //     justify-content: center;
+        //     flex-direction: column;
+        //     align-items: center;
+
+        //     .guage {
+        //         width: 18px;
+        //         height: 354px;
+        //         border-radius: 500px;
+        //         border: 1px solid #563428;
+        //         background-color: #563428;
+        //         margin-bottom: 10px;
+        //     }
+
+        //     .percent {
+        //         font-weight: 600;
+        //         font-size: 14px;
+        //         color: #563428;
+        //     }
+        // }
+
+        .guage_wrap {
+            display: flex;
+            width: 10%;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+
+            .guage {
+                width: 18px;
+                height: 354px;
+                background-color: var(--none);
+                border: 2px solid #8B4513;
+                border-radius: 500px;
+                position: relative;
+                overflow: hidden;
+
+                .guage_fill {
+                    width: 100%;
+                    background-color: #8B4513;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+
+            .percent {
+                margin-top: 10px;
+                font-size: 16px;
+                color: #8B4513;
+            }
+        }
+
+
+
+        .character {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .name {
+                background-image: url(../../img/mycharacter/saybox.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 113px;
+                height: 64px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 40px;
+
+                p {
+                    font-weight: 600;
+                    color: #563428;
+                    font-size: 17px;
+                    margin-bottom: 20px;
+                }
+            }
+
+            >img {
+                width: 197px;
+                height: 197px;
+            }
+        }
+
+        .active {
+            width: 10%;
+            display: flex;
+            flex-direction: column;
+
+            >div {
+                margin-bottom: 15px;
+
+                img {
+                    position: relative;
+                    width: 45px;
+                    height: 45px;
+                    cursor: pointer;
+                }
+
+                .click {
+                    position: relative;
+                    z-index: 15;
+                }
+
+                >div {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100vh;
+                    background-color: #00000039;
+                    z-index: 1;
+
+                    >div {
+                        position: absolute;
+                        right: 10px;
+                        top: 200px;
+                        width: 321px;
+                        min-height: 108px;
+                        border-radius: 30px;
+                        background-color: #FFF8E5;
+                        padding: 18px 30px;
+                        color: #563428;
+
+                        >div {
+                            display: flex;
+                            justify-content: left;
+                            flex-direction: column;
+                            padding: 2px 0;
+                            font-size: 17px;
+
+                            p {
+                                margin-right: 10px;
+                            }
+
+                            input {
+                                background-color: var(--none);
+                                width: 70%;
+                                text-align: left;
+                                padding-right: 10px;
+                            }
+
+                            ::placeholder {
+                                color: #563428;
+                            }
+
+                            >div {
+                                display: flex;
+                            }
+
+                            .btn_box {
+                                padding-left: 80px;
+
+                                button {
+                                    text-align: center;
+                                    font-size: 14px;
+                                    color: var(--maincolor);
+                                    padding: 5px 15px;
+                                    margin-right: 5px;
+                                    border-radius: 4px;
+                                    background-color: var(--white);
+                                    border: 1px solid var(--maincolor);
+                                }
+                            }
+                        }
+
+                        >button {
+                            z-index: 16;
+                            font-size: 18px;
+                            width: 100%;
+                            text-align: right;
+                            font-weight: 600;
+                        }
+                    }
+
+                    .cleanbox {
+                        top: 260px;
+                    }
+
+                    .runbox {
+                        top: 320px
+                    }
+
+                    .showerbox {
+                        top: 380px;
+
+                        >div {
+                            p {
+                                margin-bottom: 10px;
+                            }
+
+                            >div {
+
+                                button {
+                                    width: 40%;
+                                    text-align: center;
+                                    font-size: 14px;
+                                    color: var(--maincolor);
+                                    padding: 5px 15px;
+                                    margin-right: 5px;
+                                    border-radius: 4px;
+                                    background-color: var(--white);
+                                    border: 1px solid var(--maincolor);
+                                }
+
+                                .full {
+                                    background-color: var(--maincolor);
+                                    color: var(--white);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .ending {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        button {
+            width: 180px;
+            height: 44px;
+            background-color: var(--maincolor);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            border-radius: 500px;
+        }
+    }
+}
+
+.MyMemo_wrap {
+    background-color: #FFF8E5;
+    padding: 20px;
+    padding-top: 50px;
+    position: relative;
+
+    >.header {
+        margin-bottom: 50px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+            font-size: 21px;
+            color: #563428;
+            font-weight: 600;
+        }
+
+        button {
+            position: absolute;
+            left: 0;
+
+            img {
+                width: 46px;
+                height: 46px;
+            }
+        }
+    }
+
+    .memolist {
+        display: flex;
+        flex-wrap: wrap;
+
+        .memo {
+            width: 100%;
+            display: flex;
+
+            >div {
+                cursor: pointer;
+                width: 25%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 60px;
+                    height: 60px;
+                    margin-bottom: 5px;
+                }
+
+                p {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    >button {
+        position: absolute;
+        bottom: 110px;
+        right: 10px;
+    }
+}
+
+.WriteMemo_wrap {
+    width: inherit;
+    height: inherit;
+    z-index: 11;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #00000039;
+    overflow: hidden;
+
+    .WriteMemo {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 500px;
+        width: inherit;
+        background-color: #FFF8E5;
+        padding: 30px;
+        border-radius: 20px 20px 0px 0px;
+        display: flex;
+        flex-direction: column;
+
+        .nope {
+            width: 100%;
+            display: flex;
+            justify-content: right;
+            margin-bottom: 30px;
+
+            img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            font-size: 17px;
+            margin-bottom: 30px;
+
+            >p {
+                width: 60%;
+            }
+
+            >div {
+                width: 40%;
+                display: flex;
+                align-items: center;
+
+                p {
+                    margin-right: 10px;
+                }
+
+                input {
+                    background-color: var(--none);
+                    width: 85px;
+                    border-bottom: 1px solid #563428;
+                }
+            }
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            >textarea {
+                background-size: cover;
+                background-image: url(../../img/mycharacter/backpng.png);
+                border-radius: 8px;
+                width: 100%;
+                height: 250px;
+                background-color: var(--none);
+                padding: 5px;
+                vertical-align: top;
+                resize: none;
+                font-size: 17px;
+                outline: none;
+                overflow: hidden;
+                line-height: 2.1;
+            }
+        }
+
+        .write {
+            right: 15px;
+            bottom: 15px;
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: right;
+
+            img {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    }
+}
+
+.loading_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    >span {
+        margin-bottom: 50px;
+
+        >span {
+            background-color: var(--maincolor) !important;
+        }
+    }
+}
