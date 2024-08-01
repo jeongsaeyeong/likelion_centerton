@@ -8,6 +8,7 @@ import CommunityLike from './CommunityLike'
 import { useNavigate } from 'react-router-dom'
 
 const Community = () => {
+    
     const [hartclick, setHartClick] = useState(false);
     const [tabclick, setTabClick] = useState('new');
     const [showDe, setShowDe] = useState(false)
