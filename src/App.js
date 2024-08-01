@@ -22,6 +22,7 @@ import CustomerCen from './components/Mypage/CustomerCen'
 import axios from 'axios'
 import FindPass from './components/User/FindPass/FindPass'
 import ResetOk from './components/User/FindPass/ResetOk'
+import Ending from './components/MyChracter/Ending/Ending'
 
 const App = () => {
     const [accessToken, setAccessToken] = useState('')
@@ -67,6 +68,7 @@ const App = () => {
                         <Route path='/listall' element={<ListAll />} />
 
                         <Route path='/mychracter' element={<MyChracter />} />
+                        <Route path='/ending' element={<Ending />} />
                         <Route path='/mymemo' element={<MyMemo />} />
 
                         {/* 마이페이지 */}

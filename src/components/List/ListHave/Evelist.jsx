@@ -76,7 +76,7 @@ const Evelist = ({ setChooseData, setEverydata, setLifedata, setWhat, setWrite, 
                                     <div>
                                         <p>{item.task}</p>
                                         <img src={Modify} alt="Modify" onClick={() => setModifyIndex(index === modifyIndex ? null : index)} />
-                                        <ListModify setChooseData={setChooseData} setText={setText} setEverydata={setEverydata} setLifedata={setLifedata} setWrite={setWrite} modifyshow={index === modifyIndex} setModify={() => setModifyIndex(null)} item={item} list={'everylist'} />
+                                        <ListModify setWhat={setWhat} setChooseData={setChooseData} setText={setText} setEverydata={setEverydata} setLifedata={setLifedata} setWrite={setWrite} modifyshow={index === modifyIndex} setModify={() => setModifyIndex(null)} item={item} list={'everylist'} />
                                     </div>
                                 </div>
                             ))}

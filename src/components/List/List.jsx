@@ -98,7 +98,7 @@ const List = () => {
                     <ListNone setWrite={setWrite} recom={recom} setText={setText} text={text} setWhat={setWhat} />
                 )}
                 {write ? (
-                    <ListAdd choosedata={choosedata} setWrite={setWrite} setText={setText} text={text} URL={URL} recom={recom} what={what} setLifedata={setLifedata} setEverydata={setEverydata}/>
+                    <ListAdd setChooseData={setChooseData} choosedata={choosedata} setWrite={setWrite} setText={setText} text={text} URL={URL} recom={recom} what={what} setLifedata={setLifedata} setEverydata={setEverydata}/>
                 ) : (
                     <></>
                 )}

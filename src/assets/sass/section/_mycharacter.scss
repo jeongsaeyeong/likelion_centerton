@@ -491,6 +491,15 @@
         bottom: 110px;
         right: 10px;
     }
+
+    >span {
+        width: 100%;
+        height: 100%;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding-bottom: 60px !important;
+    }
 }
 
 .Memosea_wrap {
@@ -644,6 +653,95 @@
                 height: 70px;
             }
         }
+    }
+}
+
+.Ending_wrap {
+    background-image: url(../../img/mycharacter/endingback.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .box_wrap {
+        margin-left: 5px;
+        margin-top: 20px;
+        overflow: scroll;
+
+        >div {
+            background-color: #FFFFFF76;
+            width: 356px;
+            padding: 30px;
+            min-height: 500px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+
+            >button {
+                width: 100%;
+                display: flex;
+                justify-content: right;
+                margin-bottom: 30px;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                font-size: 17px;
+                font-weight: 600;
+                margin-bottom: 20px;
+            }
+
+            .main {
+                min-height: 300px;
+                background-repeat: no-repeat;
+                background-image: url(../../img/mycharacter/backpnglong.png);
+
+                p {
+                    padding-top: 1px;
+                    line-height: 1.8;
+                }
+            }
+        }
+
+        >button {
+            width: 100%;
+            height: 42px;
+            margin-bottom: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            >p {
+                width: 276px;
+                height: 42px;
+                background-color: var(--maincolor);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 20px;
+                color: var(--white);
+                font-size: 18px;
+            }
+        }
+    }
+
+    .box_wrap::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .box_wrap::-webkit-scrollbar-thumb {
+        background: var(--none);
+        border-radius: 10px;
+    }
+
+    .box_wrap::-webkit-scrollbar-track {
+        background: var(--none);
     }
 }
 

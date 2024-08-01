@@ -3,7 +3,7 @@ import Delete from '../../assets/img/community/delete.svg'
 import ModifyPost from '../../assets/img/community/modifypost.svg'
 import axios from 'axios'
 
-const ListModify = ({ setChooseData, setText, modifyshow, setWrite, setModify, item, list, setEverydata, setLifedata }) => {
+const ListModify = ({ setWhat, setChooseData, setText, modifyshow, setWrite, setModify, item, list, setEverydata, setLifedata }) => {
     const DelList = () => {
         axios.delete(`http://3.25.237.92:8000/board/${list}/${item.id}/`, {
             headers: {
@@ -45,6 +45,7 @@ const ListModify = ({ setChooseData, setText, modifyshow, setWrite, setModify, i
                     setWrite(true);
                     setModify(false);
                     setText(list === 'everylist' ? item.task : item.goal);
+                    setWhat(list === 'everylist' ? 'everylist' : 'lifelist')
                     setChooseData(item)
                 }}
             >

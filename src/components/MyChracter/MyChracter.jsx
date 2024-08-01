@@ -28,7 +28,7 @@ const MyChracter = () => {
                     setLoading(true)
                 }
             })
-    }, [])
+    }, [check])
 
     return (
         <> {loading ? (

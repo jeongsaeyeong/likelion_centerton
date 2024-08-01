@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Daram from '../../../assets/img/mycharacter/chooseDaram.png'
 import Dolphin from '../../../assets/img/mycharacter/chooseDolphin.png'
 import squirrel from '../../../assets/img/mycharacter/chooseBird.png'
@@ -12,7 +12,6 @@ import axios from 'axios'
 const ChaMain = ({ data, check, setCheck }) => {
     const URL = 'http://3.25.237.92:8000/'
     const [click, setClick] = useState('');
-    const [yeswash, setYeswash] = useState(false)
 
     const whatclick = (clickName) => {
         switch (clickName) {
@@ -29,25 +28,20 @@ const ChaMain = ({ data, check, setCheck }) => {
         }
     }
 
-    // 씻기
-    const Wash = () => {
-        axios.post(`${URL}journal_entries/`, {
-            "character": data[0].id,
-            "action_type": "wash",
-            "completed": yeswash
-        }, {
+    // 추천하기 목록 
+    useEffect(() => {
+        axios.get(`${URL}recommendations/random/`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then((res) => {
-                console.log(res.status)
-                setCheck(!check)
+
             })
             .catch((err) => {
                 console.log(err)
             })
-    }
+    })
 
     return (
         <div className="main">
@@ -67,10 +61,10 @@ const ChaMain = ({ data, check, setCheck }) => {
                 )}
             </div>
             <div className="active">
-                <ChaMainEat click={click} whatclick={whatclick} setClick={setClick} />
-                <ChaMainClean click={click} whatclick={whatclick} setClick={setClick} />
-                <ChaMainRun click={click} whatclick={whatclick} setClick={setClick} />
-                <ChaMainShower click={click} whatclick={whatclick} setClick={setClick} setYeswash={setYeswash} Wash={Wash} />
+                <ChaMainEat click={click} check={check} setCheck={setCheck} whatclick={whatclick} setClick={setClick} URL={URL} />
+                <ChaMainClean click={click} check={check} setCheck={setCheck} whatclick={whatclick} setClick={setClick} URL={URL} />
+                <ChaMainRun click={click} check={check} setCheck={setCheck} whatclick={whatclick} setClick={setClick} URL={URL} />
+                <ChaMainShower click={click} check={check} setCheck={setCheck} whatclick={whatclick} setClick={setClick} data={data} URL={URL} />
             </div>
         </div>
     )
