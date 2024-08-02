@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import leftArrow from '../../assets/img/myPage/leftArrow.svg';
 import Popup from './PopUp';
-import defaultProfileImage from '../../assets/img/myPage/proImgEdit.svg';
+import defaultProfileImage from '../../assets/img/myPage/account-circle.svg';
 
-const Mypage = ({ accessToken, setLoading }) => {
+const Mypage = ({ accessToken }) => {
     const [userData, setUserData] = useState(null);
     const [cancle, setCancle] = useState(false);
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -31,7 +32,7 @@ const Mypage = ({ accessToken, setLoading }) => {
         } else {
             setLoading(false);
         }
-    }, [accessToken, setLoading]);
+    }, [accessToken]);
 
     const OpenPopup = () => {
         setCancle(true);
@@ -61,6 +62,10 @@ const Mypage = ({ accessToken, setLoading }) => {
         navigate('/customercen');
     };
 
+    if (loading) {
+        return <div>로딩 중...</div>;
+    }
+
     return (
         <>
             <div className="container mypage_wrap">
@@ -68,7 +73,7 @@ const Mypage = ({ accessToken, setLoading }) => {
                 <div className="profile">
                     <div>
                         <img className='profileImg'
-                            src={userData && userData.photo ? `http://3.25.237.92:8000/${userData.photo}` : defaultProfileImage}
+                            src={userData.photo ? `http://3.25.237.92:8000/${userData.photo}` : defaultProfileImage}
                             alt="profile"
                         />
                         <div className="mp_ID">
