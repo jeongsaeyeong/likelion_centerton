@@ -1,23 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import Back from '../../../assets/img/community/backbtn.svg';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const CommWrite = () => {
+const CommSet = () => {
     const [text, setText] = useState('');
     const [img, setImg] = useState(null);
-    const [imgUrl, setImgUrl] = useState(null); 
+    const [currentImage, setCurrentImage] = useState(null);
     const navigate = useNavigate();
+    const { postId } = useParams();
 
     useEffect(() => {
-        return () => {
-            if (imgUrl) {
-                URL.revokeObjectURL(imgUrl);
+        axios.get(`http://3.25.237.92:8000/post/${postId}/`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
-        };
-    }, [imgUrl]);
+        })
+            .then((res) => {
+                if (res.status === 200) {
+                    setText(res.data.content);
+                    if (res.data.image) {
+                        setCurrentImage(res.data.image);
+                    }
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, [postId]);
 
-    const postSubmit = () => {
+    const patchSubmit = () => {
         if (text === '') {
             alert('내용을 작성해주세요!');
             return;
@@ -29,37 +41,36 @@ const CommWrite = () => {
             formData.append('image', img);
         }
 
-        axios.post('http://3.25.237.92:8000/post/create/', formData, {
+        axios.patch(`http://3.25.237.92:8000/post/update/${postId}/`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then((res) => {
-                if (res.status === 201) {
+                if (res.status === 200) {
                     console.log(res);
-                    navigate('/');
+                    navigate(-1);
                 }
             })
             .catch((err) => {
                 console.log(err);
             });
     };
-    const ImageRemove = () => {
-        setImgUrl(null);
-        
+
+    const ImageChange = (e) => {
+        setImg(e.target.files[0]);
+        if (e.target.files[0]) {
+            const url = URL.createObjectURL(e.target.files[0]);
+            setCurrentImage(url);
+        } else {
+            setCurrentImage(null);
+        }
     };
 
-    const handleImageChange = (e) => {
-        const file = e.target.files[0];
-        setImg(file);
-
-        if (file) {
-            const url = URL.createObjectURL(file);
-            setImgUrl(url);
-        } else {
-            setImgUrl(null);
-        }
+    const ImageRemove = () => {
+        setCurrentImage(null);
+        setImg(null);
     };
 
     const GoBack = () => {
@@ -67,12 +78,12 @@ const CommWrite = () => {
     };
 
     return (
-        <div className='Comm_Write_wrap container'>
+        <div className='CommSet container'>
             <div className="header">
-                <button className="delete">
-                    <img src={Back} alt="Backbtn" onClick={GoBack} />
+                <button className="delete" onClick={GoBack}>
+                    <img src={Back} alt="Backbtn" />
                 </button>
-                <button className="write" onClick={postSubmit}>게시하기</button>
+                <button className="write" onClick={patchSubmit}>수정하기</button>
             </div>
             <div className="main">
                 <textarea
@@ -82,19 +93,19 @@ const CommWrite = () => {
                     id="content"
                     placeholder='당신의 하루를 공유해보세요!'
                 ></textarea>
-                 <div className="image-preview">
-                    {imgUrl && (
+                <div className="image-preview">
+                    {currentImage && (
                         <>
-                            <img src={imgUrl} alt="Current" />
+                            <img src={currentImage} alt="Current" />
                             <button onClick={ImageRemove}>X</button>
                         
                         </>
                     )}
                 </div>
                 <button>
-                    <input type="file" id="file" onChange={handleImageChange} />
+                    <input type="file" id="file" onChange={ImageChange} />
                     <label htmlFor="file" className="fileBtn"></label>
-                    <input type="file" id="filegif" onChange={handleImageChange} />
+                    <input type="file" id="filegif" onChange={ImageChange} />
                     <label htmlFor="filegif" className="fileBtn gifBtn"></label>
                 </button>
             </div>
@@ -102,4 +113,4 @@ const CommWrite = () => {
     );
 }
 
-export default CommWrite;
+export default CommSet;

@@ -6,6 +6,7 @@ import List from './components/List/List'
 import MyChracter from './components/MyChracter/MyChracter'
 import Mypage from './components/Mypage/Mypage'
 import CommWrite from './components/Community/CommWrite/CommWrite'
+import CommSet from './components/Community/CommWrite/CommSet'
 import Bell from './components/Community/Bell'
 import Loading from './components/User/Loading'
 import Login2 from './components/User/Login2'
@@ -22,6 +23,7 @@ import CustomerCen from './components/Mypage/CustomerCen'
 import axios from 'axios'
 import FindPass from './components/User/FindPass/FindPass'
 import ResetOk from './components/User/FindPass/ResetOk'
+
 
 const App = () => {
     const [accessToken, setAccessToken] = useState('')
@@ -60,6 +62,7 @@ const App = () => {
                         <Route path='/' element={<Community />} />
                         <Route path='/community' element={<Community />} />
                         <Route path='/communitywrite' element={<CommWrite />} />
+                        <Route path='/communityset/:postId' element= {<CommSet />} />
 
                         <Route path='/bell' element={<Bell />} />
 
