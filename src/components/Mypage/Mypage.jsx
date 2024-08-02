@@ -67,7 +67,7 @@ const Mypage = ({ accessToken, setLoading }) => {
                 <p className="c_mypage">마이페이지</p>
                 <div className="profile">
                     <div>
-                        <img
+                        <img className='profileImg'
                             src={userData && userData.photo ? `http://3.25.237.92:8000/${userData.photo}` : defaultProfileImage}
                             alt="profile"
                         />
