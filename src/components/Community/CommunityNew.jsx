@@ -21,19 +21,20 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
-        .then((res) => {
-            if (res.status === 200) {
-                setUserId(res.data.id);
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+            .then((res) => {
+                if (res.status === 200) {
+                    setUserId(res.data.id);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
 
         loadPosts();
     }, []);
 
     const loadPosts = () => {
+       
         axios.get('http://3.25.237.92:8000/post/posthome/', {
             params: {
                 sort: 'date',
@@ -43,16 +44,16 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
-        .then((res) => {
-            if (res.status === 200) {
-                setPosts(res.data);
+            .then((res) => {
+                if (res.status === 200) {
+                    setPosts(res.data);
+                    setLoading(false);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
                 setLoading(false);
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-            setLoading(false);
-        });
+            });
     };
 
     const heart = (postId) => {
@@ -61,21 +62,21 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
-        .then((res) => {
-            if (res.status === 200) {
-                const updatedPosts = posts.map(post =>
-                    post.id === postId ? {
-                        ...post,
-                        liked: res.data.liked,
-                        total_likes: res.data.total_likes
-                    } : post
-                );
-                setPosts(updatedPosts);
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+            .then((res) => {
+                if (res.status === 200) {
+                    const updatedPosts = posts.map(post =>
+                        post.id === postId ? {
+                            ...post,
+                            liked: res.data.liked,
+                            total_likes: res.data.total_likes
+                        } : post
+                    );
+                    setPosts(updatedPosts);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     return (
@@ -90,7 +91,13 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
                         initial="hidden"
                         animate="visible"
                     >
-                        <div className="profile"></div>
+                        <div className="profile">
+                            {post.author_profile && (
+
+                                <img src={post.author_profile} alt="이미지" />
+
+                            )}
+                        </div>
                         <div className="post">
                             <div className="info">
                                 <div>
@@ -101,7 +108,7 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
                             </div>
                             <div className="post_text">
                                 <p>{post.content}</p>
-                                
+
                                 {post.image && (
                                     <div>
                                         <img src={post.image} alt="이미지" />
@@ -110,7 +117,7 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
                             </div>
                             <div className="like">
                                 <img
-                                    src={post.likes.includes(userId)||post.liked ? HartFull : HartBin}
+                                    src={post.likes.includes(userId) || post.liked ? HartFull : HartBin}
                                     alt="HartBin"
                                     onClick={() => heart(post.id)}
                                 />

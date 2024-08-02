@@ -9,6 +9,7 @@ const CommunityLike = ({ setShowDe, setPostId }) => {
     const [userId, setUserId] = useState(null);
     const [loading, setLoading] = useState(true);
 
+   
     useEffect(() => {
         axios.get('http://3.25.237.92:8000/user/', {
             headers: {
@@ -85,6 +86,12 @@ const CommunityLike = ({ setShowDe, setPostId }) => {
                         </div>
                         <div className="post_text">
                             <p>{post.content}</p>
+                            
+                            {post.image && (
+                                    <div>
+                                        <img src={post.image} alt="이미지" />
+                                    </div>
+                                )}
                         </div>
                         <div className="like">
                             <img

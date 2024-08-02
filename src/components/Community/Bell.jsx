@@ -9,7 +9,6 @@ const Bell = () => {
     const navigation = useNavigate();
 
     useEffect(() => {
-
         axios.get('http://3.25.237.92:8000/notifications/', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -43,7 +42,7 @@ const Bell = () => {
                             <div className="people">
                             </div>
                             <p className="info">
-                                <em>{notification.message.split(' ')[0]}</em>님이 <em>{notification.message.split(' ')[2]}</em> 글을 좋아합니다.
+                                <em>{notification.user}</em>님이 <em>{notification.post.title}</em> 글을 좋아합니다.
                             </p>
                             <p className="text">
                                 {notification.message}

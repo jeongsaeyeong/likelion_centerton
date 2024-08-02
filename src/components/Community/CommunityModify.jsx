@@ -4,6 +4,7 @@ import ModifyPost from '../../assets/img/community/modifypost.svg';
 import axios from 'axios';
 
 const CommunityModify = ({ modifyshow, postId, onDelete, onModify }) => {
+    
     const delpost = () => {
         axios.delete(`http://3.25.237.92:8000/post/delete/${postId}/`, {
             headers: {

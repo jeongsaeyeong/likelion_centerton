@@ -118,6 +118,12 @@ const CommunityMy = () => {
                         </div>
                         <div className="post_text">
                             <p>{post.content}</p>
+                            
+                            {post.image && (
+                                    <div>
+                                        <img src={post.image} alt="이미지" />
+                                    </div>
+                                )}
                         </div>
 
                         <div className="like">

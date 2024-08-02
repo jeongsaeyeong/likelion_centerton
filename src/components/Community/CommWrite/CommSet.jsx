@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Back from '../../../assets/img/community/backbtn.svg';
+import del from '../../../assets/img/community/del.png';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -97,7 +98,7 @@ const CommSet = () => {
                     {currentImage && (
                         <>
                             <img src={currentImage} alt="Current" />
-                            <button onClick={ImageRemove}>X</button>
+                            <button onClick={ImageRemove}><img src={del} alt="삭제" /></button>
                         
                         </>
                     )}

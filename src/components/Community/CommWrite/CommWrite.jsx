@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Back from '../../../assets/img/community/backbtn.svg';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import del from '../../../assets/img/community/del.png';
 
 const CommWrite = () => {
     const [text, setText] = useState('');
@@ -86,7 +87,7 @@ const CommWrite = () => {
                     {imgUrl && (
                         <>
                             <img src={imgUrl} alt="Current" />
-                            <button onClick={ImageRemove}>X</button>
+                            <button onClick={ImageRemove}><img src={del} alt="삭제" /></button>
                         
                         </>
                     )}
