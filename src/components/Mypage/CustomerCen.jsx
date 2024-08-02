@@ -25,7 +25,7 @@ const cuscens = [
     }
 ];
 
-const CustomerCen = () => {
+const CustomerCen = ({ userData }) => {
     const [search, setSearch] = useState('');
     const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ const CustomerCen = () => {
             <div className="main">
                 <div className="search">
                     <h3>
-                        해피해피캣님,<br />
+                    {userData ? userData.username : '로딩 중...'}님,<br />
                         무엇을 도와드릴까요?
                     </h3>
                     <div className='searchBar'>

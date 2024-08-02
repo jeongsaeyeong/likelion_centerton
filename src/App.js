@@ -23,6 +23,7 @@ import CusCenContent from './components/Mypage/CusCenContent'
 import axios from 'axios'
 
 const App = () => {
+    const [userData, setUserData] = useState('') 
     const [accessToken, setAccessToken] = useState('')
     const [login, setLogin] = useState(false)
     const [loding, setLoding] = useState(false)
@@ -41,6 +42,7 @@ const App = () => {
                 .then((res) => {
                     if (res.status === 200) {
                         setLogin(true)
+                        setUserData(res.data)
                     }
                 })
                 .catch((err) => {
@@ -69,14 +71,14 @@ const App = () => {
                         <Route path='/mymemo' element={<MyMemo />} />
 
                         {/* 마이페이지 */}
-                <Route path='/mypage' element={<Mypage />} />
-                <Route path='/profilemodify' element={<ProfileEdit />} />
-                <Route path='/editinfo' element={<EditInfo />} />
-                <Route path='/notice' element={<Notice />} />
-                <Route path='/notice/:noticenum' element={<NoticeContent />} />
-                <Route path='/appset' element={<Appset />} />
-                <Route path='/customercen' element={<CustomerCen />} />
-                <Route path='/customercen/:cuscennum' element={<CusCenContent />} />
+                        <Route path='/mypage' element={<Mypage  accessToken={accessToken} setLoding={setLoding} />} />
+                        <Route path='/profilemodify' element={<ProfileEdit  userData={userData}/>} />
+                        <Route path='/editinfo' element={<EditInfo userData={userData} />} />
+                        <Route path='/notice' element={<Notice />} />
+                        <Route path='/notice/:noticenum' element={<NoticeContent />} />
+                        <Route path='/appset' element={<Appset />} />
+                        <Route path='/customercen' element={<CustomerCen userData={userData} />} />
+                        <Route path='/customercen/:cuscennum' element={<CusCenContent />} />
 
                         {/* 로그인/로딩/회원가입 */}
                         <Route path='/loading' element={<Loading />} />
