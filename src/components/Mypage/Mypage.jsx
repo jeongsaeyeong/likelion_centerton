@@ -18,11 +18,12 @@ const Mypage = ({ accessToken }) => {
                     Authorization: `Bearer ${accessToken}`
                 }
             })
-                .then((res) => {
-                    if (res.status === 200) {
-                        setUserData(res.data);
-                    }
-                })
+            .then((res) => {
+                if (res.status === 200) {
+                    setUserData(res.data);
+                    console.log(res.data);
+                }
+            })
                 .catch((err) => {
                     console.error(err);
                 })
@@ -72,10 +73,11 @@ const Mypage = ({ accessToken }) => {
                 <p className="c_mypage">마이페이지</p>
                 <div className="profile">
                     <div>
-                        <img className='profileImg'
-                            src={userData.photo ? `http://3.25.237.92:8000/${userData.photo}` : defaultProfileImage}
-                            alt="profile"
-                        />
+                    <img
+                        className="profileImg"
+                        src={userData && userData.photo_url ? userData.photo_url : defaultProfileImage}
+                        alt="profile"
+                    />
                         <div className="mp_ID">
                             {userData ? userData.username : '로딩 중...'}
                         </div>

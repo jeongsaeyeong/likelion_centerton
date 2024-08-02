@@ -3,23 +3,25 @@ import axios from 'axios';
 import rightArrow from '../../assets/img/myPage/rightArrow.svg';
 import { useNavigate } from 'react-router-dom';
 import changeImg from '../../assets/img/myPage/changeImg.svg';
+import accountImg from '../../assets/img/myPage/account-circle.svg';
 
-const ProfileEdit = ({ userData }) => {
+const ProfileEdit = ({ userData: initialUserData }) => {
+    const [userData, setUserData] = useState(initialUserData);
     const [nick, setNick] = useState('해피해피캣');
     const [photo, setPhoto] = useState(null);
-    const navigation = useNavigate();
+    const navigate = useNavigate();
     const accessToken = localStorage.getItem('accessToken');
 
     useEffect(() => {
-        if (userData) {
-            if (userData.username) {
-                setNick(userData.username);
+        if (initialUserData) {
+            if (initialUserData.username) {
+                setNick(initialUserData.username);
             }
-            if (userData.photo) {
-                setPhoto(userData.photo);
+            if (initialUserData.photo_url) {
+                setPhoto(initialUserData.photo_url);
             }
         }
-    }, [userData]);
+    }, [initialUserData]);
 
     const handlePhotoChange = (e) => {
         const file = e.target.files[0];
@@ -29,13 +31,13 @@ const ProfileEdit = ({ userData }) => {
     };
 
     const Back = () => {
-        navigation(-1);
+        navigate(-1);
     };
 
     const handleSubmit = async () => {
         const formData = new FormData();
         formData.append('username', nick);
-        if (photo) {
+        if (photo && typeof photo !== 'string') {
             formData.append('photo', photo);
         }
 
@@ -71,12 +73,12 @@ const ProfileEdit = ({ userData }) => {
                 <label htmlFor='profile' className="photo-label">
                     {photo ? (
                         typeof photo === 'string' ? (
-                            <img src={photo} alt="Profile" className="profile-photo" />
+                            <img src={initialUserData.photo_url} alt="Profile" className="profile-photo" />
                         ) : (
                             <img src={URL.createObjectURL(photo)} alt="Profile" className="profile-photo" />
                         )
-                    ) : ''}
-                    <img src={changeImg} className='changeImg'/>
+                    ) : <img src={accountImg}/>}
+                    <img src={changeImg} className='changeImg' alt="Change" />
                 </label>
                 <input 
                     type="text" 
