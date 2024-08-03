@@ -9,6 +9,7 @@ const Bell = () => {
     const navigation = useNavigate();
 
     useEffect(() => {
+        console.log(`Bearer ${localStorage.getItem('accessToken')}`)
         axios.get('http://3.25.237.92:8000/notifications/', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`

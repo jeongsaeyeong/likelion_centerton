@@ -9,7 +9,7 @@ const CommunityLike = ({ setShowDe, setPostId }) => {
     const [userId, setUserId] = useState(null);
     const [loading, setLoading] = useState(true);
 
-   
+
     useEffect(() => {
         axios.get('http://3.25.237.92:8000/user/', {
             headers: {
@@ -58,10 +58,8 @@ const CommunityLike = ({ setShowDe, setPostId }) => {
         })
             .then((res) => {
                 if (res.status === 200) {
-                    const updatedPosts = posts.map(post =>
-                        post.id === postId ? { ...post, liked: res.data.liked, total_likes: res.data.total_likes } : post
-                    );
-                    setPosts(updatedPosts);
+                    console.log(res);
+                    loadPosts();
                 }
             })
             .catch((err) => {
@@ -86,16 +84,16 @@ const CommunityLike = ({ setShowDe, setPostId }) => {
                         </div>
                         <div className="post_text">
                             <p>{post.content}</p>
-                            
+
                             {post.image && (
-                                    <div>
-                                        <img src={post.image} alt="이미지" />
-                                    </div>
-                                )}
+                                <div>
+                                    <img src={post.image} alt="이미지" />
+                                </div>
+                            )}
                         </div>
                         <div className="like">
                             <img
-                                src={post.likes.includes(userId)||post.liked ? HartFull : HartBin}
+                                src={post.likes.includes(userId) || post.liked ? HartFull : HartBin}
                                 alt="HartBin"
                                 onClick={() => heart(post.id)}
                             />

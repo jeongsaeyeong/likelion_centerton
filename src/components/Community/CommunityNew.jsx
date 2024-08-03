@@ -34,7 +34,7 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
     }, []);
 
     const loadPosts = () => {
-       
+
         axios.get('http://3.25.237.92:8000/post/posthome/', {
             params: {
                 sort: 'date',
@@ -64,14 +64,8 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
         })
             .then((res) => {
                 if (res.status === 200) {
-                    const updatedPosts = posts.map(post =>
-                        post.id === postId ? {
-                            ...post,
-                            liked: res.data.liked,
-                            total_likes: res.data.total_likes
-                        } : post
-                    );
-                    setPosts(updatedPosts);
+                    console.log(res);
+                    loadPosts();
                 }
             })
             .catch((err) => {
