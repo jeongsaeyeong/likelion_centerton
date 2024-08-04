@@ -325,6 +325,11 @@
 
                             p {
                                 margin-right: 10px;
+                                margin-bottom: 3px;
+
+                                em {
+                                    margin-left: 5px;
+                                }
                             }
 
                             input {
@@ -342,10 +347,33 @@
                                 display: flex;
                             }
 
+                            .eat_pbox {
+                                flex-direction: column;
+
+                                >div {
+                                    display: flex;
+                                    margin-left: 40px;
+                                    margin-bottom: 5px;
+                                    
+                                    input {
+                                        margin-right: 5px;
+                                        border-bottom: 1px solid #563428;
+                                    }
+
+                                    img {
+                                        width: 22px;
+                                        height: 22px;
+                                    }
+                                }
+                            }
+
                             .btn_box {
-                                padding-left: 80px;
+                                display: flex;
+                                flex-wrap: wrap;
+                                padding-left: 75px;
 
                                 button {
+                                    margin-bottom: 5px;
                                     text-align: center;
                                     font-size: 14px;
                                     color: var(--maincolor);
@@ -355,6 +383,15 @@
                                     background-color: var(--white);
                                     border: 1px solid var(--maincolor);
                                 }
+
+                                .full {
+                                    background-color: var(--maincolor);
+                                    color: var(--white);
+                                }
+                            }
+
+                            .in_eat {
+                                padding-left: 40px;
                             }
                         }
 
@@ -369,10 +406,13 @@
 
                     .cleanbox {
                         top: 260px;
+
+
                     }
 
                     .runbox {
-                        top: 320px
+                        top: 320px;
+
                     }
 
                     .showerbox {
@@ -404,6 +444,8 @@
                             }
                         }
                     }
+
+
                 }
             }
         }

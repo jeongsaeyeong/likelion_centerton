@@ -61,9 +61,9 @@ const ChaMain = ({ data, check, setCheck }) => {
                 )}
             </div>
             <div className="active">
-                <ChaMainEat click={click} check={check} setCheck={setCheck} whatclick={whatclick} setClick={setClick} URL={URL} />
-                <ChaMainClean click={click} check={check} setCheck={setCheck} whatclick={whatclick} setClick={setClick} URL={URL} />
-                <ChaMainRun click={click} check={check} setCheck={setCheck} whatclick={whatclick} setClick={setClick} URL={URL} />
+                <ChaMainEat click={click} check={check} setCheck={setCheck} whatclick={whatclick} setClick={setClick} data={data}  URL={URL} />
+                <ChaMainClean click={click} check={check} setCheck={setCheck} whatclick={whatclick} setClick={setClick} data={data}  URL={URL} />
+                <ChaMainRun click={click} check={check} setCheck={setCheck} whatclick={whatclick} setClick={setClick} data={data}  URL={URL} />
                 <ChaMainShower click={click} check={check} setCheck={setCheck} whatclick={whatclick} setClick={setClick} data={data} URL={URL} />
             </div>
         </div>

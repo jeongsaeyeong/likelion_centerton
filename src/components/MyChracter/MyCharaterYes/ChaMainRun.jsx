@@ -3,8 +3,11 @@ import Run from '../../../assets/img/mycharacter/run.svg';
 import RunWhite from '../../../assets/img/mycharacter/runwhite.svg';
 import axios from 'axios';
 
-const ChaMainRun = ({ click, whatclick, setClick }) => {
+const ChaMainRun = ({ click, data, whatclick, setClick, setCheck, check }) => {
+    const URL = 'http://3.25.237.92:8000/'
     const [running, setRunning] = useState('');
+    const [keyword, setKeyword] = useState([])
+    const [choose, setChoose] = useState('')
 
     const Set = () => {
         if (click === 'run') {
@@ -15,23 +18,54 @@ const ChaMainRun = ({ click, whatclick, setClick }) => {
     }
 
     useEffect(() => {
-        axios.get(`http://3.25.237.92:8000/recommendations/keyword/?keyword=${running}/`, {
+        axios.get(`${URL}recommendations/keyword/?keyword=${running}`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then((res) => {
-                console.log('추천', res.data)
+                setKeyword([...res.data.walking_places.slice(0, 2)])
+                setCheck(!check)
             })
             .catch((err) => {
                 console.log(err)
+                setCheck(!check)
             })
 
     }, [running])
 
+    const Runsubmit = () => {
+        if (running === '') {
+            alert('운동 기록을 채워주세요!');
+            return;
+        }
+
+        axios.post(`${URL}journal_entries/`, {
+            "character": data[0].id,
+            "action_type": "walk",
+            "action_detail": running,
+            "completed": true
+        }, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then((res) => {
+                if (res.status === 201) {
+                    setCheck(!check)
+                    setClick('');
+                    setRunning('');
+                }
+            })
+            .catch((err) => {
+                setCheck(!check)
+                console.log(err)
+            })
+    }
+
     return (
         <div>
-            <img src={click === 'run' ? RunWhite : Run} alt="run icon" className={click === 'run' ? 'click' : ''} onClick={Set} />
+            <img src={click === 'run' ? RunWhite : Run} alt="run icon" className={click === 'run' ? 'click' : ''} onClick={() => {Set(); setRunning('')}} />
             <div className={click === 'run' ? "" : 'none'}>
                 <div className='runbox'>
                     <div>
@@ -40,10 +74,12 @@ const ChaMainRun = ({ click, whatclick, setClick }) => {
                             <input value={running} onChange={(e) => setRunning(e.target.value)} type="text" />
                         </div>
                         <div className='btn_box'>
-                            <button>상체 20분</button>
+                            {keyword.map((keyword, key) => (
+                                <button className={choose === keyword ? 'full' : ''} key={key} onClick={() => { setChoose(keyword); setRunning(keyword) }}>{keyword}</button>
+                            ))}
                         </div>
                     </div>
-                    <button onClick={() => { console.log('저장 버튼 클릭'); }}>저장</button>
+                    <button onClick={() => { Runsubmit() }}>저장</button>
                 </div>
             </div>
         </div>

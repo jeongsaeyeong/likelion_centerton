@@ -20,8 +20,8 @@ const MyChracter = () => {
         })
             .then((res) => {
                 if (res.data[0] === undefined) {
-                    console.log('데이터가 없어용')
                     setHave(false)
+                    setLoading(true)
                 } else {
                     setData([...res.data])
                     setHave(true)

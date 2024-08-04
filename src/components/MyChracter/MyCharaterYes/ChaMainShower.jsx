@@ -9,6 +9,11 @@ const ChaMainShower = ({ check, setCheck, URL, data, click, whatclick, setClick 
 
     // 씻기
     const Wash = () => {
+        if (choose === '') {
+            alert('샤워 여부를 눌러주세요!')
+            return;
+        }
+
         axios.post(`${URL}journal_entries/`, {
             "character": data[0].id,
             "action_type": "wash",

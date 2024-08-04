@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Daram from '../../assets/img/mycharacter/chooseDaram.png'
 import Dolphin from '../../assets/img/mycharacter/chooseDolphin.png'
 import Bird from '../../assets/img/mycharacter/chooseBird.png'
@@ -22,7 +22,9 @@ const MyCharacterChoose = ({ setHave }) => {
                 }
             })
                 .then((res) => {
-                    console.log(res);
+                    if (res.status === 201) {
+                        setHave(true)
+                    }
                 })
                 .catch((err) => {
                     console.error(err);

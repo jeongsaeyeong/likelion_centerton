@@ -1,7 +1,14 @@
 import axios from 'axios';
 import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Ending = () => {
+    const navigation = useNavigate();
+
+    const Going = () => {
+        navigation('/mychracter')
+    }
+
     const data = [
         {
             date: "2024년 7월 13일 토요일",
@@ -43,7 +50,7 @@ const Ending = () => {
             }
         })
             .then((res) => {
-                console.log(res.data)
+                console.log(res)
             })
             .catch((err) => {
                 console.log(err)
@@ -72,7 +79,7 @@ const Ending = () => {
                         </div>
                     </div>
                 ))}
-                <button className="change"><p>드림 파트너 바꾸기</p></button>
+                <button className="change" onClick={() => { Going() }}><p>드림 파트너 새로 만들기</p></button>
             </div>
         </div>
     )
