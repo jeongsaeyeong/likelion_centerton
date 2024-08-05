@@ -18,12 +18,22 @@
             font-size: 22px;
         }
     }
-
+    .main:hover{
+        cursor: pointer;
+    }
     .main {
+        .no-alram{
+            margin-top: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #5B5B5B;
+        }
         .like {
             display: flex;
             padding: 20px 30px;
             border-bottom: 1px solid var(--black300);
+           
 
             img {
                 width: 27px;
@@ -33,9 +43,17 @@
             }
 
             >div {
+                width: 95%;
                 .people {
                     display: flex;
                     margin-bottom: 10px;
+                    img{
+                        width: 41px;
+                        height: 41px;
+                        object-fit: cover;
+                        border-radius: 20px;
+                        margin-top: 0;
+                    }
 
                     div {
                         width: 41px;
@@ -49,7 +67,8 @@
                 .info {
                     font-size: 14px;
                     em {
-                        font-weight: 600;
+                        font-weight: 500;
+                        font-size: 16px;
                     }
                 }
 
@@ -58,6 +77,7 @@
                     white-space: normal;
                     font-size: 13px;
                     color: var(--black100);
+                    margin-top: 10px;
                 }
             }
         }

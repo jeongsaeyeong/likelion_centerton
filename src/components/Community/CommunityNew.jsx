@@ -95,7 +95,7 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
                         <div className="post">
                             <div className="info">
                                 <div>
-                                    <h3>{post.author}</h3>
+                                    <h3>{post.author_username}</h3>
                                     <p>{new Date(post.date_posted).toLocaleTimeString()}</p>
                                 </div>
                                 <img onClick={() => { setPostId(post.id); setShowDe(true); }} src={Declaration} alt="Declaration" />

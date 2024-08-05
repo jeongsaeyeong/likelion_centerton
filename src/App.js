@@ -5,6 +5,7 @@ import Community from './components/Community/Community'
 import List from './components/List/List'
 import MyChracter from './components/MyChracter/MyChracter'
 import Mypage from './components/Mypage/Mypage'
+import CommunityDetail from './components/Community/CommunityDetail'
 import CommWrite from './components/Community/CommWrite/CommWrite'
 import CommSet from './components/Community/CommWrite/CommSet'
 import Bell from './components/Community/Bell'
@@ -63,6 +64,7 @@ const App = () => {
                         <Route path='/community' element={<Community />} />
                         <Route path='/communitywrite' element={<CommWrite />} />
                         <Route path='/communityset/:postId' element= {<CommSet />} />
+                        <Route path='/communitypost/:postId' element={<CommunityDetail />} />
 
                         <Route path='/bell' element={<Bell />} />
 

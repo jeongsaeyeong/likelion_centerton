@@ -44,6 +44,7 @@ const CommunityMy = () => {
         })
             .then((res) => {
                 if (res.status === 200) {
+                    console.log(res.data);
                     const ModifyState = res.data.map(post => ({
                         ...post,
                         isModify: false
@@ -72,7 +73,7 @@ const CommunityMy = () => {
         })
             .then((res) => {
                 if (res.status === 200) {
-                   console.log(res);
+                    console.log(res);
                     loadPosts();
                 }
             })
@@ -104,11 +105,17 @@ const CommunityMy = () => {
             ) : posts.length > 0 ? (
                 posts.map(post => (
                     <div className="post_box" key={post.id}>
-                        <div className="profile"></div>
+                        <div className="profile">
+                            {post.author_profile && (
+
+                                <img src={post.author_profile} alt="이미지" />
+
+                            )}
+                        </div>
                         <div className="post">
                             <div className="info">
                                 <div>
-                                    <h3>{post.author}</h3>
+                                    <h3>{post.author_username}</h3>
                                     <p>{new Date(post.date_posted).toLocaleTimeString()}</p>
                                 </div>
                                 <img onClick={() => toggleModify(post.id)} src={Modify} alt="Modify" />
