@@ -37,7 +37,7 @@ const MyCharacterChoose = ({ setHave }) => {
             <input type="text" placeholder='이름' value={nick} onChange={(e) => { setNick(e.target.value) }} />
             <div className="main">
                 <div className='chooseback'>
-                    <img src={choose === 'dolphin' ? Dolphin : choose === 'parrot ' ? Daram : Bird} alt="parrot " />
+                    <img src={choose === 'dolphin' ? Dolphin : choose === 'parrot' ? Daram : Bird} alt="parrot" />
                 </div>
                 <div className="choose_list">
                     <div className='list'>
@@ -47,7 +47,7 @@ const MyCharacterChoose = ({ setHave }) => {
                         <div className="bird" onClick={() => { setChoose('squirrel') }}>
                             <img src={Bird} alt="Bird" />
                         </div>
-                        <div className="da" onClick={() => { setChoose('parrot ') }}>
+                        <div className="da" onClick={() => { setChoose('parrot') }}>
                             <img src={Daram} alt="Daram" />
                         </div>
                     </div>

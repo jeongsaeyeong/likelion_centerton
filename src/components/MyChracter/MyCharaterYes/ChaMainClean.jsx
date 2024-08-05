@@ -24,7 +24,6 @@ const ChaMainClean = ({ click, whatclick, setClick, URL, setCheck, check, data }
             }
         })
             .then((res) => {
-                console.log(res.data)
                 setKeyword([...res.data.cleaning_spots.slice(0, 2)])
                 setCheck(!check)
             })

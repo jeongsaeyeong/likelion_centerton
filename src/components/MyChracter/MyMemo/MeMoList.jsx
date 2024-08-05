@@ -10,9 +10,8 @@ const MeMoList = () => {
     const URL = 'http://3.25.237.92:8000/';
     const [memos, setMemos] = useState([]);
     const [click, setClick] = useState(false);
-    const [chaid, setChaid] = useState(0)
-    const [getdate, getsetDate] = useState('');
-    const [diary, setDiary] = useState([])
+    const [chaid, setChaid] = useState(0);
+    const [today, setToday] = useState('');
 
     const starImages = [Star01, Star02, Star03, Star04];
 
@@ -52,41 +51,18 @@ const MeMoList = () => {
             })
     }, []);
 
-    const GetMemo = (date) => {
-        const match = date.match(/^(\d+)월 (\d+)일$/);
-        if (match) {
-            const month = match[1].padStart(2, '0');
-            const day = match[2].padStart(2, '0');
-            const formattedDate = `2024-${month}-${day}`;
-            getsetDate(formattedDate)
-        }
-
-        if (chaid !== 0 && getdate !== '') {
-            axios.get(`${URL}characters/${chaid}/journal/${getdate}/`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-                .then((res) => {
-                    setDiary(res.data)
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
-        }
-    }
 
     return (
         <>
             {click ? (
                 <>
-                    <Memosea setClick={setClick} diary={diary} />
+                    <Memosea setClick={setClick} URL={URL} chaid={chaid} today={today}/>
                 </>
             ) : (
                 <div className="memolist">
                     <div className='memo'>
                         {memos.map((memo) => (
-                            <div key={memo.id} onClick={() => { setClick(true); GetMemo(memo.date) }}>
+                            <div key={memo.id} onClick={() => { setClick(true); setToday(memo.date)}}>
                                 <img src={memo.img} alt="" />
                                 <p>{memo.date}</p>
                             </div>

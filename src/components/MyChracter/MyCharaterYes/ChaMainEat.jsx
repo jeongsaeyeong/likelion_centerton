@@ -3,11 +3,11 @@ import Eat from '../../../assets/img/mycharacter/eat.svg'
 import EatWhite from '../../../assets/img/mycharacter/eatwhite.svg'
 import Eatup from '../../../assets/img/mycharacter/eatup.svg'
 import axios from 'axios'
+import { PulseLoader } from 'react-spinners'
 
 const ChaMainEat = ({ click, whatclick, setClick, URL, setCheck, check, data }) => {
-    const [eatbox, setEatbox] = useState([])
     const [choose, setChoose] = useState('')
-    const [morning, setMorning] = useState(['밥', '국', '찌개', '햄']);
+    const [morning, setMorning] = useState([]);
     const [launch, setLaunch] = useState(['밥', '국', '찌개', '햄']);
     const [evening, setEvening] = useState(['밥', '국', '찌개', '햄']);
     const [desert, setDesert] = useState(['밥', '국', '찌개', '햄']);
@@ -15,13 +15,19 @@ const ChaMainEat = ({ click, whatclick, setClick, URL, setCheck, check, data }) 
     const [launchinput, setLaunchinput] = useState('');
     const [eveninginput, setEveninginput] = useState('');
     const [desertinput, setDesertinput] = useState('');
-    const [morningkeyword, setMorningkeyword] = useState('');
-    const [launchkeyword, setLaunchkeyword] = useState('');
-    const [eveningkeyword, setEveningkeyword] = useState('');
-    const [desertkeyword, setDeserkeywordt] = useState('');
+    const [morningkeyword, setMorningkeyword] = useState([]);
+    const [launchkeyword, setLaunchkeyword] = useState([]);
+    const [eveningkeyword, setEveningkeyword] = useState([]);
+    const [desertkeyword, setDeserkeywordt] = useState([]);
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [today, setToday] = useState('');
 
+    useEffect(() => {
+        const today = new Date();
+        const formattedDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+        setToday(formattedDate);
+    }, []);
 
     const Set = () => {
         if (click === 'eat') {
@@ -75,13 +81,85 @@ const ChaMainEat = ({ click, whatclick, setClick, URL, setCheck, check, data }) 
         fetchRecommendations();
     }, [morninginput, launchinput, eveninginput, desertinput]);
 
+    useEffect(() => {
+        axios.get(`${URL}characters/${data[0].id}/records/${today}/`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then((res) => {
+                setMorning([...res.data.meals.breakfast])
+                setLaunch([...res.data.meals.lunch])
+                setEvening([...res.data.meals.dinner])
+                setDesert([...res.data.meals.snack])
+                setLoading(true)
+            })
+            .catch((err) => {
+                console.log(err)
+                setLoading(false)
+            })
+    })
+
+    const Submit = (time) => {
+        let menu = '';
+
+        switch (time) {
+            case 'breakfast':
+                menu = morninginput;
+                break;
+            case 'lunch':
+                menu = launchinput;
+                break;
+            case 'dinner':
+                menu = eveninginput;
+                break;
+            case 'snack':
+                menu = desertinput;
+                break;
+            default:
+                menu = '';
+                break;
+        }
+
+        if (time !== '') {
+            axios.post(`${URL}journal_entries/`, {
+                "character": data[0].id,
+                "action_type": "eat",
+                "meal_time": time,
+                "action_detail": menu,
+                "completed": true
+            }, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then((res) => {
+                    if (res.status === 201) {
+                        setDesertinput('')
+                        setMorninginput('')
+                        setEveninginput('')
+                        setDesertinput('')
+                        setLoading(false)
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                    setDesertinput('')
+                    setMorninginput('')
+                    setEveninginput('')
+                    setDesertinput('')
+                    setLoading(false)
+                });
+        }
+    };
+
     return (
-        <>
-            {loading ? (
+        <div>
+            <img src={click === 'eat' ? EatWhite : Eat} alt="" className={click === 'eat' ? 'click' : ''} onClick={() => { Set(); setMorninginput(''); setLaunchinput(''); setEveninginput(''); setDesertinput(''); }} />
+            <div className={click === 'eat' ? "eatbox" : 'none'}>
                 <div>
-                    <img src={click === 'eat' ? EatWhite : Eat} alt="" className={click === 'eat' ? 'click' : ''} onClick={() => { Set(); setMorninginput(''); setLaunchinput(''); setEveninginput(''); setDesertinput(''); }} />
-                    <div className={click === 'eat' ? "eatbox" : 'none'}>
-                        <div>
+                    {loading ? (
+                        <>
                             <div>
                                 <div className='eat_pbox'>
                                     <p>아침:
@@ -91,7 +169,7 @@ const ChaMainEat = ({ click, whatclick, setClick, URL, setCheck, check, data }) 
                                     </p>
                                     <div>
                                         <input value={morninginput} onChange={(e) => { setMorninginput(e.target.value) }} type="text" />
-                                        <button><img src={Eatup} alt="" /></button>
+                                        <button onClick={() => { Submit('breakfast') }}><img src={Eatup} alt="" /></button>
                                     </div>
                                 </div>
                                 <div className='btn_box in_eat'>
@@ -109,7 +187,7 @@ const ChaMainEat = ({ click, whatclick, setClick, URL, setCheck, check, data }) 
                                     </p>
                                     <div>
                                         <input value={launchinput} onChange={(e) => { setLaunchinput(e.target.value) }} type="text" />
-                                        <button><img src={Eatup} alt="" /></button>
+                                        <button onClick={() => { Submit('lunch') }}><img src={Eatup} alt="" /></button>
                                     </div>
                                 </div>
                                 <div className='btn_box in_eat'>
@@ -127,7 +205,7 @@ const ChaMainEat = ({ click, whatclick, setClick, URL, setCheck, check, data }) 
                                     </p>
                                     <div>
                                         <input value={eveninginput} onChange={(e) => { setEveninginput(e.target.value) }} type="text" />
-                                        <button><img src={Eatup} alt="" /></button>
+                                        <button onClick={() => { Submit('dinner') }}><img src={Eatup} alt="" /></button>
                                     </div>
                                 </div>
                                 <div className='btn_box in_eat'>
@@ -145,7 +223,7 @@ const ChaMainEat = ({ click, whatclick, setClick, URL, setCheck, check, data }) 
                                     </p>
                                     <div>
                                         <input value={desertinput} onChange={(e) => { setDesertinput(e.target.value) }} type="text" />
-                                        <button><img src={Eatup} alt="" /></button>
+                                        <button onClick={() => { Submit('snack') }}><img src={Eatup} alt="" /></button>
                                     </div>
                                 </div>
                                 <div className='btn_box in_eat'>
@@ -154,15 +232,16 @@ const ChaMainEat = ({ click, whatclick, setClick, URL, setCheck, check, data }) 
                                     ))}
                                 </div>
                             </div>
-                            <button onClick={() => { Set() }}>저장</button>
+                        </>
+                    ) : (
+                        <div className='wait'>
+                            <PulseLoader />
                         </div>
-                    </div>
+                    )}
+                    <button onClick={() => { Set() }}>저장</button>
                 </div>
-            ) : (
-                <></>
-            )}
-        </>
-
+            </div>
+        </div>
     )
 }
 

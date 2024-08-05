@@ -7,7 +7,6 @@ import ChaMainClean from './ChaMainClean'
 import ChaMainRun from './ChaMainRun'
 import ChaMainShower from './ChaMainShower'
 import ChaMainGuage from './ChaMainGuage'
-import axios from 'axios'
 
 const ChaMain = ({ data, check, setCheck }) => {
     const URL = 'http://3.25.237.92:8000/'
@@ -27,21 +26,6 @@ const ChaMain = ({ data, check, setCheck }) => {
                 return setClick('');
         }
     }
-
-    // 추천하기 목록 
-    useEffect(() => {
-        axios.get(`${URL}recommendations/random/`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then((res) => {
-
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    })
 
     return (
         <div className="main">
