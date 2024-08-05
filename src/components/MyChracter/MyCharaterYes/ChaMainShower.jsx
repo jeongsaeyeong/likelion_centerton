@@ -24,7 +24,6 @@ const ChaMainShower = ({ check, setCheck, URL, data, click, whatclick, setClick 
             }
         })
             .then((res) => {
-                console.log(res.status)
                 setCheck(!check)
                 setClick('');
                 setChoose('')

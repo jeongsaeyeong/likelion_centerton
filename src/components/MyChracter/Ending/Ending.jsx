@@ -1,61 +1,56 @@
 import axios from 'axios';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Ending = () => {
+    const URL = 'http://3.25.237.92:8000/'
     const navigation = useNavigate();
+    const [data, setData] = useState([])
 
-    const Going = () => {
-        navigation('/mychracter')
-    }
-
-    const data = [
-        {
-            date: "2024년 7월 13일 토요일",
-            weather: "맑음",
-            content: "임시 텍스트"
-        },
-        {
-            date: "2024년 7월 13일 토요일",
-            weather: "맑음",
-            content: "임시 텍스트"
-        },
-        {
-            date: "2024년 7월 13일 토요일",
-            weather: "맑음",
-            content: "임시 텍스트"
-        },
-        {
-            date: "2024년 7월 13일 토요일",
-            weather: "맑음",
-            content: "임시 텍스트"
-        },
-        {
-            date: "2024년 7월 13일 토요일",
-            weather: "맑음",
-            content: "임시 텍스트"
-        },
-        {
-            date: "2024년 7월 13일 토요일",
-            weather: "맑음",
-            content: "임시 텍스트"
-        },
-
-    ];
 
     useEffect(() => {
-        axios.get('http://3.25.237.92:8000/character/ending/', {
+        axios.get(`${URL}characters/`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then((res) => {
-                console.log(res)
+                if (res.data[0].id) {
+                    axios.get(`${URL}characters/${res.data[0].id}/ending/`, {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                        }
+                    })
+                        .then((res) => {
+                            setData(res.data)
+                            console.log(res.data)
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+                }
             })
             .catch((err) => {
                 console.log(err)
             })
+
     }, [])
+
+    const RealEnding = () => {
+        axios.post(`${URL}characters/end/`, {}, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then((res) => {
+                if (res.status === 200) {
+                    navigation('/mychracter')
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
 
     return (
         <div className='Ending_wrap container'>
@@ -63,23 +58,47 @@ const Ending = () => {
                 {data.map((item, index) => (
                     <div className='box' key={index}>
                         <div className="header">
-                            <p className="date">{item.date}</p>
+                            <p className="date">{item.date} {item.day}</p>
                             <p className="date">날씨: {item.weather}</p>
                         </div>
                         <div className="main">
                             <p>
-                                {item.content} <br />
-                                {item.content} <br />
-                                {item.content} <br />
-                                {item.content} <br />
-                                {item.content} <br />
-                                {item.content} <br />
-                                {item.content} <br />
+                                <p>
+                                    아침: {item.meals.breakfast.map((item, key) => (
+                                        <p key={key}>{item},</p>
+                                    ))}<br />
+                                </p>
+                                <p>
+                                    점심: {item.meals.lunch.map((item, key) => (
+                                        <p key={key}>{item}, </p>
+                                    ))}<br />
+                                </p>
+                                <p>
+                                    저녁: {item.meals.dinner.map((item, key) => (
+                                        <p key={key}>{item}, </p>
+                                    ))}<br />
+                                </p>
+                                <p>
+                                    간식: {item.meals.snack.map((item, key) => (
+                                        <p key={key}>{item}, </p>
+                                    ))}<br />
+                                </p>
+                                <p>
+                                    청소한 장소: {item.records.cleaning.map((item, key) => (
+                                        <p key={key}>{item}, </p>
+                                    ))}<br />
+                                </p>
+                                <p>
+                                    해낸 운동: {item.records.exercise.map((item, key) => (
+                                        <p key={key}>{item}, </p>
+                                    ))}<br />
+                                </p>
                             </p>
+                            <p>{item.diary}</p>
                         </div>
                     </div>
                 ))}
-                <button className="change" onClick={() => { Going() }}><p>드림 파트너 새로 만들기</p></button>
+                <button className="change" onClick={() => { RealEnding() }}><p>드림 파트너 새로 만들기</p></button>
             </div>
         </div>
     )

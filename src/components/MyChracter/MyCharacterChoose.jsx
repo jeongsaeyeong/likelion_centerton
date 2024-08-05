@@ -3,10 +3,12 @@ import Daram from '../../assets/img/mycharacter/chooseDaram.png'
 import Dolphin from '../../assets/img/mycharacter/chooseDolphin.png'
 import Bird from '../../assets/img/mycharacter/chooseBird.png'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const MyCharacterChoose = ({ setHave }) => {
     const [choose, setChoose] = useState('dolphin');
     const [nick, setNick] = useState('');
+    const navigation = useNavigate()
 
     const CreateCha = () => {
         if (nick === '') {
@@ -23,7 +25,7 @@ const MyCharacterChoose = ({ setHave }) => {
             })
                 .then((res) => {
                     if (res.status === 201) {
-                        setHave(true)
+                        navigation('/mychracter')
                     }
                 })
                 .catch((err) => {

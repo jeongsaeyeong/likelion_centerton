@@ -51,7 +51,6 @@ const MeMoList = () => {
             })
     }, []);
 
-
     return (
         <>
             {click ? (
