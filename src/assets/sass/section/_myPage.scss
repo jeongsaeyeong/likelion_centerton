@@ -17,6 +17,13 @@
         position: absolute;
         text-align: center;
 
+        .profileImg{
+            width: 94px;
+            height: 94px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+        }
         .editProfile {
             display: flex;
             justify-content: center;
@@ -100,6 +107,30 @@
         align-items: center;
         margin-top: 140px;
 
+        .profile-photo {
+            width: 135px;
+            height: 135px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+        }
+        
+        .photo-label {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .changeImg {
+            position: absolute;
+            left: 115px;
+            top: 108px;
+            width: 43px;
+            height: 43px;
+            z-index: 1;
+        }
+
         input[type="file"] {
             display: none;
         }
@@ -109,7 +140,6 @@
             display: block;
             width: 160px;
             height: 160px;
-            background-image: url(../../img/myPage/proImgEdit.svg);
             margin-bottom: 30px;
         }
 
@@ -122,6 +152,7 @@
         }
     }
 }
+
 
 .EditInfo_wrap {
     padding: 20px;
@@ -171,7 +202,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
-
+    
         p {
             display: flex;
             justify-content: center;
@@ -180,9 +211,16 @@
             width: 180px;
             height: 44px;
             border-radius: 24px;
-            background-color: var(--maincolor);
+            background-color: var(--black400);
+        }
+    
+        &.active {
+            p {
+                background-color: var(--maincolor);
+            }
         }
     }
+    
 }
 
 .notice_wrap {
@@ -329,9 +367,39 @@
                         font-size: 15px;
                     }
 
-                    img {
+                    .toggle {
                         width: 57px;
                         height: 28px;
+                        background-color: #BCBCBC;
+                        border-radius: 14px;
+                        position: relative;
+                        cursor: pointer;
+
+                        &.checked {
+                            background-color: #FFC328;
+
+                            .circle {
+                                right: 4px;
+                            }
+                        }
+
+                        &.unchecked {
+                            background-color: #BCBCBC;
+
+                            .circle {
+                                left: 4px;
+                            }
+                        }
+
+                        .circle {
+                            width: 20px;
+                            height: 20px;
+                            background-color: #fff;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 4px;
+                            transition: 0.5s;
+                        }
                     }
                 }
             }

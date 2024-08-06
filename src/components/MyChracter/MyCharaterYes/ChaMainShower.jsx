@@ -1,10 +1,41 @@
 import React, { useState } from 'react'
 import Shower from '../../../assets/img/mycharacter/shawer.svg'
 import ShowerWhite from '../../../assets/img/mycharacter/shawerwhite.svg'
+import axios from 'axios'
 
-const ChaMainShower = ({ click, whatclick, setClick, setYeswash, Wash }) => {
+const ChaMainShower = ({ check, setCheck, URL, data, click, whatclick, setClick }) => {
     const [choose, setChoose] = useState('')
-    
+    const [yeswash, setYeswash] = useState(false)
+
+    // 씻기
+    const Wash = () => {
+        if (choose === '') {
+            alert('샤워 여부를 눌러주세요!')
+            return;
+        }
+
+        axios.post(`${URL}journal_entries/`, {
+            "character": data[0].id,
+            "action_type": "wash",
+            "completed": yeswash
+        }, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then((res) => {
+                setCheck(!check)
+                setClick('');
+                setChoose('')
+            })
+            .catch((err) => {
+                console.log(err)
+                setCheck(!check)
+                setClick('');
+                setChoose('')
+            })
+    }
+
     const Set = () => {
         if (click === 'shower') {
             setClick('');

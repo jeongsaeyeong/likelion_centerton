@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Daram from '../../assets/img/mycharacter/chooseDaram.png'
 import Dolphin from '../../assets/img/mycharacter/chooseDolphin.png'
 import Bird from '../../assets/img/mycharacter/chooseBird.png'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const MyCharacterChoose = ({ setHave }) => {
     const [choose, setChoose] = useState('dolphin');
     const [nick, setNick] = useState('');
+    const navigation = useNavigate()
 
     const CreateCha = () => {
         if (nick === '') {
@@ -22,7 +24,9 @@ const MyCharacterChoose = ({ setHave }) => {
                 }
             })
                 .then((res) => {
-                    console.log(res);
+                    if (res.status === 201) {
+                        navigation('/mychracter')
+                    }
                 })
                 .catch((err) => {
                     console.error(err);
@@ -35,7 +39,7 @@ const MyCharacterChoose = ({ setHave }) => {
             <input type="text" placeholder='이름' value={nick} onChange={(e) => { setNick(e.target.value) }} />
             <div className="main">
                 <div className='chooseback'>
-                    <img src={choose === 'dolphin' ? Dolphin : choose === 'parrot ' ? Daram : Bird} alt="parrot " />
+                    <img src={choose === 'dolphin' ? Dolphin : choose === 'parrot' ? Daram : Bird} alt="parrot" />
                 </div>
                 <div className="choose_list">
                     <div className='list'>
@@ -45,7 +49,7 @@ const MyCharacterChoose = ({ setHave }) => {
                         <div className="bird" onClick={() => { setChoose('squirrel') }}>
                             <img src={Bird} alt="Bird" />
                         </div>
-                        <div className="da" onClick={() => { setChoose('parrot ') }}>
+                        <div className="da" onClick={() => { setChoose('parrot') }}>
                             <img src={Daram} alt="Daram" />
                         </div>
                     </div>
