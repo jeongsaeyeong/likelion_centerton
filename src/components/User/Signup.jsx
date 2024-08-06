@@ -133,17 +133,17 @@ const Signup = () => {
             </div>
             <div className='info'>
                 <div className="id">
-                    <input type="text" placeholder='아이디' value={userid} onChange={(e) => setUserId(e.target.value)} />
+                    <input type="text" placeholder='아이디를 입력하세요' value={userid} onChange={(e) => setUserId(e.target.value)} />
                     <button type="button" onClick={SameId}>중복 확인</button>
                 </div>
                 <p className={useridMsg === '사용 가능한 아이디입니다.' ? 'id_ok' : 'id_no'}>{useridMsg}</p>
 
-                <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder='비밀번호' />
-                <input value={passwordre} onChange={(e) => setPasswordre(e.target.value)} type="password" placeholder='비밀번호 확인' />
+                <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder='비밀번호를 입력해주세요' />
+                <input value={passwordre} onChange={(e) => setPasswordre(e.target.value)} type="password" placeholder='비밀번호를 재입력해주세요' />
                 <p className={passwordMsg === '비밀번호가 일치하지 않습니다.' ? 'id_no' : ''}>{passwordMsg}</p>
 
-                <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder='이름' />
-                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder='이메일' />
+                <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder='이름을 입력해주세요' />
+                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder='이메일을 올바르게 작성해주세요' />
 
                 <div className='submitbox'>
                     <button type="submit" className='signupbtn' onClick={SubmitJoin} disabled={loading}>

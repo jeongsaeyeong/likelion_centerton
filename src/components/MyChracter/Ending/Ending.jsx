@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { PulseLoader } from 'react-spinners'
 
 const Ending = () => {
     const URL = 'https://dreamcatcherrr.store/'
     const navigation = useNavigate();
     const [data, setData] = useState([])
-
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         axios.get(`${URL}characters/`, {
@@ -23,10 +24,11 @@ const Ending = () => {
                     })
                         .then((res) => {
                             setData(res.data)
-                            console.log(res.data)
+                            setLoading(true)
                         })
                         .catch((err) => {
                             console.log(err)
+                            setLoading(false)
                         })
                 }
             })
@@ -54,52 +56,58 @@ const Ending = () => {
 
     return (
         <div className='Ending_wrap container'>
-            <div className="box_wrap">
-                {data.map((item, index) => (
-                    <div className='box' key={index}>
-                        <div className="header">
-                            <p className="date">{item.date} {item.day}</p>
-                            <p className="date">날씨: {item.weather}</p>
+            {loading ? (
+                <div className="box_wrap">
+                    {data.map((item, index) => (
+                        <div className='box' key={index}>
+                            <div className="header">
+                                <p className="date">{item.date} {item.day}</p>
+                                <p className="date">날씨: {item.weather}</p>
+                            </div>
+                            <div className="main">
+                                <p>
+                                    <p>
+                                        아침: {item.meals.breakfast.map((item, key) => (
+                                            <p key={key}>{item},</p>
+                                        ))}<br />
+                                    </p>
+                                    <p>
+                                        점심: {item.meals.lunch.map((item, key) => (
+                                            <p key={key}>{item}, </p>
+                                        ))}<br />
+                                    </p>
+                                    <p>
+                                        저녁: {item.meals.dinner.map((item, key) => (
+                                            <p key={key}>{item}, </p>
+                                        ))}<br />
+                                    </p>
+                                    <p>
+                                        간식: {item.meals.snack.map((item, key) => (
+                                            <p key={key}>{item}, </p>
+                                        ))}<br />
+                                    </p>
+                                    <p>
+                                        청소한 장소: {item.records.cleaning.map((item, key) => (
+                                            <p key={key}>{item}, </p>
+                                        ))}<br />
+                                    </p>
+                                    <p>
+                                        해낸 운동: {item.records.exercise.map((item, key) => (
+                                            <p key={key}>{item}, </p>
+                                        ))}<br />
+                                    </p>
+                                </p>
+                                <p>{item.diary}</p>
+                            </div>
                         </div>
-                        <div className="main">
-                            <p>
-                                <p>
-                                    아침: {item.meals.breakfast.map((item, key) => (
-                                        <p key={key}>{item},</p>
-                                    ))}<br />
-                                </p>
-                                <p>
-                                    점심: {item.meals.lunch.map((item, key) => (
-                                        <p key={key}>{item}, </p>
-                                    ))}<br />
-                                </p>
-                                <p>
-                                    저녁: {item.meals.dinner.map((item, key) => (
-                                        <p key={key}>{item}, </p>
-                                    ))}<br />
-                                </p>
-                                <p>
-                                    간식: {item.meals.snack.map((item, key) => (
-                                        <p key={key}>{item}, </p>
-                                    ))}<br />
-                                </p>
-                                <p>
-                                    청소한 장소: {item.records.cleaning.map((item, key) => (
-                                        <p key={key}>{item}, </p>
-                                    ))}<br />
-                                </p>
-                                <p>
-                                    해낸 운동: {item.records.exercise.map((item, key) => (
-                                        <p key={key}>{item}, </p>
-                                    ))}<br />
-                                </p>
-                            </p>
-                            <p>{item.diary}</p>
-                        </div>
-                    </div>
-                ))}
-                <button className="change" onClick={() => { RealEnding() }}><p>드림 파트너 새로 만들기</p></button>
-            </div>
+                    ))}
+                    <button className="change" onClick={() => { RealEnding() }}><p>드림 파트너 새로 만들기</p></button>
+                </div>
+            ) : (
+                <div className="loading_wrap">
+                    <PulseLoader />
+                </div>
+            )}
         </div>
     )
 }
