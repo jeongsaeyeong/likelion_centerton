@@ -5,7 +5,7 @@ import Terms from './Terms'
 import axios from 'axios'
 
 const Signup = () => {
-    const URL = 'http://3.25.237.92:8000/'
+    const URL = 'https://dreamcatcherrr.store/'
 
     const [allterms, setAllterms] = useState(false)
     const [userid, setUserId] = useState('');
