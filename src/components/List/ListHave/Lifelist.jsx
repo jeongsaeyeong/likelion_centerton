@@ -25,7 +25,7 @@ const Lifelist = ({setChooseData, setEverydata, setLifedata, setWhat, setWrite, 
         const item = lifedata[index];
         const updatedCompletedStatus = !item.completed;
 
-        axios.put(`http://3.25.237.92:8000/board/lifelist/${item.id}/`,
+        axios.put(`https://dreamcatcherrr.store/http://3.25.237.92:8000/board/lifelist/${item.id}/`,
             {
                 goal: item.goal,
                 description: item.description,

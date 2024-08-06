@@ -21,7 +21,7 @@ const Evelist = ({ setChooseData, setEverydata, setLifedata, setWhat, setWrite, 
         const item = everydata[index];
         const updatedCompletedStatus = !item.completed;
 
-        axios.put(`http://3.25.237.92:8000/board/everylist/${item.id}/`,
+        axios.put(`https://dreamcatcherrr.store/board/everylist/${item.id}/`,
             {
                 task: item.task,
                 due_date: item.due_date,
