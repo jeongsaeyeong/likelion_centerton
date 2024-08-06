@@ -11,7 +11,7 @@ const Alarm = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://3.25.237.92:8000/notifications/', {
+        axios.get('https://dreamcatcherrr.store/notifications/', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }

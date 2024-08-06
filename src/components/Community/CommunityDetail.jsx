@@ -17,7 +17,7 @@ const CommunityDetail = () => {
 
     useEffect(() => {
         console.log(`Bearer ${localStorage.getItem('accessToken')}`)
-        axios.get('http://3.25.237.92:8000/user/', {
+        axios.get('https://dreamcatcherrr.store/user/', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -35,7 +35,7 @@ const CommunityDetail = () => {
     }, [postId]);
 
     const loadPosts = () => {
-        axios.get(`http://3.25.237.92:8000/post/${postId}/`, {
+        axios.get(`https://dreamcatcherrr.store/post/${postId}/`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -53,7 +53,7 @@ const CommunityDetail = () => {
     };
 
     const handleHeartClick = (postId) => {
-        axios.post(`http://3.25.237.92:8000/post/like/${postId}/`, {}, {
+        axios.post(`https://dreamcatcherrr.store/post/like/${postId}/`, {}, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -76,7 +76,7 @@ const CommunityDetail = () => {
     };
 
     const deletePost = (postId) => {
-        axios.delete(`http://3.25.237.92:8000/post/delete/${postId}/`, {
+        axios.delete(`https://dreamcatcherrr.store/post/delete/${postId}/`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }

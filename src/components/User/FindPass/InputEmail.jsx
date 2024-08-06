@@ -18,7 +18,7 @@ const InputEmail = ({ email, setEmail, setChange }) => {
             return;
         }
 
-        axios.post('http://3.25.237.92:8000/password-reset-request/', {
+        axios.post('https://dreamcatcherrr.store/password-reset-request/', {
             email: email
         })
             .then((res) => {

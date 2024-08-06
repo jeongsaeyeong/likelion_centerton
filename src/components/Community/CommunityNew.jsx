@@ -18,7 +18,7 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
     };
 
     useEffect(() => {
-        axios.get('http://3.25.237.92:8000/user/', {
+        axios.get('https://dreamcatcherrr.store/user/', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -37,7 +37,7 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
 
     const loadPosts = () => {
 
-        axios.get('http://3.25.237.92:8000/post/posthome/', {
+        axios.get('https://dreamcatcherrr.store/post/posthome/', {
             params: {
                 sort: 'date',
                 category: 'latest'
@@ -59,7 +59,7 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
     };
 
     const heart = (postId) => {
-        axios.post(`http://3.25.237.92:8000/post/like/${postId}/`, {}, {
+        axios.post(`https://dreamcatcherrr.store/post/like/${postId}/`, {}, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }

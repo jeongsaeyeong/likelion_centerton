@@ -5,14 +5,14 @@ import axios from 'axios'
 
 const ListModify = ({ setWhat, setChooseData, setText, modifyshow, setWrite, setModify, item, list, setEverydata, setLifedata }) => {
     const DelList = () => {
-        axios.delete(`http://3.25.237.92:8000/board/${list}/${item.id}/`, {
+        axios.delete(`https://dreamcatcherrr.store/board/${list}/${item.id}/`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then((res) => {
                 if (res.status === 204) {
-                    axios.get(`http://3.25.237.92:8000/`, {
+                    axios.get(`https://dreamcatcherrr.store/`, {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                         }

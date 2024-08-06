@@ -16,7 +16,7 @@ const ListAll = () => {
     }
 
     useEffect(() => {
-        axios.get('http://3.25.237.92:8000/', {
+        axios.get('https://dreamcatcherrr.store/', {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
             }

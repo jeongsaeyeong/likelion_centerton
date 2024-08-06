@@ -8,7 +8,7 @@ import MeMoList from './MeMoList'
 import { PulseLoader } from 'react-spinners'
 
 const MyMemo = () => {
-    const URL = 'http://3.25.237.92:8000/'
+    const URL = 'https://dreamcatcherrr.store/'
     const [write, setWrite] = useState(false)
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)

@@ -18,7 +18,7 @@ const Mypage = () => {
         const fetchUserData = async () => {
             if (accessToken) {
                 try {
-                    const res = await axios.get('http://3.25.237.92:8000/user/', {
+                    const res = await axios.get('https://dreamcatcherrr.store/user/', {
                         headers: {
                             Authorization: `Bearer ${accessToken}`
                         }
@@ -71,7 +71,7 @@ const Mypage = () => {
         const userConfirmed = window.confirm('정말로 로그아웃하시겠습니까?');
 
         if (userConfirmed) {
-            axios.post('http://3.25.237.92:8000/logout/', {}, {
+            axios.post('https://dreamcatcherrr.store/logout/', {}, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`
                 }

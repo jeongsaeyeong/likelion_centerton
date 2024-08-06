@@ -7,7 +7,7 @@ import axios from 'axios';
 import Memosea from './Memosea';
 
 const MeMoList = () => {
-    const URL = 'http://3.25.237.92:8000/';
+    const URL = 'https://dreamcatcherrr.store/';
     const [memos, setMemos] = useState([]);
     const [click, setClick] = useState(false);
     const [chaid, setChaid] = useState(0);

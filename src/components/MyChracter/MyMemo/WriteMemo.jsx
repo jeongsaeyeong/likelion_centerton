@@ -5,7 +5,7 @@ import axios from 'axios';
 import { motion } from 'framer-motion'
 
 const WriteMemo = ({ setWrite, data }) => {
-    const URL = 'http://3.25.237.92:8000/'
+    const URL = 'https://dreamcatcherrr.store/'
     const [today, setToday] = useState('');
     const [weather, setWeather] = useState('');
     const [content, setContent] = useState('');

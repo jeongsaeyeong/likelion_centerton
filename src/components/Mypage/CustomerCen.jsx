@@ -39,7 +39,7 @@ const CustomerCen = () => {
         const fetchUserData = async () => {
             if (accessToken) {
                 try {
-                    const res = await axios.get('http://3.25.237.92:8000/user/', {
+                    const res = await axios.get('https://dreamcatcherrr.store/user/', {
                         headers: {
                             Authorization: `Bearer ${accessToken}`
                         }

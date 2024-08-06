@@ -4,7 +4,7 @@ import axios from 'axios';
 const CommunityPop = ({ showDe, setShowDe, postId }) => {
     const reportPost = () => {
         
-        axios.post(`http://3.25.237.92:8000/post/report_post/${postId}/`, {}, {
+        axios.post(`https://dreamcatcherrr.store/post/report_post/${postId}/`, {}, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }

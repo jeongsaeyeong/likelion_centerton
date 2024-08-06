@@ -13,7 +13,7 @@ const MyChracter = () => {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        axios.get('http://3.25.237.92:8000/characters/', {
+        axios.get('https://dreamcatcherrr.store/characters/', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }

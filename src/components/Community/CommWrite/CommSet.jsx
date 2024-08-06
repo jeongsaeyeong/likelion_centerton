@@ -12,7 +12,7 @@ const CommSet = () => {
     const { postId } = useParams();
 
     useEffect(() => {
-        axios.get(`http://3.25.237.92:8000/post/${postId}/`, {
+        axios.get(`https://dreamcatcherrr.store/post/${postId}/`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -42,7 +42,7 @@ const CommSet = () => {
             formData.append('image', img);
         }
 
-        axios.patch(`http://3.25.237.92:8000/post/update/${postId}/`, formData, {
+        axios.patch(`https://dreamcatcherrr.store/post/update/${postId}/`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`

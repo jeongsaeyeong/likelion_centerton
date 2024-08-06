@@ -22,7 +22,7 @@ const Bell = () => {
     };
 
     const fetchNotifications = () => {
-        axios.get('http://3.25.237.92:8000/notifications/', {
+        axios.get('https://dreamcatcherrr.store/notifications/', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -43,7 +43,7 @@ const Bell = () => {
     const readAlram = (notificationId, postId) => {
         setFadingOut(prev => [...prev, notificationId]);
         setTimeout(() => {
-            axios.post(`http://3.25.237.92:8000/notifications/mark_as_read/${notificationId}/`, {}, {
+            axios.post(`https://dreamcatcherrr.store/notifications/mark_as_read/${notificationId}/`, {}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }

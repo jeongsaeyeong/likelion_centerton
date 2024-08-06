@@ -34,7 +34,7 @@ const ResetPass = ({ setChange, setEmail, email }) => {
             return;
         }
 
-        axios.post('http://3.25.237.92:8000/password-reset-confirm/', {
+        axios.post('https://dreamcatcherrr.store/password-reset-confirm/', {
             email: email,
             new_password1: password,
             new_password2: passwordre

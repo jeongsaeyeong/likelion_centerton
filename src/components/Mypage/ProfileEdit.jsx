@@ -36,7 +36,7 @@ const ProfileEdit = () => {
         }
 
         try {
-            const response = await axios.post('http://3.25.237.92:8000/profile-edit/', formData, {
+            const response = await axios.post('https://dreamcatcherrr.store/profile-edit/', formData, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                     'Content-Type': 'multipart/form-data'
@@ -55,7 +55,7 @@ const ProfileEdit = () => {
     };
 
     useEffect(() => {
-        axios.get('http://3.25.237.92:8000/user/', {
+        axios.get('https://dreamcatcherrr.store/user/', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }

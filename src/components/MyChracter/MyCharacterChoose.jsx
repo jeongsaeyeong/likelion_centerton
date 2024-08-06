@@ -15,7 +15,7 @@ const MyCharacterChoose = ({ setHave }) => {
             alert('이름을 채워주세요!');
             return
         } else {
-            axios.post('http://3.25.237.92:8000/characters/', {
+            axios.post('https://dreamcatcherrr.store/characters/', {
                 name: nick,
                 type: choose
             }, {

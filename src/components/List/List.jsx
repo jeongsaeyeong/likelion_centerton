@@ -9,7 +9,7 @@ import axios from 'axios'
 import { PulseLoader } from 'react-spinners'
 
 const List = () => {
-    const URL = 'http://3.25.237.92:8000/'
+    const URL = 'https://dreamcatcherrr.store/'
     const [loading, setLoading] = useState(false)
     const [have, setHave] = useState(false)
     const [write, setWrite] = useState(false)

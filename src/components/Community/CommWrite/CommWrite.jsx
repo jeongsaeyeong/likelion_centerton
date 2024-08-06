@@ -30,7 +30,7 @@ const CommWrite = () => {
             formData.append('image', img);
         }
 
-        axios.post('http://3.25.237.92:8000/post/create/', formData, {
+        axios.post('https://dreamcatcherrr.store/post/create/', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`

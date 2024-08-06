@@ -20,7 +20,7 @@ const EditInfo = () => {
         const fetchUserData = async () => {
             if (accessToken) {
                 try {
-                    const res = await axios.get('http://3.25.237.92:8000/user/', {
+                    const res = await axios.get('https://dreamcatcherrr.store/user/', {
                         headers: {
                             Authorization: `Bearer ${accessToken}`
                         }
@@ -72,7 +72,7 @@ const EditInfo = () => {
         formData.append('email', email);
 
         try {
-            const response = await axios.post('http://3.25.237.92:8000/personal-info-edit/', formData, {
+            const response = await axios.post('https://dreamcatcherrr.store/personal-info-edit/', formData, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                     'Content-Type': 'multipart/form-data'
