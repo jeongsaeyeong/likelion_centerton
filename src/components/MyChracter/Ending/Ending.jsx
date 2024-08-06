@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Ending = () => {
-    const URL = 'http://3.25.237.92:8000/'
+    const URL = 'https://dreamcatcherrr.store/'
     const navigation = useNavigate();
     const [data, setData] = useState([])
 

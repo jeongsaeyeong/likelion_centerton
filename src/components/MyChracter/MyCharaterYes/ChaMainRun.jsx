@@ -4,7 +4,7 @@ import RunWhite from '../../../assets/img/mycharacter/runwhite.svg';
 import axios from 'axios';
 
 const ChaMainRun = ({ click, data, whatclick, setClick, setCheck, check }) => {
-    const URL = 'http://3.25.237.92:8000/'
+    const URL = 'https://dreamcatcherrr.store/'
     const [running, setRunning] = useState('');
     const [keyword, setKeyword] = useState([])
     const [choose, setChoose] = useState('')
