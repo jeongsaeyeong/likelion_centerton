@@ -98,7 +98,7 @@ const ChaMainEat = ({ click, whatclick, setClick, URL, setCheck, check, data }) 
                 console.log(err)
                 setLoading(false)
             })
-    })
+    }, [])
 
     const Submit = (time) => {
         let menu = '';
