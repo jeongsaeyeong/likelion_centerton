@@ -3,6 +3,7 @@ import Declaration from '../../assets/img/community/declaration.svg';
 import HartFull from '../../assets/img/community/hart_full.svg';
 import HartBin from '../../assets/img/community/hart_bin.svg';
 import axios from 'axios';
+import { PulseLoader } from 'react-spinners'
 
 const CommunityLike = ({ setShowDe, setPostId }) => {
     const [posts, setPosts] = useState([]);
@@ -69,7 +70,7 @@ const CommunityLike = ({ setShowDe, setPostId }) => {
 
     return (
         <> {loading ? (
-            <div className="posts-loading">로딩 중...</div>
+            <div className="posts-loading"><PulseLoader /></div>
         ) : posts.length > 0 ? (
             posts.map(post => (
                 <div className="post_box" key={post.id}>

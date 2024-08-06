@@ -5,6 +5,7 @@ import HartBin from '../../assets/img/community/hart_bin.svg';
 import CommunityModify from './CommunityModify';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { PulseLoader } from 'react-spinners'
 
 const CommunityMy = () => {
     const [posts, setPosts] = useState([]);
@@ -76,6 +77,7 @@ const CommunityMy = () => {
                 if (res.status === 200) {
                     console.log(res);
                     loadPosts();
+                    
                 }
             })
             .catch((err) => {
@@ -88,7 +90,7 @@ const CommunityMy = () => {
     return (
         <>
             {loading ? (
-                <div className="posts-loading">로딩 중...</div>
+                <div className="posts-loading"><PulseLoader /></div>
             ) : posts.length > 0 ? (
                 posts.map(post => (
                     <div className="post_box" key={post.id}>
@@ -130,7 +132,8 @@ const CommunityMy = () => {
                                 postId={post.id}
                                 onDelete={() => {
                                     setPostId(post.id);
-                                    loadPosts();}}
+                                    loadPosts();
+                                    setLoading(true);}}
                                 onModify={() => {
                                     toggleModify(post.id);
                                     navigate(`/communityset/${post.id}`);

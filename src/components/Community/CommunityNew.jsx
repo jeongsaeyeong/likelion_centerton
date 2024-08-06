@@ -4,6 +4,7 @@ import HartFull from '../../assets/img/community/hart_full.svg';
 import HartBin from '../../assets/img/community/hart_bin.svg';
 import axios from 'axios';
 import { motion } from 'framer-motion';
+import { PulseLoader } from 'react-spinners'
 
 const CommunityNew = ({ setShowDe, setPostId }) => {
     const [posts, setPosts] = useState([]);
@@ -76,7 +77,7 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
     return (
         <>
             {loading ? (
-                <div className="posts-loading">로딩 중...</div>
+                <div className="posts-loading"><PulseLoader /></div>
             ) : posts.length > 0 ? (
                 posts.map(post => (
                     <motion.div className="post_box"
