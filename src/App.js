@@ -23,6 +23,9 @@ import axios from 'axios'
 import FindPass from './components/User/FindPass/FindPass'
 import ResetOk from './components/User/FindPass/ResetOk'
 import Ending from './components/MyChracter/Ending/Ending'
+import CommSet from './components/Community/CommWrite/CommSet'
+import CommunityDetail from './components/Community/CommunityDetail'
+import CusCenContent from './components/Mypage/CusCenContent'
 
 const App = () => {
     const [accessToken, setAccessToken] = useState('')
@@ -61,7 +64,8 @@ const App = () => {
                         <Route path='/' element={<Community />} />
                         <Route path='/community' element={<Community />} />
                         <Route path='/communitywrite' element={<CommWrite />} />
-
+                        <Route path='/communityset/:postId' element={<CommSet />} />
+                        <Route path='/communitypost/:postId' element={<CommunityDetail />} />
                         <Route path='/bell' element={<Bell />} />
 
                         <Route path='/list' element={<List />} />
@@ -81,13 +85,14 @@ const App = () => {
                         <Route path='/customercen' element={<CustomerCen />} />
 
                         {/* 로그인/로딩/회원가입 */}
-                        <Route path='/loading' element={<Loading />} />
-                        <Route path='/login' element={<Login2 />} />
-                        <Route path='/signup' element={<Signup />} />
-                        <Route path='/signup/success/:username' element={<Success />} />
-                        <Route path='/signup/success' element={<Success />} />
-                        <Route path='/findpass' element={<FindPass />} />
-                        <Route path='/resetok' element={<ResetOk />} />
+                        <Route path='/mypage' element={<Mypage accessToken={accessToken}/>} />
+                        <Route path='/profilemodify' element={<ProfileEdit/>} />
+                        <Route path='/editinfo' element={<EditInfo/>} />
+                        <Route path='/notice' element={<Notice />} />
+                        <Route path='/notice/:noticenum' element={<NoticeContent />} />
+                        <Route path='/appset' element={<Appset />} />
+                        <Route path='/customercen' element={<CustomerCen/>} />
+                        <Route path='/customercen/:cuscennum' element={<CusCenContent />} />
                     </Routes>
                     <Nav />
                 </>
