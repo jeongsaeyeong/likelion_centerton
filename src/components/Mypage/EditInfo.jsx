@@ -3,26 +3,47 @@ import axios from 'axios';
 import rightArrow from '../../assets/img/myPage/rightArrow.svg';
 import { useNavigate } from 'react-router-dom';
 
-const EditInfo = ({ userData }) => {
+const EditInfo = () => {
     const [userId, setUserId] = useState('');
     const [password, setPassword] = useState('');
     const [passwordre, setPasswordre] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [isFormComplete, setIsFormComplete] = useState(false);
-    const navigation = useNavigate();
+    const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
     
-    useEffect(() => {
-        if (userData) {
-            setUserId(userData.user_id);
-            setPassword(userData.password);
-            setPasswordre(userData.password2);
-            setName(userData.username);
-            setEmail(userData.email);
-        }
-    }, [userData]);
-
     const accessToken = localStorage.getItem('accessToken');
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            if (accessToken) {
+                try {
+                    const res = await axios.get('http://3.25.237.92:8000/user/', {
+                        headers: {
+                            Authorization: `Bearer ${accessToken}`
+                        }
+                    });
+                    if (res.status === 200) {
+                        const userData = res.data;
+                        setUserId(userData.user_id);
+                        setPassword(userData.password);
+                        setPasswordre(userData.password2);
+                        setName(userData.username);
+                        setEmail(userData.email);
+                    }
+                } catch (err) {
+                    console.error(err);
+                } finally {
+                    setLoading(false);
+                }
+            } else {
+                setLoading(false);
+            }
+        };
+
+        fetchUserData();
+    }, [accessToken]);
 
     useEffect(() => {
         if (userId && password && passwordre && name && email) {
@@ -33,7 +54,7 @@ const EditInfo = ({ userData }) => {
     }, [userId, password, passwordre, name, email]);
 
     const Back = () => {
-        navigation(-1);
+        navigate(-1);
     };
 
     const handleSubmit = async () => {
@@ -63,6 +84,10 @@ const EditInfo = ({ userData }) => {
             alert('서버와 통신 중 오류가 발생했습니다.');
         }
     };
+
+    if (loading) {
+        return <div>로딩 중...</div>;
+    }
 
     return (
         <div className='EditInfo_wrap container'>

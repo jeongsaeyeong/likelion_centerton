@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import rightArrow from '../../assets/img/myPage/rightArrow.svg';
 import searchImg from '../../assets/img/myPage/search.svg';
 import qImg from '../../assets/img/myPage/Q.svg';
@@ -25,9 +26,39 @@ const cuscens = [
     }
 ];
 
-const CustomerCen = ({ userData }) => {
+const CustomerCen = () => {
     const [search, setSearch] = useState('');
+    const [userData, setUserData] = useState(null);
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+
+    const accessToken = localStorage.getItem('accessToken');
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            if (accessToken) {
+                try {
+                    const res = await axios.get('http://3.25.237.92:8000/user/', {
+                        headers: {
+                            Authorization: `Bearer ${accessToken}`
+                        }
+                    });
+                    if (res.status === 200) {
+                        setUserData(res.data);
+                        console.log(res.data);
+                    }
+                } catch (err) {
+                    console.error(err);
+                } finally {
+                    setLoading(false);
+                }
+            } else {
+                setLoading(false);
+            }
+        };
+
+        fetchUserData();
+    }, [accessToken]);
 
     const handlecc = (cuscennum) => {
         navigate(`/customercen/${cuscennum}`);
@@ -36,6 +67,10 @@ const CustomerCen = ({ userData }) => {
     const Back = () => {
         navigate(-1);
     };
+
+    if (loading) {
+        return <div>로딩 중...</div>;
+    }
 
     return (
         <div className='CustomerCen_wrap container'>
@@ -48,7 +83,7 @@ const CustomerCen = ({ userData }) => {
             <div className="main">
                 <div className="search">
                     <h3>
-                    {userData ? userData.username : '로딩 중...'}님,<br />
+                        {userData ? userData.username : '로딩 중...'}님,<br />
                         무엇을 도와드릴까요?
                     </h3>
                     <div className='searchBar'>

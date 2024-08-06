@@ -5,34 +5,38 @@ import leftArrow from '../../assets/img/myPage/leftArrow.svg';
 import Popup from './PopUp';
 import defaultProfileImage from '../../assets/img/myPage/account-circle.svg';
 
-const Mypage = ({ accessToken }) => {
+const Mypage = () => {
     const [userData, setUserData] = useState(null);
     const [cancle, setCancle] = useState(false);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
+    const accessToken = localStorage.getItem('accessToken');
+
     useEffect(() => {
-        if (accessToken) {
-            axios.get('http://3.25.237.92:8000/user/', {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`
-                }
-            })
-            .then((res) => {
-                if (res.status === 200) {
-                    setUserData(res.data);
-                    console.log(res.data);
-                }
-            })
-                .catch((err) => {
+        const fetchUserData = async () => {
+            if (accessToken) {
+                try {
+                    const res = await axios.get('http://3.25.237.92:8000/user/', {
+                        headers: {
+                            Authorization: `Bearer ${accessToken}`
+                        }
+                    });
+                    if (res.status === 200) {
+                        setUserData(res.data);
+                        console.log(res.data);
+                    }
+                } catch (err) {
                     console.error(err);
-                })
-                .finally(() => {
+                } finally {
                     setLoading(false);
-                });
-        } else {
-            setLoading(false);
-        }
+                }
+            } else {
+                setLoading(false);
+            }
+        };
+
+        fetchUserData();
     }, [accessToken]);
 
     const OpenPopup = () => {
