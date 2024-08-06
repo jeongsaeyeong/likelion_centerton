@@ -46,6 +46,7 @@ const CommunityMy = () => {
         })
             .then((res) => {
                 if (res.status === 200) {
+                    console.log('로드 데이터', res.data)
                     const ModifyState = res.data.map(post => ({
                         ...post,
                         isModify: false
@@ -76,7 +77,6 @@ const CommunityMy = () => {
                 if (res.status === 200) {
                     console.log(res);
                     loadPosts();
-
                 }
             })
             .catch((err) => {
