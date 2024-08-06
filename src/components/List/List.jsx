@@ -12,7 +12,7 @@ const List = () => {
     const URL = 'http://3.25.237.92:8000/'
     const [loading, setLoading] = useState(false)
     const [have, setHave] = useState(false)
-    const [write, setWrite] = useState(true)
+    const [write, setWrite] = useState(false)
     const [everydata, setEverydata] = useState([])
     const [lifedata, setLifedata] = useState([])
     const [cha, setCha] = useState([])
