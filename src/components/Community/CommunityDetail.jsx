@@ -23,6 +23,7 @@ const CommunityDetail = () => {
             }
         })
             .then((res) => {
+                console.log(res.data)
                 if (res.status === 200) {
                     setUserId(res.data.id);
                 }

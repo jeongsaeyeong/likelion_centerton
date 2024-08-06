@@ -8,9 +8,9 @@ import { PulseLoader } from 'react-spinners'
 const ChaMainEat = ({ click, whatclick, setClick, URL, setCheck, check, data }) => {
     const [choose, setChoose] = useState('')
     const [morning, setMorning] = useState([]);
-    const [launch, setLaunch] = useState(['밥', '국', '찌개', '햄']);
-    const [evening, setEvening] = useState(['밥', '국', '찌개', '햄']);
-    const [desert, setDesert] = useState(['밥', '국', '찌개', '햄']);
+    const [launch, setLaunch] = useState([]);
+    const [evening, setEvening] = useState([]);
+    const [desert, setDesert] = useState([]);
     const [morninginput, setMorninginput] = useState('');
     const [launchinput, setLaunchinput] = useState('');
     const [eveninginput, setEveninginput] = useState('');

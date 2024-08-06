@@ -30,6 +30,7 @@ const MyCharacterChoose = ({ setHave }) => {
                 })
                 .catch((err) => {
                     console.error(err);
+                    navigation('/mychracter')
                 });
         }
     }
