@@ -6,7 +6,7 @@ import ListMap from './ListMap'
 import { motion } from 'framer-motion'
 import axios from 'axios'
 
-const ListAdd = ({ setChooseData, choosedata, setWrite, setText, text, recom, what, URL, setEverydata, setLifedata }) => {
+const ListAdd = ({ setWrite, setText, text, recom, what, URL, setEverydata, setLifedata }) => {
     const [today, setToday] = useState('');
     const [thisday, setThisday] = useState('');
     const [thistime, setThisTime] = useState('');
@@ -24,76 +24,43 @@ const ListAdd = ({ setChooseData, choosedata, setWrite, setText, text, recom, wh
     }, []);
 
     const ListSubmit = () => {
-        if (choosedata.id !== undefined) {
-            const apiUrl = `${URL}board/${what === 'everylist' ? 'everylist' : 'lifelist'}/${choosedata.id}/`;
-            const data = what === 'everylist' ?
-                { "task": text, "due_date": thisday, "due_time": thistime, "completed": false } :
-                { "goal": text, "description": text, "target_date": thisday, "target_time": thistime, "completed": false };
+        console.log(what)
+        const apiUrl = `${URL}board/${what === 'everylist' ? 'everylist' : 'lifelist'}/`;
+        const data = what === 'everylist' ?
+            { "task": text, "due_date": thisday, "due_time": thistime, "completed": false } :
+            { "goal": text, "description": text, "target_date": thisday, "target_time": thistime, "completed": false };
 
-            axios.put(apiUrl, data, {
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        axios.post(apiUrl, data, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then((res) => {
+                if (res.status === 201) {
+                    axios.get(`${URL}`, {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                        }
+                    })
+                        .then((res) => {
+                            setEverydata(res.data.everylist)
+                            setLifedata(res.data.lifelist)
+                            setWrite(false)
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
                 }
             })
-                .then((res) => {
-                    if (res.status === 200) {
-                        axios.get(`${URL}`, {
-                            headers: {
-                                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                            }
-                        })
-                            .then((res) => {
-                                setEverydata(res.data.everylist)
-                                setLifedata(res.data.lifelist)
-                                setWrite(false)
-                            })
-                            .catch((err) => {
-                                console.log(err)
-                            })
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        } else {
-            const apiUrl = `${URL}board/${what === 'everylist' ? 'everylist' : 'lifelist'}/`;
-            const data = what === 'everylist' ?
-                { "task": text, "due_date": thisday, "due_time": thistime, "completed": false } :
-                { "goal": text, "description": text, "target_date": thisday, "target_time": thistime, "completed": false };
-
-            axios.post(apiUrl, data, {
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-                .then((res) => {
-                    if (res.status === 201) {
-                        axios.get(`${URL}`, {
-                            headers: {
-                                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                            }
-                        })
-                            .then((res) => {
-                                setEverydata(res.data.everylist)
-                                setLifedata(res.data.lifelist)
-                                setWrite(false)
-                            })
-                            .catch((err) => {
-                                console.log(err)
-                            })
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        }
+            .catch((err) => {
+                console.log(err);
+            });
     };
-
 
     return (
         <motion.div className='ListAdd_wrap' initial={{ opacity: 0, }} animate={{ opacity: 1, }} transition={{ duration: 0.8, }}>
             <motion.div initial={{ y: 200 }} animate={{ y: 0 }} transition={{ duration: 1, type: "spring" }}>
-                <button className='nopebtn' onClick={() => { setWrite(false); setChooseData(''); setText('') }}>
+                <button className='nopebtn' onClick={() => { setWrite(false) }}>
                     <img src={Nope} alt="" />
                 </button>
                 <input value={text} onChange={(e) => { setText(e.target.value) }} type="text" placeholder='새로 입력' />

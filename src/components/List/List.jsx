@@ -19,8 +19,6 @@ const List = () => {
     const [recom, setRecom] = useState([])
     const [text, setText] = useState('')
     const [what, setWhat] = useState('everylist')
-    const [choosedata, setChooseData] = useState([])
-
     const navigation = useNavigate()
 
     const GoStar = () => {
@@ -93,12 +91,12 @@ const List = () => {
                     </button>
                 </div>
                 {have ? (
-                    <ListHave setChooseData={setChooseData} setWhat={setWhat} setWrite={setWrite} recom={recom} setText={setText} lifedata={lifedata} everydata={everydata} setEverydata={setEverydata} setLifedata={setLifedata}/>
+                    <ListHave setWhat={setWhat} setWrite={setWrite} recom={recom} setText={setText} lifedata={lifedata} everydata={everydata} setEverydata={setEverydata} setLifedata={setLifedata}/>
                 ) : (
                     <ListNone setWrite={setWrite} recom={recom} setText={setText} text={text} setWhat={setWhat} />
                 )}
                 {write ? (
-                    <ListAdd setChooseData={setChooseData} choosedata={choosedata} setWrite={setWrite} setText={setText} text={text} URL={URL} recom={recom} what={what} setLifedata={setLifedata} setEverydata={setEverydata}/>
+                    <ListAdd setWrite={setWrite} setText={setText} text={text} URL={URL} recom={recom} what={what} setLifedata={setLifedata} setEverydata={setEverydata}/>
                 ) : (
                     <></>
                 )}

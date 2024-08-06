@@ -324,13 +324,7 @@
                             font-size: 17px;
 
                             p {
-                                width: 240px;
                                 margin-right: 10px;
-                                margin-bottom: 3px;
-
-                                em {
-                                    margin-left: 5px;
-                                }
                             }
 
                             input {
@@ -348,33 +342,10 @@
                                 display: flex;
                             }
 
-                            .eat_pbox {
-                                flex-direction: column;
-
-                                >div {
-                                    display: flex;
-                                    margin-left: 40px;
-                                    margin-bottom: 5px;
-
-                                    input {
-                                        margin-right: 5px;
-                                        border-bottom: 1px solid #563428;
-                                    }
-
-                                    img {
-                                        width: 22px;
-                                        height: 22px;
-                                    }
-                                }
-                            }
-
                             .btn_box {
-                                display: flex;
-                                flex-wrap: wrap;
-                                padding-left: 75px;
+                                padding-left: 80px;
 
                                 button {
-                                    margin-bottom: 5px;
                                     text-align: center;
                                     font-size: 14px;
                                     color: var(--maincolor);
@@ -384,15 +355,6 @@
                                     background-color: var(--white);
                                     border: 1px solid var(--maincolor);
                                 }
-
-                                .full {
-                                    background-color: var(--maincolor);
-                                    color: var(--white);
-                                }
-                            }
-
-                            .in_eat {
-                                padding-left: 40px;
                             }
                         }
 
@@ -407,13 +369,10 @@
 
                     .cleanbox {
                         top: 260px;
-
-
                     }
 
                     .runbox {
-                        top: 320px;
-
+                        top: 320px
                     }
 
                     .showerbox {
@@ -445,22 +404,6 @@
                             }
                         }
                     }
-
-                    .wait {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        height: 300px;
-
-                        span {
-                            margin-top: 20px;
-
-                            span {
-                                background-color: var(--maincolor) !important;
-                            }
-                        }
-                    }
-
                 }
             }
         }
@@ -548,82 +491,6 @@
         bottom: 110px;
         right: 10px;
     }
-
-    >span {
-        width: 100%;
-        height: 100%;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        padding-bottom: 60px !important;
-    }
-}
-
-.Memosea_wrap {
-    width: inherit;
-    height: inherit;
-    overflow: hidden;
-    z-index: 11;
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #563428;
-    background-color: #00000039;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    >div {
-        background-color: #FFF8E5;
-        width: 356px;
-        padding: 30px;
-        min-height: 500px;
-        border-radius: 20px;
-
-        >button {
-            width: 100%;
-            display: flex;
-            justify-content: right;
-            margin-bottom: 30px;
-
-            img {
-                width: 30px;
-                height: 30px;
-            }
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .main {
-            min-height: 300px;
-            background-repeat: no-repeat;
-            background-image: url(../../img/mycharacter/backpnglong.png);
-
-            .morning {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-
-                p {
-                    margin-left: 5px;
-                    margin-right: 3px;
-                    line-height: 1.7;
-                }
-            }
-
-            >p {
-                padding-top: 1px;
-                line-height: 1.8;
-            }
-        }
-    }
-
 }
 
 .WriteMemo_wrap {
@@ -722,104 +589,6 @@
                 height: 70px;
             }
         }
-    }
-}
-
-.Ending_wrap {
-    background-image: url(../../img/mycharacter/endingback.png);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .box_wrap {
-        margin-left: 5px;
-        margin-top: 20px;
-        overflow: scroll;
-
-        >div {
-            background-color: #FFFFFF76;
-            width: 356px;
-            padding: 30px;
-            min-height: 500px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-
-            >button {
-                width: 100%;
-                display: flex;
-                justify-content: right;
-                margin-bottom: 30px;
-
-                img {
-                    width: 30px;
-                    height: 30px;
-                }
-            }
-
-            .header {
-                display: flex;
-                justify-content: space-between;
-                font-size: 17px;
-                font-weight: 600;
-                margin-bottom: 20px;
-            }
-
-            .main {
-                min-height: 300px;
-                background-repeat: no-repeat;
-                background-image: url(../../img/mycharacter/backpnglong.png);
-
-                >p {
-                    padding-top: 1px;
-                    line-height: 1.75;
-
-                    >p {
-                        display: flex;
-                        flex-wrap: wrap;
-                        
-                        >p {
-                            margin-left: 10px;
-                        }
-                    }
-                }
-            }
-        }
-
-        >button {
-            width: 100%;
-            height: 42px;
-            margin-bottom: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            >p {
-                width: 276px;
-                height: 42px;
-                background-color: var(--maincolor);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 20px;
-                color: var(--white);
-                font-size: 18px;
-            }
-        }
-    }
-
-    .box_wrap::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    .box_wrap::-webkit-scrollbar-thumb {
-        background: var(--none);
-        border-radius: 10px;
-    }
-
-    .box_wrap::-webkit-scrollbar-track {
-        background: var(--none);
     }
 }
 

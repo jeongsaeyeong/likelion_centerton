@@ -33,9 +33,7 @@ const WriteMemo = ({ setWrite, data }) => {
             }
         })
             .then((res) => {
-                if (res.status === 201) {
-                    setWrite(false)
-                }
+                console.log(res)
             })
             .catch((err) => {
                 console.log(err)
