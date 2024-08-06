@@ -191,7 +191,17 @@
             width: 108px;
             height: 108px;
             background-size: cover;
-            background-image: url(../../img/myPage/proImgEdit.svg);
+            background-image: url(../../img/user/profile_input.svg);
+        }
+
+        .profile_input {
+            z-index: 2;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 40px;
+            height: 40px;
+            background-image: url(../../img/user/camera.png);
         }
     }
 

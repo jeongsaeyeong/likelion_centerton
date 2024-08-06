@@ -16,9 +16,24 @@ const Signup = () => {
     const [passwordMsg, setPasswordMsg] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [profile, setProfile] = useState([])
-
+    const [profile, setProfile] = useState(null);
+    const [preview, setPreview] = useState(null);
     const navigate = useNavigate();
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setProfile(file);
+            console.log(profile)
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreview(reader.result);
+            };
+            reader.readAsDataURL(file);
+            console.log(file);
+        }
+    };
+
     const Backbtn = () => {
         navigate(-1)
     }
@@ -56,43 +71,42 @@ const Signup = () => {
     // 회원가입 
     const SubmitJoin = () => {
         if (!allterms) {
-            alert('약관에 동의해주세요.')
+            alert('약관에 동의해주세요.');
             return;
         }
 
         if (!sameOk) {
-            alert('아이디 중복검사 해주세요.')
+            alert('아이디 중복검사 해주세요.');
             return;
         }
 
         if (userid !== '' && password !== '' && name !== '' && email !== '') {
-            axios.post(`${URL}signup/`, {
-                user_id: userid,
-                username: name,
-                password: password,
-                email: email,
-            }, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            })
-                .then((res) => {
-                    console.log(res.status)
-                    
-                })
+            const formData = new FormData();
+            formData.append('user_id', userid);
+            formData.append('username', name);
+            formData.append('password', password);
+            formData.append('email', email);
+            if (profile) {
+                formData.append('photo', profile);
+            }
 
-                .catch((err) => {
-                    console.log(err)
+            axios.post(`${URL}signup/`, formData)
+                .then((res) => {
+                    if (res.status === 201) {
+                        alert('회원가입 성공');
+                        navigate('/login')
+                    } else {
+                        console.log(res.status);
+                    }
                 })
+                .catch((err) => {
+                    console.log(err);
+                });
         } else {
-            alert('빈칸을 모두 채워주세요!')
+            alert('빈칸을 모두 채워주세요!');
             return;
         }
     }
-
-    useEffect(() => {
-        console.log(profile)
-    }, [profile])
 
     return (
         <div className='container signup'>
@@ -101,10 +115,19 @@ const Signup = () => {
             </button>
             <h1>회원가입</h1>
             <div className="pro-img">
-                <input type="file" id='profile' onChange={(e) => { setProfile(e.target.files[0]) }} />
-                <label htmlFor='profile'></label>
+                {preview === null ? (
+                    <>
+                        <input type="file" id='profile' onChange={handleFileChange} />
+                        <label htmlFor='profile'></label>
+                    </>
+                ) : (
+                    <>
+                        <img src={preview} alt="Profile Preview" style={{ width: '100px', height: '100px', borderRadius: '100px', objectFit: 'cover', zIndex: 1, position: 'relative' }} />
+                        <input type="file" id='profile_input' onChange={handleFileChange} />
+                        <label className='profile_input' htmlFor='profile_input'></label>
+                    </>
+                )}
             </div>
-
             <div className='info'>
                 <div className="id">
                     <input type="text" placeholder='아이디' value={userid} onChange={(e) => setUserId(e.target.value)} />

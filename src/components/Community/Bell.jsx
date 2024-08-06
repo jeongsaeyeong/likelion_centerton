@@ -51,13 +51,13 @@ const Bell = () => {
                 .then(res => {
                     navigate(`/communitypost/${postId}`)
                     console.log(res);
-                    
-                    
+
+
                 })
                 .catch(err => {
                     console.error(err);
                 });
-        }, 500); 
+        }, 500);
     };
 
     const GoBack = () => {
@@ -71,16 +71,18 @@ const Bell = () => {
                 <h2>알림</h2>
             </div>
             <motion.div className="main"
-             variants={fadeIn}
-             initial="hidden"
-             animate="visible">
+                variants={fadeIn}
+                initial="hidden"
+                animate="visible">
                 {notifications.filter(notification => !notification.read).length === 0 ? (
-                    <p className='no-alram'>온 알람이 없습니다</p>
+                    <div className='no_alram'>
+                        <p className='no-alram'>온 알람이 없습니다</p>
+                    </div>
                 ) : (
                     notifications.filter(notification => !notification.read).map(notification => (
                         <AnimatePresence key={notification.id}>
-                            <motion.div 
-                                className="like" 
+                            <motion.div
+                                className="like"
                                 onClick={() => readAlram(notification.id, notification.post.id)}
                                 initial="hidden"
                                 animate="visible"

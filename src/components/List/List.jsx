@@ -73,7 +73,7 @@ const List = () => {
                 }
             })
                 .then((res) => {
-                    setRecom([...res.data.recommendations])
+                    setRecom([...res.data.recommendations.slice(0, 4)])
                     setLoading(true)
                 })
                 .catch((err) => {

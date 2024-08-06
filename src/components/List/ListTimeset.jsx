@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Time from '../../assets/img/list/time.svg'
+import { motion } from 'framer-motion'
 
 const ListTimeset = ({ setSelectedTime, today, selectedTime }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -31,13 +32,13 @@ const ListTimeset = ({ setSelectedTime, today, selectedTime }) => {
                     </div>
                 </div>
                 {dropdownOpen && (
-                    <div className="time-dropdown">
+                    <motion.div className="time-dropdown" initial={{ height: 0, opacity: 0 }} animate={{ height: '180px', opacity: 1 }} transition={{ duration: 1, type: "spring" }}>
                         {times.map((time, index) => (
                             <div key={index} className="time-option" onClick={() => selectTime(time)}>
                                 {time}
                             </div>
                         ))}
-                    </div>
+                    </motion.div>
                 )}
             </div>
             <button onClick={toggleAllday} className={`allday-btn ${allday ? 'all' : ''}`}>

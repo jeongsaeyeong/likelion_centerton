@@ -73,7 +73,7 @@ const App = () => {
                         <Route path='/mymemo' element={<MyMemo />} />
 
                         {/* 마이페이지 */}
-                        <Route path='/mypage' element={<Mypage accessToken={accessToken}/>} />
+                        <Route path='/mypage' element={<Mypage/>} />
                         <Route path='/profilemodify' element={<ProfileEdit/>} />
                         <Route path='/editinfo' element={<EditInfo/>} />
                         <Route path='/notice' element={<Notice />} />

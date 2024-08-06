@@ -24,6 +24,7 @@ const InputEmail = ({ email, setEmail, setChange }) => {
             .then((res) => {
                 if (res.status === 200) {
                     setChange(true)
+                    alert('이메일을 찾았습니다.')
                 }
             })
             .catch((err) => {

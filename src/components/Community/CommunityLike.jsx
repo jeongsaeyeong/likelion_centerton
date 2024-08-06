@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Declaration from '../../assets/img/community/declaration.svg';
 import HartFull from '../../assets/img/community/hart_full.svg';
+import Profile from '../../assets/img/community/profile.svg'
 import HartBin from '../../assets/img/community/hart_bin.svg';
 import axios from 'axios';
+import { PulseLoader } from 'react-spinners'
 
 const CommunityLike = ({ setShowDe, setPostId }) => {
     const [posts, setPosts] = useState([]);
     const [userId, setUserId] = useState(null);
     const [loading, setLoading] = useState(true);
-
 
     useEffect(() => {
         axios.get('http://3.25.237.92:8000/user/', {
@@ -69,16 +70,12 @@ const CommunityLike = ({ setShowDe, setPostId }) => {
 
     return (
         <> {loading ? (
-            <div className="posts-loading">로딩 중...</div>
+            <div className="posts-loading"><PulseLoader /></div>
         ) : posts.length > 0 ? (
             posts.map(post => (
                 <div className="post_box" key={post.id}>
                     <div className="profile">
-                        {post.author_profile && (
-
-                            <img src={post.author_profile} alt="이미지" />
-
-                        )}
+                        <img src={post.author_profile ? post.author_profile : Profile} alt="이미지" />
                     </div>
                     <div className="post">
                         <div className="info">
@@ -103,7 +100,7 @@ const CommunityLike = ({ setShowDe, setPostId }) => {
                                 alt="HartBin"
                                 onClick={() => heart(post.id)}
                             />
-                            <p>{post.total_likes !== 0 ? post.total_likes : null}</p>
+                            <p>{post.total_likes !== 0 ? post.total_likes : 0}</p>
                         </div>
                     </div>
                 </div>

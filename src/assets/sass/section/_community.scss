@@ -64,6 +64,14 @@
             display: flex;
             color: #5B5B5B;
             font-size: 20px;
+
+            >span {
+                padding-top: 80px;
+
+                >span {
+                    background-color: var(--maincolor) !important;
+                }
+            }
         }
 
         .post_box {
@@ -76,7 +84,6 @@
                 width: 45px;
                 height: 45px;
                 border-radius: 50%;
-                background-color: var(--black300);
                 margin-right: 20px;
             }
 
@@ -354,8 +361,9 @@
         align-items: center;
         justify-content: center;
         position: relative;
+
         h2 {
-            padding: 30px  15px;
+            padding: 30px 15px;
             font-size: 22px;
         }
 
@@ -370,6 +378,7 @@
 
 
     }
+
     .post_box {
         display: flex;
         padding: 30px 20px 20px;
@@ -448,6 +457,7 @@
                 }
             }
         }
+
         .modify {
             position: absolute;
             right: 20px;

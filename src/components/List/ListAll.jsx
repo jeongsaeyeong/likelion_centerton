@@ -31,7 +31,7 @@ const ListAll = () => {
                 }));
                 setList(formattedList);
                 setShow(Array(formattedList.length).fill(false));
-                setLoading(false)
+                setLoading(true)
             })
             .catch((err) => {
                 setLoading(false)
@@ -73,7 +73,9 @@ const ListAll = () => {
                     </div>
                 </>
             ) : (
-                <PulseLoader />
+                <div className='loading'>
+                    <PulseLoader />
+                </div>
             )}
         </div>
     );

@@ -322,11 +322,10 @@
                             flex-direction: column;
                             padding: 2px 0;
                             font-size: 17px;
+                            margin-bottom: 3px;
 
                             p {
-                                width: 240px;
                                 margin-right: 10px;
-                                margin-bottom: 3px;
 
                                 em {
                                     margin-left: 5px;
@@ -346,10 +345,15 @@
 
                             >div {
                                 display: flex;
+                                margin-bottom: 5px;
                             }
 
                             .eat_pbox {
                                 flex-direction: column;
+
+                                >p {
+                                    width: 240px;
+                                }
 
                                 >div {
                                     display: flex;
@@ -778,7 +782,7 @@
                     >p {
                         display: flex;
                         flex-wrap: wrap;
-                        
+
                         >p {
                             margin-left: 10px;
                         }

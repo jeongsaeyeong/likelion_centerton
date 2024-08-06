@@ -1,50 +1,53 @@
 .mypage_wrap {
-    position: relative;
+    display: flex;
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
     overflow: hidden;
 
     .c_mypage {
         font-size: 22px;
         font-weight: 400;
-        top: 75px;
-        left: 148px;
         position: relative;
-        font-family: Pretendard;
+        text-align: center;
+        padding: 100px 0 30px;
     }
 
     .profile {
-        top: 140px;
-        left: 133px;
-        position: absolute;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 60px;
 
-        .profileImg{
-            width: 94px;
-            height: 94px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 2px solid #ccc;
-        }
-        .editProfile {
+        >div {
             display: flex;
+            align-items: center;
             justify-content: center;
-            color: #717171;
-            margin-left: 8px;
-            cursor: pointer;
+            flex-direction: column;
+
+            .profileImg{
+                width: 94px;
+                height: 94px;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 2px solid #ccc;
+            }
+            .editProfile {
+                display: flex;
+                justify-content: center;
+                color: #717171;
+                margin-left: 8px;
+                cursor: pointer;
+            }
         }
     }
 
-
     .boxes {
-        left: 0;
-        top: 357px;
-        position: relative;
         width: 393px;
         height: 335px;
 
-
         .box {
             border-bottom: 0.5px solid #D2D2D2;
-            width: 393px;
             height: 56px;
             position: relative;
             top: 0;
@@ -70,9 +73,11 @@
 
         }
     }
+
 }
 
 .ProfileEdit_wrap {
+    overflow: hidden;
     padding: 20px;
 
     .header {
@@ -153,9 +158,9 @@
     }
 }
 
-
 .EditInfo_wrap {
     padding: 20px;
+    overflow: hidden;
 
     .back {
         padding: 20px 0;
@@ -544,4 +549,11 @@
     font-family: 'Pretendard';
     font-size: 24px;
     font-weight: 500;
+}
+
+.loading_wrap {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

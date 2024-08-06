@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Declaration from '../../assets/img/community/declaration.svg';
 import HartFull from '../../assets/img/community/hart_full.svg';
 import HartBin from '../../assets/img/community/hart_bin.svg';
+import Profile from '../../assets/img/community/profile.svg'
 import axios from 'axios';
 import { motion } from 'framer-motion';
+import { PulseLoader } from 'react-spinners'
 
 const CommunityNew = ({ setShowDe, setPostId }) => {
     const [posts, setPosts] = useState([]);
@@ -64,7 +66,6 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
         })
             .then((res) => {
                 if (res.status === 200) {
-                    console.log(res);
                     loadPosts();
                 }
             })
@@ -76,7 +77,7 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
     return (
         <>
             {loading ? (
-                <div className="posts-loading">로딩 중...</div>
+                <div className="posts-loading"><PulseLoader /></div>
             ) : posts.length > 0 ? (
                 posts.map(post => (
                     <motion.div className="post_box"
@@ -86,11 +87,7 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
                         animate="visible"
                     >
                         <div className="profile">
-                            {post.author_profile && (
-
-                                <img src={post.author_profile} alt="이미지" />
-
-                            )}
+                            <img src={post.author_profile ? post.author_profile : Profile} alt="이미지" />
                         </div>
                         <div className="post">
                             <div className="info">
@@ -115,7 +112,7 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
                                     alt="HartBin"
                                     onClick={() => heart(post.id)}
                                 />
-                                <p>{post.total_likes ? post.total_likes : ' '}</p>
+                                <p>{post.total_likes ? post.total_likes : 0}</p>
                             </div>
                         </div>
                     </motion.div>

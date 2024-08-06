@@ -48,7 +48,6 @@ const CommWrite = () => {
     };
     const ImageRemove = () => {
         setImgUrl(null);
-        
     };
 
     const handleImageChange = (e) => {
@@ -88,7 +87,6 @@ const CommWrite = () => {
                         <>
                             <img src={imgUrl} alt="Current" />
                             <button onClick={ImageRemove}><img src={del} alt="삭제" /></button>
-                        
                         </>
                     )}
                 </div>

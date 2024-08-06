@@ -334,14 +334,14 @@
                     .time-picker {
                         position: relative;
                         display: flex;
-                        align-items: top;
+                        align-items: center;
                         border-radius: 4px;
                         cursor: pointer;
 
                         img {
                             width: 30px;
                             height: 30px;
-                            margin-right: 10px;
+                            margin-right: 15px;
                         }
 
                         >div {
@@ -361,17 +361,18 @@
                         top: 120%;
                         left: 0;
                         width: 100%;
-                        height: 200px;
+                        height: 180px;
                         overflow-y: scroll;
                         background: var(--white);
-                        border: 1px solid #ccc;
                         border-radius: 4px;
                         z-index: 13;
+                        border-radius: 10px;
 
                         .time-option {
                             padding: 10px;
+                            padding-left: 45px;
                             cursor: pointer;
-                            border-bottom: 1px solid var(--black400);
+                            border-bottom: 1px dashed var(--black400);
                         }
 
                         .time-option:hover {
@@ -381,6 +382,7 @@
 
 
                     .time-dropdown::-webkit-scrollbar {
+                        display: none;
                         width: 5px;
                     }
 
@@ -483,8 +485,8 @@
                 top: 40px;
                 position: absolute;
                 background-color: #FFF8E5;
-                padding: 20px;
-                width: 130px;
+                padding: 30px 20px;
+                width: 150px;
                 border-radius: 50%;
                 z-index: 2;
             }
@@ -510,9 +512,16 @@
         width: 90%;
     }
 
-    >span {
+    .loading {
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 80vh;
+
+        >span {
+            >span {
+                background-color: var(--maincolor) !important;
+            }
+        }
     }
 }
