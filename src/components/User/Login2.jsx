@@ -10,7 +10,7 @@ const Login2 = () => {
     const navigate = useNavigate()
 
     const LoginSubmit = () => {
-        axios.post('http://3.25.237.92:8000/login/', {
+        axios.post('https://dreamcatcherrr.store/login/', {
             user_id: userid,
             password: password
         })
