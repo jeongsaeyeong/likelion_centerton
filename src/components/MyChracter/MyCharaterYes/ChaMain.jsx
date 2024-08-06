@@ -9,7 +9,7 @@ import ChaMainShower from './ChaMainShower'
 import ChaMainGuage from './ChaMainGuage'
 
 const ChaMain = ({ data, check, setCheck }) => {
-    const URL = 'http://3.25.237.92:8000/'
+    const URL = 'https://dreamcatcherrr.store/'
     const [click, setClick] = useState('');
 
     const whatclick = (clickName) => {
