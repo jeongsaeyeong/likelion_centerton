@@ -15,7 +15,7 @@ const CommunityModify = ({ modifyshow, postId, onDelete, onModify }) => {
             if (res.status === 200) {
                 console.log(res);
                 onDelete(postId); 
-                window.location.reload();
+
                
             }
         })

@@ -10,6 +10,7 @@ const CommunityMy = () => {
     const [posts, setPosts] = useState([]);
     const [userId, setUserId] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [postId, setPostId] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -82,21 +83,7 @@ const CommunityMy = () => {
             });
     };
 
-    const deletePost = (postId) => {
-        axios.delete(`http://3.25.237.92:8000/post/delete/${postId}/`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then((res) => {
-                if (res.status === 200) {
-                    navigate('/community');
-                }
-            })
-            .catch((err) => {
-                console.error(err);
-            });
-    };
+  
 
     return (
         <>
@@ -141,7 +128,9 @@ const CommunityMy = () => {
                             <CommunityModify
                                 modifyshow={post.isModify}
                                 postId={post.id}
-                                onDelete={() => deletePost(post.id)}
+                                onDelete={() => {
+                                    setPostId(post.id);
+                                    loadPosts();}}
                                 onModify={() => {
                                     toggleModify(post.id);
                                     navigate(`/communityset/${post.id}`);
