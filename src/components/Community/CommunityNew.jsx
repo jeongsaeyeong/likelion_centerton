@@ -102,7 +102,7 @@ const CommunityNew = ({ setShowDe, setPostId }) => {
 
                                 {post.image && (
                                     <div>
-                                        <img src={post.image} alt="이미지" />
+                                        <img src={post.image ? `https://dreamcatcherrr.store/${post.image}` : ''} alt="이미지" />
                                     </div>
                                 )}
                             </div>
